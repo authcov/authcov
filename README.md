@@ -2,7 +2,7 @@
 
 **Install**
 ```bash
-$ git clone
+$ git clone git@github.com:authcov/authcov.git && cd authcov
 $ npm install
 ```
 
@@ -12,6 +12,7 @@ $ google-chrome --remote-debugging-port=9222 --disable-web-security --user-data-
 ```
 
 **Run an example**
+
 Start the example app (see integration tests).
 ```bash
 $ node examples/crawl_example.js
