@@ -1,0 +1,350 @@
+[
+  {
+    "url": "http://localhost:3001/posts.json",
+    "method": "GET",
+    "requests": [
+      {
+        "user": "Public",
+        "pageUrl": "http://localhost:3000/posts",
+        "headers": {
+          "referer": "http://localhost:3000/posts",
+          "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/75.0.3770.100 Safari/537.36"
+        },
+        "response": {
+          "status": 200,
+          "headers": {
+            "x-runtime": "0.012083",
+            "referrer-policy": "strict-origin-when-cross-origin",
+            "x-permitted-cross-domain-policies": "none",
+            "etag": "W/\"39d33417da4394cb2f7d6f60208e1875\"",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "content-type": "application/json; charset=utf-8",
+            "cache-control": "max-age=0, private, must-revalidate",
+            "transfer-encoding": "chunked",
+            "x-content-type-options": "nosniff",
+            "vary": "Origin",
+            "x-xss-protection": "1; mode=block",
+            "x-request-id": "23685ecc-75f0-4747-862d-4496e940a34d"
+          },
+          "authorised": true
+        }
+      },
+      {
+        "user": "evanrolfe@onescan.io",
+        "pageUrl": "http://localhost:3000/posts",
+        "headers": {
+            "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/75.0.3770.100 Safari/537.36",
+            "referer": "http://localhost:3000/posts",
+            "authorization": "EVANROLFE_ONESCAN_AUTHTOKEN"
+        },
+        "response": {
+          "status": 200,
+          "headers": {
+            "x-runtime": "0.010138",
+            "referrer-policy": "strict-origin-when-cross-origin",
+            "x-permitted-cross-domain-policies": "none",
+            "etag": "W/\"39d33417da4394cb2f7d6f60208e1875\"",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "content-type": "application/json; charset=utf-8",
+            "cache-control": "max-age=0, private, must-revalidate",
+            "transfer-encoding": "chunked",
+            "x-content-type-options": "nosniff",
+            "vary": "Origin",
+            "x-xss-protection": "1; mode=block",
+            "x-request-id": "7632dded-a75b-4b37-a9ff-35c4a37c855f"
+          },
+          "authorised": true
+        }
+      },
+      {
+        "user": "evanrolfe@gmail.com",
+        "pageUrl": "http://localhost:3000/posts",
+        "headers": {
+          "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/75.0.3770.100 Safari/537.36",
+          "referer": "http://localhost:3000/posts",
+          "authorization": "EVANROLFE_GMAIL_AUTHTOKEN"
+        },
+        "response": {
+          "status": 200,
+          "headers": {
+            "x-runtime": "0.010443",
+            "referrer-policy": "strict-origin-when-cross-origin",
+            "x-permitted-cross-domain-policies": "none",
+            "etag": "W/\"39d33417da4394cb2f7d6f60208e1875\"",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "content-type": "application/json; charset=utf-8",
+            "cache-control": "max-age=0, private, must-revalidate",
+            "transfer-encoding": "chunked",
+            "x-content-type-options": "nosniff",
+            "vary": "Origin",
+            "x-xss-protection": "1; mode=block",
+            "x-request-id": "434b352f-6e72-4e42-a4b0-380c0f46367b"
+          },
+          "authorised": true
+        }
+      }
+    ]
+  },
+  {
+    "url": "http://localhost:3001/secrets.json",
+    "method": "GET",
+    "requests": [
+      {
+        "user": "Public",
+        "pageUrl": "http://localhost:3000/secrets/",
+        "headers": {
+          "referer": "http://localhost:3000/secrets/",
+          "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/75.0.3770.100 Safari/537.36"
+        },
+        "response": {
+          "status": 200,
+          "headers": {
+            "x-runtime": "0.011951",
+            "referrer-policy": "strict-origin-when-cross-origin",
+            "x-permitted-cross-domain-policies": "none",
+            "etag": "W/\"aadaa781f3722eee10f3d23638ce3db4\"",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "content-type": "application/json; charset=utf-8",
+            "cache-control": "max-age=0, private, must-revalidate",
+            "transfer-encoding": "chunked",
+            "x-content-type-options": "nosniff",
+            "vary": "Origin",
+            "x-xss-protection": "1; mode=block",
+            "x-request-id": "96cbd99f-248f-4eba-acb4-debe137aa496"
+          },
+          "authorised": true
+        }
+      },
+      {
+        "user": "evanrolfe@onescan.io",
+        "pageUrl": "http://localhost:3000/secrets/",
+          "headers": {
+            "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/75.0.3770.100 Safari/537.36",
+            "referer": "http://localhost:3000/secrets/",
+            "authorization": "EVANROLFE_ONESCAN_AUTHTOKEN"
+        },
+        "response": {
+          "status": 200,
+          "headers": {
+            "x-runtime": "0.008979",
+            "referrer-policy": "strict-origin-when-cross-origin",
+            "x-permitted-cross-domain-policies": "none",
+            "etag": "W/\"da50f5cd93960ce383cb4608224f08c3\"",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "content-type": "application/json; charset=utf-8",
+            "cache-control": "max-age=0, private, must-revalidate",
+            "transfer-encoding": "chunked",
+            "x-content-type-options": "nosniff",
+            "vary": "Origin",
+            "x-xss-protection": "1; mode=block",
+            "x-request-id": "4bec499a-8f6b-46d0-b475-6dec0dd37283"
+          },
+          "authorised": true
+        }
+      },
+      {
+        "user": "evanrolfe@gmail.com",
+        "pageUrl": "http://localhost:3000/secrets/",
+          "headers": {
+            "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/75.0.3770.100 Safari/537.36",
+            "referer": "http://localhost:3000/secrets/",
+            "authorization": "EVANROLFE_GMAIL_AUTHTOKEN"
+        },
+        "response": {
+          "status": 200,
+          "headers": {
+            "x-runtime": "0.007152",
+            "referrer-policy": "strict-origin-when-cross-origin",
+            "x-permitted-cross-domain-policies": "none",
+            "etag": "W/\"0b0ef6684ae98618ac4fbe983da87422\"",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "content-type": "application/json; charset=utf-8",
+            "cache-control": "max-age=0, private, must-revalidate",
+            "transfer-encoding": "chunked",
+            "x-content-type-options": "nosniff",
+            "vary": "Origin",
+            "x-xss-protection": "1; mode=block",
+            "x-request-id": "be989aff-8f77-4dcc-b56b-98bca20355b9"
+          },
+          "authorised": true
+        }
+      }
+    ]
+  },
+  {
+    "url": "http://localhost:3001/secrets/1.json",
+    "method": "GET",
+    "requests": [
+      {
+        "user": "evanrolfe@onescan.io",
+        "pageUrl": "http://localhost:3000/secrets/1",
+          "headers": {
+            "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/75.0.3770.100 Safari/537.36",
+            "referer": "http://localhost:3000/secrets/1",
+            "authorization": "EVANROLFE_ONESCAN_AUTHTOKEN"
+        },
+        "response": {
+          "status": 200,
+          "headers": {
+            "x-runtime": "0.010411",
+            "referrer-policy": "strict-origin-when-cross-origin",
+            "x-permitted-cross-domain-policies": "none",
+            "etag": "W/\"8c5aea1adb4141133c6d1808b3b25ac7\"",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "content-type": "application/json; charset=utf-8",
+            "cache-control": "max-age=0, private, must-revalidate",
+            "transfer-encoding": "chunked",
+            "x-content-type-options": "nosniff",
+            "vary": "Origin",
+            "x-xss-protection": "1; mode=block",
+            "x-request-id": "29b901c8-9e91-4aae-b6a2-1ab0005a560e"
+          },
+          "authorised": true
+        }
+      }
+    ]
+  },
+  {
+    "url": "http://localhost:3001/secrets/4.json",
+    "method": "GET",
+    "requests": [
+      {
+        "user": "evanrolfe@onescan.io",
+        "pageUrl": "http://localhost:3000/secrets/4",
+          "headers": {
+            "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/75.0.3770.100 Safari/537.36",
+            "referer": "http://localhost:3000/secrets/4",
+            "authorization": "EVANROLFE_ONESCAN_AUTHTOKEN"
+        },
+        "response": {
+          "status": 200,
+          "headers": {
+            "x-runtime": "0.014155",
+            "referrer-policy": "strict-origin-when-cross-origin",
+            "x-permitted-cross-domain-policies": "none",
+            "etag": "W/\"341e3b7ff05a85480f354d536bcf27ca\"",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "content-type": "application/json; charset=utf-8",
+            "cache-control": "max-age=0, private, must-revalidate",
+            "transfer-encoding": "chunked",
+            "x-content-type-options": "nosniff",
+            "vary": "Origin",
+            "x-xss-protection": "1; mode=block",
+            "x-request-id": "0b295cf7-a860-4317-84ac-31e50d1e7afb"
+          },
+          "authorised": true
+        }
+      }
+    ]
+  },
+  {
+    "url": "http://localhost:3001/secrets/116.json",
+    "method": "GET",
+    "requests": [
+      {
+        "user": "evanrolfe@onescan.io",
+        "pageUrl": "http://localhost:3000/secrets/116",
+          "headers": {
+            "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/75.0.3770.100 Safari/537.36",
+            "referer": "http://localhost:3000/secrets/116",
+            "authorization": "EVANROLFE_ONESCAN_AUTHTOKEN"
+        },
+        "response": {
+          "status": 200,
+          "headers": {
+            "x-runtime": "0.015660",
+            "referrer-policy": "strict-origin-when-cross-origin",
+            "x-permitted-cross-domain-policies": "none",
+            "etag": "W/\"c8a50de9e973e596f1f564ef2d1e3bd6\"",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "content-type": "application/json; charset=utf-8",
+            "cache-control": "max-age=0, private, must-revalidate",
+            "transfer-encoding": "chunked",
+            "x-content-type-options": "nosniff",
+            "vary": "Origin",
+            "x-xss-protection": "1; mode=block",
+            "x-request-id": "f553b534-33e9-4d65-b23d-a4486ca5c0fb"
+          },
+          "authorised": true
+        }
+      }
+    ]
+  },
+  {
+    "url": "http://localhost:3001/secrets/117.json",
+    "method": "GET",
+    "requests": [
+      {
+        "user": "evanrolfe@gmail.com",
+        "pageUrl": "http://localhost:3000/secrets/117",
+          "headers": {
+            "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/75.0.3770.100 Safari/537.36",
+            "referer": "http://localhost:3000/secrets/117",
+            "authorization": "EVANROLFE_GMAIL_AUTHTOKEN"
+        },
+        "response": {
+          "status": 200,
+          "headers": {
+            "x-runtime": "0.007183",
+            "referrer-policy": "strict-origin-when-cross-origin",
+            "x-permitted-cross-domain-policies": "none",
+            "etag": "W/\"81d69bff57c694b4ed73790a0a6f4b0c\"",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "content-type": "application/json; charset=utf-8",
+            "cache-control": "max-age=0, private, must-revalidate",
+            "transfer-encoding": "chunked",
+            "x-content-type-options": "nosniff",
+            "vary": "Origin",
+            "x-xss-protection": "1; mode=block",
+            "x-request-id": "9ec858aa-05cc-4edf-bfee-f14fcc84db68"
+          },
+          "authorised": true
+        }
+      }
+    ]
+  },
+  {
+    "url": "http://localhost:3001/secrets/118.json",
+    "method": "GET",
+    "requests": [
+      {
+        "user": "evanrolfe@gmail.com",
+        "pageUrl": "http://localhost:3000/secrets/118",
+          "headers": {
+            "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/75.0.3770.100 Safari/537.36",
+            "referer": "http://localhost:3000/secrets/118",
+            "authorization": "EVANROLFE_GMAIL_AUTHTOKEN"
+        },
+        "response": {
+          "status": 200,
+          "headers": {
+            "x-runtime": "0.008296",
+            "referrer-policy": "strict-origin-when-cross-origin",
+            "x-permitted-cross-domain-policies": "none",
+            "etag": "W/\"1e8c7dd153d41c5fcb594d8adce6a5fc\"",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "content-type": "application/json; charset=utf-8",
+            "cache-control": "max-age=0, private, must-revalidate",
+            "transfer-encoding": "chunked",
+            "x-content-type-options": "nosniff",
+            "vary": "Origin",
+            "x-xss-protection": "1; mode=block",
+            "x-request-id": "15150de3-9e38-48d7-bc19-1a56a2938776"
+          },
+          "authorised": true
+        }
+      }
+    ]
+  }
+]
