@@ -10,6 +10,7 @@ class ExampleConfig {
     this.baseUrl = 'http://localhost';
     this.saveResponses = false;
     this.buttonXPath = 'button';
+    this.type = 'spa';
   }
 
   async loginFunction(tab, username, password){

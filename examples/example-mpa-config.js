@@ -10,6 +10,7 @@ class ExampleMpaConfig {
     this.baseUrl = 'http://localhost:3001';
     this.saveResponses = false;
     this.buttonXPath = 'button';
+    this.type = 'mpa';  // mpa or spa
   }
 
   async loginFunction(tab, username, password){
@@ -21,7 +22,7 @@ class ExampleMpaConfig {
     await tab.type('input[type=email]', username);
     await tab.type('input[type=password]', password);
 
-    await tab.tap('input[type=submit]')
+    await tab.tap('input[type=submit]');
     await tab.waitFor(500);
 
     return;
