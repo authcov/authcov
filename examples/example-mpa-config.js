@@ -4,7 +4,8 @@ class Config {
       {username: 'alice@authcov.io', password: 'password'}
     ];
     this.intruders = [
-      {username: 'Public', password: null}
+      {username: 'Public', password: null},
+      {username: 'bob@authcov.io', password: 'password'}
     ];
     this.authorisationHeaders = ['cookie'];
     this.baseUrl = 'http://localhost:3001';
@@ -29,8 +30,17 @@ class Config {
     return;
   }
 
-  responseIsAuthorised(response) {
-    return (response.status() != 401);
+  responseIsAuthorised(response, responseBody) {
+    // If its redirecting to the login page
+    if(response.status() == 302 && response.headers().location.includes('/users/sign_in')) {
+      return false;
+    }
+
+    if(response.status() == 401) {
+      return false;
+    }
+
+    return true;
   }
 
   ignoreLink(url) {
