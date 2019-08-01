@@ -15,8 +15,8 @@ $ google-chrome --remote-debugging-port=9222 --disable-web-security --user-data-
 
 Start the example app (see integration tests).
 ```bash
-$ node examples/crawl_example.js
-$ node examples/intrude_example.js
+$ node scripts/crawl.js ../examples/example-spa-config.js
+$ node scripts/intrude.js ../examples/example-spa-config.js
 ```
 
 **Unit Tests**

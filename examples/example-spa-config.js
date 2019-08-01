@@ -1,16 +1,18 @@
-class ExampleConfig {
+class Config {
   constructor() {
     this.users = [
-      {username: 'Public', password: null},
-      {username: 'alice@authcov.io', password: 'password'},
-      {username: 'bob@authcov.io', password: 'password'},
-      {username: 'celine@authcov.io', password: 'password'}
+      {username: 'alice@authcov.io', password: 'password'}
     ];
-    this.authorisationHeaders = ['authorization'];
+    this.intruders = [
+      {username: 'Public', password: null},
+      {username: 'bob@authcov.io', password: 'password'}
+    ];
+    this.authorisationHeaders = ['cookie'];
     this.baseUrl = 'http://localhost';
     this.saveResponses = false;
     this.buttonXPath = 'button';
     this.type = 'spa';
+    this.authenticationType = 'cookie'; // cookie or token
   }
 
   async loginFunction(tab, username, password){
@@ -27,6 +29,10 @@ class ExampleConfig {
     await tab.waitFor(1000);
 
     return;
+  }
+
+  responseIsAuthorised(response) {
+    return (response.status() != 401);
   }
 
   ignoreApiRequest(url, method) {
@@ -48,4 +54,4 @@ class ExampleConfig {
   //TODO: Add authorised checking function here
 }
 
-module.exports = ExampleConfig;
+module.exports = Config;

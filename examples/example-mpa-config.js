@@ -1,16 +1,17 @@
-class ExampleMpaConfig {
+class Config {
   constructor() {
     this.users = [
-      {username: 'Public', password: null},
-      {username: 'alice@authcov.io', password: 'password'},
-      {username: 'bob@authcov.io', password: 'password'},
-      {username: 'celine@authcov.io', password: 'password'}
+      {username: 'alice@authcov.io', password: 'password'}
     ];
-    this.authorisationHeaders = ['authorization'];
+    this.intruders = [
+      {username: 'Public', password: null}
+    ];
+    this.authorisationHeaders = ['cookie'];
     this.baseUrl = 'http://localhost:3001';
     this.saveResponses = false;
     this.buttonXPath = 'button';
     this.type = 'mpa';  // mpa or spa
+    this.authenticationType = 'cookie'; // cookie or token
   }
 
   async loginFunction(tab, username, password){
@@ -26,6 +27,10 @@ class ExampleMpaConfig {
     await tab.waitFor(500);
 
     return;
+  }
+
+  responseIsAuthorised(response) {
+    return (response.status() != 401);
   }
 
   ignoreLink(url) {
@@ -56,4 +61,4 @@ class ExampleMpaConfig {
   //TODO: Add authorised checking function here
 }
 
-module.exports = ExampleMpaConfig;
+module.exports = Config;

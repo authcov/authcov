@@ -4,7 +4,7 @@ const fs = require('fs');
 const UsersCrawler = require('../../lib/crawler/users-crawler.js'); // TODO: Sort out these requires
 const ApiEndpointData = require('../../lib/data/api-endpoint-data.js');
 const PageData = require('../../lib/data/page-data.js');
-const ExampleConfig = require('../../lib/scripts/web-apps/example-config.js');
+const ExampleConfig = require('../../examples/example-spa-config.js');
 
 async function crawlUsers() {
   const webAppConfig = new ExampleConfig();
