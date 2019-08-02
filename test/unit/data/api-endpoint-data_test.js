@@ -103,7 +103,8 @@ describe('ApiEndpointData', () => {
           {username: 'evanrolfe@onescan.io', password: 'Password1'},
           {username: 'evanrolfe@gmail.com', password: 'Password2'}
         ],
-        authorisationHeaders: ['authorization']
+        authorisationHeaders: ['authorization'],
+        responseIsAuthorised: (response, body) => { return true; }
       }
       this.apiEndpointData = new ApiEndpointData({webAppConfig: webAppConfig});
 
@@ -111,6 +112,7 @@ describe('ApiEndpointData', () => {
         url() { return 'http://localhost:3001/secrets/1.json' },
         status() { return 200 },
         headers() { return { 'x-request-id': '74ef04c4-b5cf-413d-8bad-571d90ddbab2' } },
+        text() { return '{}' },
         request() {
           return {
             headers() { return { 'user-agent': 'Mozilla/5.0 (X11; Linux x86_64)' } },
@@ -119,11 +121,10 @@ describe('ApiEndpointData', () => {
         },
       };
     });
-
     // TODO: Test when the cookies arg is not null
     context('when there is no api-endpoint for the request', () => {
-      it('should save the api-request to a new api-endpoint entry', () => {
-        this.apiEndpointData.apiResponseCallback(this.mockResponse, null, 'http://localhost:3000/secrets/1', 'Public');
+      it('should save the api-request to a new api-endpoint entry', async () => {
+        await this.apiEndpointData.apiResponseCallback(this.mockResponse, null, 'http://localhost:3000/secrets/1', 'Public');
 
         const result = this.apiEndpointData.apiEndpoints[0];
 
@@ -141,9 +142,9 @@ describe('ApiEndpointData', () => {
     });
 
     context('when there is already an api-endpoint for the request and another requeuest entry for this user logged', () => {
-      it('should save the api-request to that api-endpoint', () => {
-        this.apiEndpointData.apiResponseCallback(this.mockResponse, null, 'http://localhost:3000/secrets/1', 'Public');
-        this.apiEndpointData.apiResponseCallback(this.mockResponse, null, 'http://localhost:3000/secrets/1/edit', 'Public');
+      it('should save the api-request to that api-endpoint', async () => {
+        await this.apiEndpointData.apiResponseCallback(this.mockResponse, null, 'http://localhost:3000/secrets/1', 'Public');
+        await this.apiEndpointData.apiResponseCallback(this.mockResponse, null, 'http://localhost:3000/secrets/1/edit', 'Public');
 
         const result = this.apiEndpointData.apiEndpoints[0];
 
