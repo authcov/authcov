@@ -49,12 +49,36 @@ function compareApiEndpointsFiles(actualFile, expectedFile) {
   });
 }
 
+function comparePagesFiles(actualFile, expectedFile) {
+  const pagesActualJSON = fs.readFileSync(actualFile, {encoding: 'utf8'});
+  const pagesActual = JSON.parse(pagesActualJSON);
+
+  const pagesExpectedJSON = fs.readFileSync(expectedFile, {encoding: 'utf8'});
+  const pagesExpected = JSON.parse(pagesExpectedJSON);
+
+  pagesActual.forEach((pageActual) => {
+    const pageExpected = pagesExpected.find((page) => {
+      return (page.pageUrl == pageActual.pageUrl && page.user == pageActual.user);
+    });
+
+
+    if(pageExpected === undefined) {
+      throw `Could not find pageExpected for page: ${pageActual.pageUrl}`;
+    }
+
+    expect(pageExpected.dialogsOpened).to.eql(pageActual.dialogsOpened);
+    expect(pageExpected.buttonsClicked).to.eql(pageActual.buttonsClicked);
+    expect(pageExpected.buttonsIgnored).to.eql(pageActual.buttonsIgnored);
+  });
+}
+
 // TODO: Make this tell you which apirequest is failing if it fails
 describe('UsersCrawler', () => {
   describe('./tmp/api_endpoints.json', () => {
     it('should save apiRequests for users: Public, evanrolfe@gmail.com, evanrolfe@onescan.io', async () => {
       await crawlUsers();
-      compareApiEndpointsFiles('./tmp/api_endpoints.json', './test/integration/expected_output/api_endpoints_expected.json');
+      compareApiEndpointsFiles('./tmp/api_endpoints.json', './test/integration/expected_output/spa_cookie_api_endpoints.json');
+      comparePagesFiles('./tmp/pages.json', './test/integration/expected_output/spa_cookie_pages.json');
     });
   });
 });

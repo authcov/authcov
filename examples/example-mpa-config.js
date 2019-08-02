@@ -67,8 +67,6 @@ class Config {
 
     return false;
   }
-
-  //TODO: Add authorised checking function here
 }
 
 module.exports = Config;
