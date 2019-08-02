@@ -1,0 +1,996 @@
+[
+  {
+    "id": "2eafe75f-914b-42b9-827e-f1ba899ac71a",
+    "url": "http://localhost/api/settings/one.json",
+    "method": "GET",
+    "requests": [
+      {
+        "user": "alice@authcov.io",
+        "pageUrl": "http://localhost",
+        "headers": {
+          "referer": "http://localhost/",
+          "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/75.0.3770.100 Safari/537.36",
+          "cookie": "_my_app_session=66584542ff9a79dbe1861f07acc58842"
+        },
+        "response": {
+          "status": 200,
+          "headers": {
+            "date": "Fri, 02 Aug 2019 10:43:28 GMT",
+            "x-content-type-options": "nosniff",
+            "x-permitted-cross-domain-policies": "none",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "vary": "Origin",
+            "x-xss-protection": "1; mode=block",
+            "x-request-id": "581802c4-d602-472e-924f-6c4ec9a29095",
+            "x-runtime": "0.011469",
+            "referrer-policy": "strict-origin-when-cross-origin",
+            "server": "nginx/1.17.2",
+            "etag": "W/\"2ff439d24c9e548c6bbf2e6aa0387051\"",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "content-type": "application/json; charset=utf-8",
+            "cache-control": "max-age=0, private, must-revalidate"
+          },
+          "authorised": true
+        }
+      },
+      {
+        "user": "alice@authcov.io",
+        "pageUrl": "http://localhost/",
+        "headers": {
+          "referer": "http://localhost/",
+          "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/75.0.3770.100 Safari/537.36",
+          "cookie": "_my_app_session=66584542ff9a79dbe1861f07acc58842"
+        },
+        "response": {
+          "status": 200,
+          "headers": {
+            "date": "Fri, 02 Aug 2019 10:43:30 GMT",
+            "x-content-type-options": "nosniff",
+            "x-permitted-cross-domain-policies": "none",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "vary": "Origin",
+            "x-xss-protection": "1; mode=block",
+            "x-request-id": "acff1fef-56d4-4e1b-a879-65e88736d793",
+            "x-runtime": "0.006700",
+            "referrer-policy": "strict-origin-when-cross-origin",
+            "server": "nginx/1.17.2",
+            "etag": "W/\"2ff439d24c9e548c6bbf2e6aa0387051\"",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "content-type": "application/json; charset=utf-8",
+            "cache-control": "max-age=0, private, must-revalidate"
+          },
+          "authorised": true
+        }
+      },
+      {
+        "user": "Public",
+        "pageUrl": null,
+        "headers": {
+          "referer": "http://localhost/",
+          "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/75.0.3770.100 Safari/537.36"
+        },
+        "response": {
+          "status": 200,
+          "headers": {
+            "server": "nginx/1.17.2",
+            "date": "Fri, 02 Aug 2019 10:43:39 GMT",
+            "content-type": "application/json; charset=utf-8",
+            "transfer-encoding": "chunked",
+            "connection": "close",
+            "x-frame-options": "SAMEORIGIN",
+            "x-xss-protection": "1; mode=block",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-permitted-cross-domain-policies": "none",
+            "referrer-policy": "strict-origin-when-cross-origin",
+            "etag": "W/\"2ff439d24c9e548c6bbf2e6aa0387051\"",
+            "cache-control": "max-age=0, private, must-revalidate",
+            "x-request-id": "28cd858b-fcba-48ab-98be-71efa4e800fe",
+            "x-runtime": "0.002204",
+            "vary": "Origin"
+          },
+          "authorised": true
+        }
+      },
+      {
+        "user": "bob@authcov.io",
+        "pageUrl": null,
+        "headers": {
+          "referer": "http://localhost/",
+          "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/75.0.3770.100 Safari/537.36",
+          "cookie": "_my_app_session=57c9cc6aae0dec63a4dea3c9676ee45b"
+        },
+        "response": {
+          "status": 200,
+          "headers": {
+            "server": "nginx/1.17.2",
+            "date": "Fri, 02 Aug 2019 10:43:46 GMT",
+            "content-type": "application/json; charset=utf-8",
+            "transfer-encoding": "chunked",
+            "connection": "close",
+            "x-frame-options": "SAMEORIGIN",
+            "x-xss-protection": "1; mode=block",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-permitted-cross-domain-policies": "none",
+            "referrer-policy": "strict-origin-when-cross-origin",
+            "etag": "W/\"2ff439d24c9e548c6bbf2e6aa0387051\"",
+            "cache-control": "max-age=0, private, must-revalidate",
+            "x-request-id": "1c3cdbae-9b43-42d4-8dff-1458925c2f04",
+            "x-runtime": "0.004017",
+            "vary": "Origin"
+          },
+          "authorised": true
+        }
+      }
+    ]
+  },
+  {
+    "id": "8dfd9eb9-762b-4702-be99-835cc4fb06fa",
+    "url": "http://localhost/api/posts.json",
+    "method": "GET",
+    "requests": [
+      {
+        "user": "alice@authcov.io",
+        "pageUrl": "http://localhost/posts",
+        "headers": {
+          "referer": "http://localhost/posts",
+          "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/75.0.3770.100 Safari/537.36",
+          "cookie": "_my_app_session=66584542ff9a79dbe1861f07acc58842"
+        },
+        "response": {
+          "status": 200,
+          "headers": {
+            "date": "Fri, 02 Aug 2019 10:43:29 GMT",
+            "x-content-type-options": "nosniff",
+            "x-permitted-cross-domain-policies": "none",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "vary": "Origin",
+            "x-xss-protection": "1; mode=block",
+            "x-request-id": "33960fee-1900-4776-a5ae-af958f1f976b",
+            "x-runtime": "0.023754",
+            "referrer-policy": "strict-origin-when-cross-origin",
+            "server": "nginx/1.17.2",
+            "etag": "W/\"3821164fbacf3dd6de60f8806c601702\"",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "content-type": "application/json; charset=utf-8",
+            "cache-control": "max-age=0, private, must-revalidate"
+          },
+          "authorised": true
+        }
+      },
+      {
+        "user": "Public",
+        "pageUrl": null,
+        "headers": {
+          "referer": "http://localhost/posts",
+          "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/75.0.3770.100 Safari/537.36"
+        },
+        "response": {
+          "status": 200,
+          "headers": {
+            "server": "nginx/1.17.2",
+            "date": "Fri, 02 Aug 2019 10:43:40 GMT",
+            "content-type": "application/json; charset=utf-8",
+            "transfer-encoding": "chunked",
+            "connection": "close",
+            "x-frame-options": "SAMEORIGIN",
+            "x-xss-protection": "1; mode=block",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-permitted-cross-domain-policies": "none",
+            "referrer-policy": "strict-origin-when-cross-origin",
+            "etag": "W/\"3821164fbacf3dd6de60f8806c601702\"",
+            "cache-control": "max-age=0, private, must-revalidate",
+            "x-request-id": "d2e9b238-b88f-4399-897b-f5c7532d3f7c",
+            "x-runtime": "0.009537",
+            "vary": "Origin"
+          },
+          "authorised": true
+        }
+      },
+      {
+        "user": "bob@authcov.io",
+        "pageUrl": null,
+        "headers": {
+          "referer": "http://localhost/posts",
+          "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/75.0.3770.100 Safari/537.36",
+          "cookie": "_my_app_session=57c9cc6aae0dec63a4dea3c9676ee45b"
+        },
+        "response": {
+          "status": 200,
+          "headers": {
+            "server": "nginx/1.17.2",
+            "date": "Fri, 02 Aug 2019 10:43:47 GMT",
+            "content-type": "application/json; charset=utf-8",
+            "transfer-encoding": "chunked",
+            "connection": "close",
+            "x-frame-options": "SAMEORIGIN",
+            "x-xss-protection": "1; mode=block",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-permitted-cross-domain-policies": "none",
+            "referrer-policy": "strict-origin-when-cross-origin",
+            "etag": "W/\"3821164fbacf3dd6de60f8806c601702\"",
+            "cache-control": "max-age=0, private, must-revalidate",
+            "x-request-id": "90d86dc8-dc11-4c5f-9b25-5bc465a01628",
+            "x-runtime": "0.028791",
+            "vary": "Origin"
+          },
+          "authorised": true
+        }
+      }
+    ]
+  },
+  {
+    "id": "76eaf421-3cdb-4d24-a1ef-6ccaac2b7f2d",
+    "url": "http://localhost/api/secrets.json",
+    "method": "GET",
+    "requests": [
+      {
+        "user": "alice@authcov.io",
+        "pageUrl": "http://localhost/secrets/",
+        "headers": {
+          "referer": "http://localhost/secrets/",
+          "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/75.0.3770.100 Safari/537.36",
+          "cookie": "_my_app_session=66584542ff9a79dbe1861f07acc58842"
+        },
+        "response": {
+          "status": 200,
+          "headers": {
+            "date": "Fri, 02 Aug 2019 10:43:29 GMT",
+            "x-content-type-options": "nosniff",
+            "x-permitted-cross-domain-policies": "none",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "vary": "Origin",
+            "x-xss-protection": "1; mode=block",
+            "x-request-id": "2caa1532-6e51-4ee7-bc61-5b1e56ef4bdd",
+            "x-runtime": "0.008493",
+            "referrer-policy": "strict-origin-when-cross-origin",
+            "server": "nginx/1.17.2",
+            "etag": "W/\"5923f93dc555166fcaf8f9798a0f7aea\"",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "content-type": "application/json; charset=utf-8",
+            "cache-control": "max-age=0, private, must-revalidate"
+          },
+          "authorised": true
+        }
+      },
+      {
+        "user": "alice@authcov.io",
+        "pageUrl": "http://localhost/secrets",
+        "headers": {
+          "referer": "http://localhost/secrets",
+          "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/75.0.3770.100 Safari/537.36",
+          "cookie": "_my_app_session=66584542ff9a79dbe1861f07acc58842"
+        },
+        "response": {
+          "status": 200,
+          "headers": {
+            "date": "Fri, 02 Aug 2019 10:43:32 GMT",
+            "x-content-type-options": "nosniff",
+            "x-permitted-cross-domain-policies": "none",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "vary": "Origin",
+            "x-xss-protection": "1; mode=block",
+            "x-request-id": "700866b4-ced9-4d50-856b-0bbf08142528",
+            "x-runtime": "0.012239",
+            "referrer-policy": "strict-origin-when-cross-origin",
+            "server": "nginx/1.17.2",
+            "etag": "W/\"5923f93dc555166fcaf8f9798a0f7aea\"",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "content-type": "application/json; charset=utf-8",
+            "cache-control": "max-age=0, private, must-revalidate"
+          },
+          "authorised": true
+        }
+      },
+      {
+        "user": "Public",
+        "pageUrl": null,
+        "headers": {
+          "referer": "http://localhost/secrets/",
+          "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/75.0.3770.100 Safari/537.36"
+        },
+        "response": {
+          "status": 401,
+          "headers": {
+            "server": "nginx/1.17.2",
+            "date": "Fri, 02 Aug 2019 10:43:40 GMT",
+            "content-type": "application/json; charset=utf-8",
+            "transfer-encoding": "chunked",
+            "connection": "close",
+            "cache-control": "no-cache",
+            "x-request-id": "d0a52e9c-6d50-447a-8d83-af28e2d1d59f",
+            "x-runtime": "0.066753",
+            "vary": "Origin"
+          },
+          "authorised": false
+        }
+      },
+      {
+        "user": "bob@authcov.io",
+        "pageUrl": null,
+        "headers": {
+          "referer": "http://localhost/secrets/",
+          "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/75.0.3770.100 Safari/537.36",
+          "cookie": "_my_app_session=57c9cc6aae0dec63a4dea3c9676ee45b"
+        },
+        "response": {
+          "status": 200,
+          "headers": {
+            "server": "nginx/1.17.2",
+            "date": "Fri, 02 Aug 2019 10:43:47 GMT",
+            "content-type": "application/json; charset=utf-8",
+            "transfer-encoding": "chunked",
+            "connection": "close",
+            "x-frame-options": "SAMEORIGIN",
+            "x-xss-protection": "1; mode=block",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-permitted-cross-domain-policies": "none",
+            "referrer-policy": "strict-origin-when-cross-origin",
+            "etag": "W/\"e44f53ac4e413835d9759c301ae9054f\"",
+            "cache-control": "max-age=0, private, must-revalidate",
+            "x-request-id": "af8d1521-ed94-4683-b514-52d2f516f50a",
+            "x-runtime": "0.008552",
+            "vary": "Origin"
+          },
+          "authorised": true
+        }
+      }
+    ]
+  },
+  {
+    "id": "5dd1643a-5c7b-43b2-9955-487be3983032",
+    "url": "http://localhost/api/posts/3.json",
+    "method": "GET",
+    "requests": [
+      {
+        "user": "alice@authcov.io",
+        "pageUrl": "http://localhost/posts/3",
+        "headers": {
+          "referer": "http://localhost/posts/3",
+          "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/75.0.3770.100 Safari/537.36",
+          "cookie": "_my_app_session=66584542ff9a79dbe1861f07acc58842"
+        },
+        "response": {
+          "status": 200,
+          "headers": {
+            "date": "Fri, 02 Aug 2019 10:43:31 GMT",
+            "x-content-type-options": "nosniff",
+            "x-permitted-cross-domain-policies": "none",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "vary": "Origin",
+            "x-xss-protection": "1; mode=block",
+            "x-request-id": "a84b3360-c1cd-4b0b-bfb2-6c2b0f4f80d3",
+            "x-runtime": "0.011052",
+            "referrer-policy": "strict-origin-when-cross-origin",
+            "server": "nginx/1.17.2",
+            "etag": "W/\"44bfb90c083e70324e097a3a3dae5563\"",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "content-type": "application/json; charset=utf-8",
+            "cache-control": "max-age=0, private, must-revalidate"
+          },
+          "authorised": true
+        }
+      },
+      {
+        "user": "alice@authcov.io",
+        "pageUrl": "http://localhost/posts/3/edit",
+        "headers": {
+          "referer": "http://localhost/posts/3/edit",
+          "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/75.0.3770.100 Safari/537.36",
+          "cookie": "_my_app_session=66584542ff9a79dbe1861f07acc58842"
+        },
+        "response": {
+          "status": 200,
+          "headers": {
+            "date": "Fri, 02 Aug 2019 10:43:32 GMT",
+            "x-content-type-options": "nosniff",
+            "x-permitted-cross-domain-policies": "none",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "vary": "Origin",
+            "x-xss-protection": "1; mode=block",
+            "x-request-id": "df4b1878-ec39-4d0f-a4d8-76ced494b7a8",
+            "x-runtime": "0.010934",
+            "referrer-policy": "strict-origin-when-cross-origin",
+            "server": "nginx/1.17.2",
+            "etag": "W/\"44bfb90c083e70324e097a3a3dae5563\"",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "content-type": "application/json; charset=utf-8",
+            "cache-control": "max-age=0, private, must-revalidate"
+          },
+          "authorised": true
+        }
+      },
+      {
+        "user": "Public",
+        "pageUrl": null,
+        "headers": {
+          "referer": "http://localhost/posts/3",
+          "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/75.0.3770.100 Safari/537.36"
+        },
+        "response": {
+          "status": 200,
+          "headers": {
+            "server": "nginx/1.17.2",
+            "date": "Fri, 02 Aug 2019 10:43:41 GMT",
+            "content-type": "application/json; charset=utf-8",
+            "transfer-encoding": "chunked",
+            "connection": "close",
+            "x-frame-options": "SAMEORIGIN",
+            "x-xss-protection": "1; mode=block",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-permitted-cross-domain-policies": "none",
+            "referrer-policy": "strict-origin-when-cross-origin",
+            "etag": "W/\"44bfb90c083e70324e097a3a3dae5563\"",
+            "cache-control": "max-age=0, private, must-revalidate",
+            "x-request-id": "aec5c658-f681-499b-be33-bafafc5dd300",
+            "x-runtime": "0.007316",
+            "vary": "Origin"
+          },
+          "authorised": true
+        }
+      },
+      {
+        "user": "bob@authcov.io",
+        "pageUrl": null,
+        "headers": {
+          "referer": "http://localhost/posts/3",
+          "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/75.0.3770.100 Safari/537.36",
+          "cookie": "_my_app_session=57c9cc6aae0dec63a4dea3c9676ee45b"
+        },
+        "response": {
+          "status": 200,
+          "headers": {
+            "server": "nginx/1.17.2",
+            "date": "Fri, 02 Aug 2019 10:43:48 GMT",
+            "content-type": "application/json; charset=utf-8",
+            "transfer-encoding": "chunked",
+            "connection": "close",
+            "x-frame-options": "SAMEORIGIN",
+            "x-xss-protection": "1; mode=block",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-permitted-cross-domain-policies": "none",
+            "referrer-policy": "strict-origin-when-cross-origin",
+            "etag": "W/\"44bfb90c083e70324e097a3a3dae5563\"",
+            "cache-control": "max-age=0, private, must-revalidate",
+            "x-request-id": "45c77b8a-6af3-4955-946c-a2e0d21f9f04",
+            "x-runtime": "0.021535",
+            "vary": "Origin"
+          },
+          "authorised": true
+        }
+      }
+    ]
+  },
+  {
+    "id": "bd6db560-583f-40c5-a34d-61b4b824ac2b",
+    "url": "http://localhost/api/posts/2.json",
+    "method": "GET",
+    "requests": [
+      {
+        "user": "alice@authcov.io",
+        "pageUrl": "http://localhost/posts/2",
+        "headers": {
+          "referer": "http://localhost/posts/2",
+          "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/75.0.3770.100 Safari/537.36",
+          "cookie": "_my_app_session=66584542ff9a79dbe1861f07acc58842"
+        },
+        "response": {
+          "status": 200,
+          "headers": {
+            "date": "Fri, 02 Aug 2019 10:43:31 GMT",
+            "x-content-type-options": "nosniff",
+            "x-permitted-cross-domain-policies": "none",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "vary": "Origin",
+            "x-xss-protection": "1; mode=block",
+            "x-request-id": "6c020ee1-c45e-49d3-94f4-9fcc61c8873f",
+            "x-runtime": "0.009775",
+            "referrer-policy": "strict-origin-when-cross-origin",
+            "server": "nginx/1.17.2",
+            "etag": "W/\"052237154fa8230074a2131a2aceb1df\"",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "content-type": "application/json; charset=utf-8",
+            "cache-control": "max-age=0, private, must-revalidate"
+          },
+          "authorised": true
+        }
+      },
+      {
+        "user": "alice@authcov.io",
+        "pageUrl": "http://localhost/posts/2/edit",
+        "headers": {
+          "referer": "http://localhost/posts/2/edit",
+          "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/75.0.3770.100 Safari/537.36",
+          "cookie": "_my_app_session=66584542ff9a79dbe1861f07acc58842"
+        },
+        "response": {
+          "status": 200,
+          "headers": {
+            "date": "Fri, 02 Aug 2019 10:43:32 GMT",
+            "x-content-type-options": "nosniff",
+            "x-permitted-cross-domain-policies": "none",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "vary": "Origin",
+            "x-xss-protection": "1; mode=block",
+            "x-request-id": "cbc5d32c-7ed1-4779-bc11-0e5c38c90507",
+            "x-runtime": "0.010535",
+            "referrer-policy": "strict-origin-when-cross-origin",
+            "server": "nginx/1.17.2",
+            "etag": "W/\"052237154fa8230074a2131a2aceb1df\"",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "content-type": "application/json; charset=utf-8",
+            "cache-control": "max-age=0, private, must-revalidate"
+          },
+          "authorised": true
+        }
+      },
+      {
+        "user": "Public",
+        "pageUrl": null,
+        "headers": {
+          "referer": "http://localhost/posts/2",
+          "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/75.0.3770.100 Safari/537.36"
+        },
+        "response": {
+          "status": 200,
+          "headers": {
+            "server": "nginx/1.17.2",
+            "date": "Fri, 02 Aug 2019 10:43:41 GMT",
+            "content-type": "application/json; charset=utf-8",
+            "transfer-encoding": "chunked",
+            "connection": "close",
+            "x-frame-options": "SAMEORIGIN",
+            "x-xss-protection": "1; mode=block",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-permitted-cross-domain-policies": "none",
+            "referrer-policy": "strict-origin-when-cross-origin",
+            "etag": "W/\"052237154fa8230074a2131a2aceb1df\"",
+            "cache-control": "max-age=0, private, must-revalidate",
+            "x-request-id": "8ce8c824-0251-4d10-8778-6332c062b0d4",
+            "x-runtime": "0.007770",
+            "vary": "Origin"
+          },
+          "authorised": true
+        }
+      },
+      {
+        "user": "bob@authcov.io",
+        "pageUrl": null,
+        "headers": {
+          "referer": "http://localhost/posts/2",
+          "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/75.0.3770.100 Safari/537.36",
+          "cookie": "_my_app_session=57c9cc6aae0dec63a4dea3c9676ee45b"
+        },
+        "response": {
+          "status": 200,
+          "headers": {
+            "server": "nginx/1.17.2",
+            "date": "Fri, 02 Aug 2019 10:43:48 GMT",
+            "content-type": "application/json; charset=utf-8",
+            "transfer-encoding": "chunked",
+            "connection": "close",
+            "x-frame-options": "SAMEORIGIN",
+            "x-xss-protection": "1; mode=block",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-permitted-cross-domain-policies": "none",
+            "referrer-policy": "strict-origin-when-cross-origin",
+            "etag": "W/\"052237154fa8230074a2131a2aceb1df\"",
+            "cache-control": "max-age=0, private, must-revalidate",
+            "x-request-id": "7bb5f76d-72e7-4be3-948d-05aa0979828c",
+            "x-runtime": "0.022995",
+            "vary": "Origin"
+          },
+          "authorised": true
+        }
+      }
+    ]
+  },
+  {
+    "id": "a2a8cd45-4378-440d-9a30-adf178ea968b",
+    "url": "http://localhost/api/posts/1.json",
+    "method": "GET",
+    "requests": [
+      {
+        "user": "alice@authcov.io",
+        "pageUrl": "http://localhost/posts/1",
+        "headers": {
+          "referer": "http://localhost/posts/1",
+          "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/75.0.3770.100 Safari/537.36",
+          "cookie": "_my_app_session=66584542ff9a79dbe1861f07acc58842"
+        },
+        "response": {
+          "status": 200,
+          "headers": {
+            "date": "Fri, 02 Aug 2019 10:43:31 GMT",
+            "x-content-type-options": "nosniff",
+            "x-permitted-cross-domain-policies": "none",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "vary": "Origin",
+            "x-xss-protection": "1; mode=block",
+            "x-request-id": "09142d3f-1709-494f-b287-aa41ce7f9b9e",
+            "x-runtime": "0.008090",
+            "referrer-policy": "strict-origin-when-cross-origin",
+            "server": "nginx/1.17.2",
+            "etag": "W/\"c4b8c21d73eefa4dc8d11b89a1a6c9cf\"",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "content-type": "application/json; charset=utf-8",
+            "cache-control": "max-age=0, private, must-revalidate"
+          },
+          "authorised": true
+        }
+      },
+      {
+        "user": "alice@authcov.io",
+        "pageUrl": "http://localhost/posts/1/edit",
+        "headers": {
+          "referer": "http://localhost/posts/1/edit",
+          "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/75.0.3770.100 Safari/537.36",
+          "cookie": "_my_app_session=66584542ff9a79dbe1861f07acc58842"
+        },
+        "response": {
+          "status": 200,
+          "headers": {
+            "date": "Fri, 02 Aug 2019 10:43:32 GMT",
+            "x-content-type-options": "nosniff",
+            "x-permitted-cross-domain-policies": "none",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "vary": "Origin",
+            "x-xss-protection": "1; mode=block",
+            "x-request-id": "379c0f84-51da-41de-9d33-e90cd82fc521",
+            "x-runtime": "0.010981",
+            "referrer-policy": "strict-origin-when-cross-origin",
+            "server": "nginx/1.17.2",
+            "etag": "W/\"c4b8c21d73eefa4dc8d11b89a1a6c9cf\"",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "content-type": "application/json; charset=utf-8",
+            "cache-control": "max-age=0, private, must-revalidate"
+          },
+          "authorised": true
+        }
+      },
+      {
+        "user": "Public",
+        "pageUrl": null,
+        "headers": {
+          "referer": "http://localhost/posts/1",
+          "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/75.0.3770.100 Safari/537.36"
+        },
+        "response": {
+          "status": 200,
+          "headers": {
+            "server": "nginx/1.17.2",
+            "date": "Fri, 02 Aug 2019 10:43:42 GMT",
+            "content-type": "application/json; charset=utf-8",
+            "transfer-encoding": "chunked",
+            "connection": "close",
+            "x-frame-options": "SAMEORIGIN",
+            "x-xss-protection": "1; mode=block",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-permitted-cross-domain-policies": "none",
+            "referrer-policy": "strict-origin-when-cross-origin",
+            "etag": "W/\"c4b8c21d73eefa4dc8d11b89a1a6c9cf\"",
+            "cache-control": "max-age=0, private, must-revalidate",
+            "x-request-id": "bb6f20cb-fa1a-44b2-b187-c78260300688",
+            "x-runtime": "0.005171",
+            "vary": "Origin"
+          },
+          "authorised": true
+        }
+      },
+      {
+        "user": "bob@authcov.io",
+        "pageUrl": null,
+        "headers": {
+          "referer": "http://localhost/posts/1",
+          "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/75.0.3770.100 Safari/537.36",
+          "cookie": "_my_app_session=57c9cc6aae0dec63a4dea3c9676ee45b"
+        },
+        "response": {
+          "status": 200,
+          "headers": {
+            "server": "nginx/1.17.2",
+            "date": "Fri, 02 Aug 2019 10:43:49 GMT",
+            "content-type": "application/json; charset=utf-8",
+            "transfer-encoding": "chunked",
+            "connection": "close",
+            "x-frame-options": "SAMEORIGIN",
+            "x-xss-protection": "1; mode=block",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-permitted-cross-domain-policies": "none",
+            "referrer-policy": "strict-origin-when-cross-origin",
+            "etag": "W/\"c4b8c21d73eefa4dc8d11b89a1a6c9cf\"",
+            "cache-control": "max-age=0, private, must-revalidate",
+            "x-request-id": "cb6bc291-9fe8-4122-97f3-c995366052da",
+            "x-runtime": "0.024481",
+            "vary": "Origin"
+          },
+          "authorised": true
+        }
+      }
+    ]
+  },
+  {
+    "id": "eb314627-c109-4e3c-b46b-842c86d61254",
+    "url": "http://localhost/api/posts/4.json",
+    "method": "GET",
+    "requests": [
+      {
+        "user": "alice@authcov.io",
+        "pageUrl": "http://localhost/posts/4",
+        "headers": {
+          "referer": "http://localhost/posts/4",
+          "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/75.0.3770.100 Safari/537.36",
+          "cookie": "_my_app_session=66584542ff9a79dbe1861f07acc58842"
+        },
+        "response": {
+          "status": 200,
+          "headers": {
+            "date": "Fri, 02 Aug 2019 10:43:31 GMT",
+            "x-content-type-options": "nosniff",
+            "x-permitted-cross-domain-policies": "none",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "vary": "Origin",
+            "x-xss-protection": "1; mode=block",
+            "x-request-id": "76fb5413-1a17-42cb-a3d0-53f6eabc5a8d",
+            "x-runtime": "0.007504",
+            "referrer-policy": "strict-origin-when-cross-origin",
+            "server": "nginx/1.17.2",
+            "etag": "W/\"b81a8e354016d74d8d2ddd4ee2aabc5d\"",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "content-type": "application/json; charset=utf-8",
+            "cache-control": "max-age=0, private, must-revalidate"
+          },
+          "authorised": true
+        }
+      },
+      {
+        "user": "alice@authcov.io",
+        "pageUrl": "http://localhost/posts/4/edit",
+        "headers": {
+          "referer": "http://localhost/posts/4/edit",
+          "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/75.0.3770.100 Safari/537.36",
+          "cookie": "_my_app_session=66584542ff9a79dbe1861f07acc58842"
+        },
+        "response": {
+          "status": 200,
+          "headers": {
+            "date": "Fri, 02 Aug 2019 10:43:32 GMT",
+            "x-content-type-options": "nosniff",
+            "x-permitted-cross-domain-policies": "none",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "vary": "Origin",
+            "x-xss-protection": "1; mode=block",
+            "x-request-id": "3cb6f0d1-b11a-481d-97f4-f495633219d2",
+            "x-runtime": "0.009846",
+            "referrer-policy": "strict-origin-when-cross-origin",
+            "server": "nginx/1.17.2",
+            "etag": "W/\"b81a8e354016d74d8d2ddd4ee2aabc5d\"",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "content-type": "application/json; charset=utf-8",
+            "cache-control": "max-age=0, private, must-revalidate"
+          },
+          "authorised": true
+        }
+      },
+      {
+        "user": "Public",
+        "pageUrl": null,
+        "headers": {
+          "referer": "http://localhost/posts/4",
+          "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/75.0.3770.100 Safari/537.36"
+        },
+        "response": {
+          "status": 200,
+          "headers": {
+            "server": "nginx/1.17.2",
+            "date": "Fri, 02 Aug 2019 10:43:42 GMT",
+            "content-type": "application/json; charset=utf-8",
+            "transfer-encoding": "chunked",
+            "connection": "close",
+            "x-frame-options": "SAMEORIGIN",
+            "x-xss-protection": "1; mode=block",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-permitted-cross-domain-policies": "none",
+            "referrer-policy": "strict-origin-when-cross-origin",
+            "etag": "W/\"b81a8e354016d74d8d2ddd4ee2aabc5d\"",
+            "cache-control": "max-age=0, private, must-revalidate",
+            "x-request-id": "839d6179-2ec3-412e-9da8-6ae8693f1703",
+            "x-runtime": "0.016619",
+            "vary": "Origin"
+          },
+          "authorised": true
+        }
+      },
+      {
+        "user": "bob@authcov.io",
+        "pageUrl": null,
+        "headers": {
+          "referer": "http://localhost/posts/4",
+          "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/75.0.3770.100 Safari/537.36",
+          "cookie": "_my_app_session=57c9cc6aae0dec63a4dea3c9676ee45b"
+        },
+        "response": {
+          "status": 200,
+          "headers": {
+            "server": "nginx/1.17.2",
+            "date": "Fri, 02 Aug 2019 10:43:49 GMT",
+            "content-type": "application/json; charset=utf-8",
+            "transfer-encoding": "chunked",
+            "connection": "close",
+            "x-frame-options": "SAMEORIGIN",
+            "x-xss-protection": "1; mode=block",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-permitted-cross-domain-policies": "none",
+            "referrer-policy": "strict-origin-when-cross-origin",
+            "etag": "W/\"b81a8e354016d74d8d2ddd4ee2aabc5d\"",
+            "cache-control": "max-age=0, private, must-revalidate",
+            "x-request-id": "76190504-cbbb-4281-85fa-02e9fa764777",
+            "x-runtime": "0.010567",
+            "vary": "Origin"
+          },
+          "authorised": true
+        }
+      }
+    ]
+  },
+  {
+    "id": "eaad3b14-af93-4cff-aa8b-5f0b9812de30",
+    "url": "http://localhost/api/secrets/1.json",
+    "method": "GET",
+    "requests": [
+      {
+        "user": "alice@authcov.io",
+        "pageUrl": "http://localhost/secrets/1",
+        "headers": {
+          "referer": "http://localhost/secrets/1",
+          "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/75.0.3770.100 Safari/537.36",
+          "cookie": "_my_app_session=66584542ff9a79dbe1861f07acc58842"
+        },
+        "response": {
+          "status": 200,
+          "headers": {
+            "date": "Fri, 02 Aug 2019 10:43:31 GMT",
+            "x-content-type-options": "nosniff",
+            "x-permitted-cross-domain-policies": "none",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "vary": "Origin",
+            "x-xss-protection": "1; mode=block",
+            "x-request-id": "eb850380-9213-4099-b49a-df4d31d3d67a",
+            "x-runtime": "0.011296",
+            "referrer-policy": "strict-origin-when-cross-origin",
+            "server": "nginx/1.17.2",
+            "etag": "W/\"4472dc85fe58e565427ab247bed7b408\"",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "content-type": "application/json; charset=utf-8",
+            "cache-control": "max-age=0, private, must-revalidate"
+          },
+          "authorised": true
+        }
+      },
+      {
+        "user": "alice@authcov.io",
+        "pageUrl": "http://localhost/secrets/1/edit",
+        "headers": {
+          "referer": "http://localhost/secrets/1/edit",
+          "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/75.0.3770.100 Safari/537.36",
+          "cookie": "_my_app_session=66584542ff9a79dbe1861f07acc58842"
+        },
+        "response": {
+          "status": 200,
+          "headers": {
+            "date": "Fri, 02 Aug 2019 10:43:33 GMT",
+            "x-content-type-options": "nosniff",
+            "x-permitted-cross-domain-policies": "none",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "vary": "Origin",
+            "x-xss-protection": "1; mode=block",
+            "x-request-id": "3dd2211d-d978-4a7b-9e33-3f66d1f34e1c",
+            "x-runtime": "0.009196",
+            "referrer-policy": "strict-origin-when-cross-origin",
+            "server": "nginx/1.17.2",
+            "etag": "W/\"4472dc85fe58e565427ab247bed7b408\"",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "content-type": "application/json; charset=utf-8",
+            "cache-control": "max-age=0, private, must-revalidate"
+          },
+          "authorised": true
+        }
+      },
+      {
+        "user": "Public",
+        "pageUrl": null,
+        "headers": {
+          "referer": "http://localhost/secrets/1",
+          "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/75.0.3770.100 Safari/537.36"
+        },
+        "response": {
+          "status": 401,
+          "headers": {
+            "server": "nginx/1.17.2",
+            "date": "Fri, 02 Aug 2019 10:43:43 GMT",
+            "content-type": "application/json; charset=utf-8",
+            "transfer-encoding": "chunked",
+            "connection": "close",
+            "cache-control": "no-cache",
+            "x-request-id": "ea86aec7-46f7-4e4c-ae85-08d749e2c11e",
+            "x-runtime": "0.009128",
+            "vary": "Origin"
+          },
+          "authorised": false
+        }
+      },
+      {
+        "user": "bob@authcov.io",
+        "pageUrl": null,
+        "headers": {
+          "referer": "http://localhost/secrets/1",
+          "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/75.0.3770.100 Safari/537.36",
+          "cookie": "_my_app_session=57c9cc6aae0dec63a4dea3c9676ee45b"
+        },
+        "response": {
+          "status": 401,
+          "headers": {
+            "server": "nginx/1.17.2",
+            "date": "Fri, 02 Aug 2019 10:43:50 GMT",
+            "content-type": "application/json; charset=utf-8",
+            "transfer-encoding": "chunked",
+            "connection": "close",
+            "x-frame-options": "SAMEORIGIN",
+            "x-xss-protection": "1; mode=block",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-permitted-cross-domain-policies": "none",
+            "referrer-policy": "strict-origin-when-cross-origin",
+            "cache-control": "no-cache",
+            "x-request-id": "161f2f63-ecc6-45a7-990a-a0e8371ebd73",
+            "x-runtime": "0.008116",
+            "vary": "Origin"
+          },
+          "authorised": false
+        }
+      }
+    ]
+  }
+]
