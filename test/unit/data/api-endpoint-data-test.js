@@ -121,6 +121,7 @@ describe('ApiEndpointData', () => {
         },
       };
     });
+
     // TODO: Test when the cookies arg is not null
     context('when there is no api-endpoint for the request', () => {
       it('should save the api-request to a new api-endpoint entry', async () => {

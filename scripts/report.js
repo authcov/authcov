@@ -1,5 +1,6 @@
 const ReportGenerator = require('../lib/reporter/report-generator.js');
 const ApiEndpointData = require('../lib/data/api-endpoint-data.js');
+const ApiEndpointsPresenter = require('../lib/data/api-endpoints-presenter.js');
 const PageData = require('../lib/data/page-data.js');
 
 const configFilePath = process.argv[2];
@@ -11,7 +12,8 @@ const pageData = new PageData({webAppConfig: webAppConfig});
 apiEndpointData.loadFile('./tmp/api_endpoints.json');
 pageData.loadFile('./tmp/pages.json');
 
-const reporter = new ReportGenerator(apiEndpointData, pageData);
+const apiEndpointsPresenter = new ApiEndpointsPresenter(apiEndpointData.apiEndpoints);
+const reporter = new ReportGenerator(apiEndpointsPresenter, pageData);
+reporter.generate('./tmp/report');
 
-reporter.generateIndex();
 console.log('Done');
