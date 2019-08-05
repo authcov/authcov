@@ -9,7 +9,8 @@ class Config {
     ];
     this.authorisationHeaders = ['cookie'];
     this.baseUrl = 'http://localhost';
-    this.saveResponses = false;
+    this.saveResponses = true;
+    this.saveScreenshots = true;
     this.buttonXPath = 'button';
     this.type = 'spa';
     this.authenticationType = 'cookie'; // cookie or token
