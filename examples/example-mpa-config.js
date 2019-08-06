@@ -11,6 +11,7 @@ class Config {
     this.baseUrl = 'http://localhost:3001';
     this.saveResponses = true;
     this.saveScreenshots = true;
+    this.clickButtons = true;
     this.buttonXPath = 'button';
     this.type = 'mpa';  // mpa or spa
     this.authenticationType = 'cookie'; // cookie or token
