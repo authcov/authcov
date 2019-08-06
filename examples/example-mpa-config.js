@@ -15,6 +15,7 @@ class Config {
     this.buttonXPath = 'button';
     this.type = 'mpa';  // mpa or spa
     this.authenticationType = 'cookie'; // cookie or token
+    this.maxDepth = 1;
   }
 
   async loginFunction(tab, username, password){
