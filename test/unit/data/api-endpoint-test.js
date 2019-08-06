@@ -14,7 +14,7 @@ describe('ApiEndpoint', () => {
             "pageUrl": "http://localhost",
             "headers": { "cookie": "_my_app_session=043e8651acbf7481d7437f412fe7cc83" },
             "response": {
-              "status": 200,
+              "status": 401,
               "headers": { "server": "nginx/1.17.2" },
               "authorised": false
             }
@@ -34,7 +34,7 @@ describe('ApiEndpoint', () => {
             "pageUrl": null,
             "headers": {},
             "response": {
-              "status": 200,
+              "status": 401,
               "headers": { "server": "nginx/1.17.2" },
               "authorised": false
             }
@@ -51,7 +51,16 @@ describe('ApiEndpoint', () => {
           }
         ]
       };
-      this.apiEndpoint = new ApiEndpoint(data);
+      const webAppConfig = {
+        users: [
+          {username: 'Public', password: null},
+          {username: 'evanrolfe@onescan.io', password: 'Password1'},
+          {username: 'evanrolfe@gmail.com', password: 'Password2'}
+        ],
+        authorisationHeaders: ['authorization'],
+        responseIsAuthorised: (response, body) => { return (response.status == 200); }
+      };
+      this.apiEndpoint = new ApiEndpoint(data, webAppConfig);
     });
 
     it('should return the aclKey', () => {

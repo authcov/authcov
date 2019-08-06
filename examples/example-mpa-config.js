@@ -9,13 +9,13 @@ class Config {
     ];
     this.authorisationHeaders = ['cookie'];
     this.baseUrl = 'http://localhost:3001';
-    this.saveResponses = true;
+    this.saveResponses = false;
     this.saveScreenshots = true;
     this.clickButtons = true;
     this.buttonXPath = 'button';
     this.type = 'mpa';  // mpa or spa
     this.authenticationType = 'cookie'; // cookie or token
-    this.maxDepth = 1;
+    this.maxDepth = 2;
   }
 
   async loginFunction(tab, username, password){

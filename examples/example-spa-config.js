@@ -9,7 +9,7 @@ class Config {
     ];
     this.authorisationHeaders = ['cookie'];
     this.baseUrl = 'http://localhost';
-    this.saveResponses = true;
+    this.saveResponses = false;
     this.saveScreenshots = true;
     this.clickButtons = true;
     this.buttonXPath = 'button';
