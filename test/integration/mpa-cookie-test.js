@@ -4,10 +4,10 @@ const UsersCrawler = require('../../lib/crawler/users-crawler.js');
 const UsersIntruder = require('../../lib/intruder/users-intruder.js');
 const ApiEndpointData = require('../../lib/data/api-endpoint-data.js');
 const PageData = require('../../lib/data/page-data.js');
-const ExampleConfig = require('../../examples/example-mpa-config.js');
+const Config = require('./example-mpa-config.js');
 const CompareFiles = require('../utils/compare_files.js');
 
-const webAppConfig = new ExampleConfig();
+const webAppConfig = new Config();
 const apiEndpointData = new ApiEndpointData({webAppConfig: webAppConfig});
 const pageData = new PageData({webAppConfig: webAppConfig});
 const usersCrawler = new UsersCrawler(webAppConfig, apiEndpointData, pageData);
