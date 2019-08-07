@@ -16,4 +16,5 @@ const usersCrawler = new UsersCrawler(webAppConfig, apiEndpointData, pageData);
 (async () => {
   await usersCrawler.start();
   console.log('Done.');
+  apiEndpointData.saveToFile('./tmp/api_endpoints.json');
 })();

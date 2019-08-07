@@ -117,6 +117,7 @@ describe('ApiEndpointData', () => {
         text() { return '{}' },
         request() {
           return {
+            url() { return 'http://localhost:3001/secrets/1.json' },
             headers() { return { 'user-agent': 'Mozilla/5.0 (X11; Linux x86_64)' } },
             method() { return 'GET' }
           }
@@ -127,6 +128,7 @@ describe('ApiEndpointData', () => {
     // TODO: Test when the cookies arg is not null
     context('when there is no api-endpoint for the request', () => {
       it('should save the api-request to a new api-endpoint entry', async () => {
+        this.apiEndpointData.apiRequestCallback(this.mockResponse.request(), null, 'http://localhost:3000/secrets/1', 'Public');
         await this.apiEndpointData.apiResponseCallback(this.mockResponse, null, 'http://localhost:3000/secrets/1', 'Public');
 
         const result = this.apiEndpointData.apiEndpoints[0];
@@ -146,11 +148,13 @@ describe('ApiEndpointData', () => {
 
     context('when there is already an api-endpoint for the request and another requeuest entry for this user logged', () => {
       it('should save the api-request to that api-endpoint', async () => {
+        this.apiEndpointData.apiRequestCallback(this.mockResponse.request(), null, 'http://localhost:3000/secrets/1', 'Public');
+        this.apiEndpointData.apiRequestCallback(this.mockResponse.request(), null, 'http://localhost:3000/secrets/1/edit', 'Public');
         await this.apiEndpointData.apiResponseCallback(this.mockResponse, null, 'http://localhost:3000/secrets/1', 'Public');
         await this.apiEndpointData.apiResponseCallback(this.mockResponse, null, 'http://localhost:3000/secrets/1/edit', 'Public');
 
         const result = this.apiEndpointData.apiEndpoints[0];
-
+        console.log(result);
         expect(result.url).to.equal('http://localhost:3001/secrets/1.json');
         expect(result.method).to.equal('GET');
         expect(result.requests.length).to.equal(2);
