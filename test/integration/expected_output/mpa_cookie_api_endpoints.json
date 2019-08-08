@@ -1,17 +1,17 @@
 [
   {
-    "id": "91b2073f-4055-43da-a198-4bbc45610b43",
+    "id": "03af328c-7c36-419d-9bd3-2e34f1984e51",
     "url": "http://localhost:3001/",
     "method": "GET",
     "requests": [
       {
-        "id": "a3838db9-4357-4027-a30a-536de2eb5bd1",
+        "id": "26581443-43e9-4370-8d22-7aa9d233589d",
         "user": "alice@authcov.io",
         "pageUrl": "http://localhost:3001",
         "headers": {
           "upgrade-insecure-requests": "1",
           "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/75.0.3770.100 Safari/537.36",
-          "cookie": "_my_app_session=b4a5be4d310d7f4a6347184dd16c24fb"
+          "cookie": "_my_app_session=49554d94aaf604d5017c27b634eab724"
         },
         "response": {
           "status": 200,
@@ -23,10 +23,10 @@
             "x-permitted-cross-domain-policies": "none",
             "referrer-policy": "strict-origin-when-cross-origin",
             "content-type": "text/html; charset=utf-8",
-            "etag": "W/\"fa31e173daf2b0e1c8d8246e9512199f\"",
+            "etag": "W/\"d3f4b587fba0cd0be68ce1b631dc6957\"",
             "cache-control": "max-age=0, private, must-revalidate",
-            "x-request-id": "f971065a-312f-47ef-bde5-8bac03f4bf24",
-            "x-runtime": "0.023238",
+            "x-request-id": "ae6f4b9d-f17d-488a-9020-0dc8c9351509",
+            "x-runtime": "0.023360",
             "vary": "Origin",
             "transfer-encoding": "chunked"
           },
@@ -34,13 +34,13 @@
         }
       },
       {
-        "id": "4fbb0805-4462-4402-893d-0d1b8682bd07",
+        "id": "50baeb13-7260-44af-93f8-b90c65f2ddff",
         "user": "alice@authcov.io",
         "pageUrl": "http://localhost:3001/",
         "headers": {
           "upgrade-insecure-requests": "1",
           "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/75.0.3770.100 Safari/537.36",
-          "cookie": "_my_app_session=b4a5be4d310d7f4a6347184dd16c24fb"
+          "cookie": "_my_app_session=49554d94aaf604d5017c27b634eab724"
         },
         "response": {
           "status": 200,
@@ -52,10 +52,10 @@
             "x-permitted-cross-domain-policies": "none",
             "referrer-policy": "strict-origin-when-cross-origin",
             "content-type": "text/html; charset=utf-8",
-            "etag": "W/\"648cf191c52adc92872e9f3a6e3f7684\"",
+            "etag": "W/\"fa674bb596c8560fdc79ea4f8650b03f\"",
             "cache-control": "max-age=0, private, must-revalidate",
-            "x-request-id": "ad3691b2-03be-4e67-bb04-4b04385e85d3",
-            "x-runtime": "0.205990",
+            "x-request-id": "7df12090-ca4e-4125-8734-d091c09dd48d",
+            "x-runtime": "0.099713",
             "vary": "Origin",
             "transfer-encoding": "chunked"
           },
@@ -65,18 +65,18 @@
     ]
   },
   {
-    "id": "4f76a0ca-18c0-485b-a6bf-3a610f51d766",
+    "id": "1aa6aa8c-b2de-4a31-b40c-424e91dbf77f",
     "url": "http://localhost:3001/posts",
     "method": "GET",
     "requests": [
       {
-        "id": "34b6a51e-b479-4b7d-91c0-4d25b5062940",
+        "id": "d38a1d44-cb3a-4c06-ba6e-4bb8d3ed0461",
         "user": "alice@authcov.io",
         "pageUrl": "http://localhost:3001/posts",
         "headers": {
           "upgrade-insecure-requests": "1",
           "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/75.0.3770.100 Safari/537.36",
-          "cookie": "_my_app_session=b4a5be4d310d7f4a6347184dd16c24fb"
+          "cookie": "_my_app_session=49554d94aaf604d5017c27b634eab724"
         },
         "response": {
           "status": 200,
@@ -88,10 +88,10 @@
             "x-permitted-cross-domain-policies": "none",
             "referrer-policy": "strict-origin-when-cross-origin",
             "content-type": "text/html; charset=utf-8",
-            "etag": "W/\"4a82ec38c2627b52f1c06c990d5aa9f1\"",
+            "etag": "W/\"980e4c20a7e6b51eadb64a1516b6a958\"",
             "cache-control": "max-age=0, private, must-revalidate",
-            "x-request-id": "975f0dc1-672c-437c-aa95-37636cf2b5db",
-            "x-runtime": "0.150754",
+            "x-request-id": "b9416e0b-5a7c-46b8-b297-e191849e467e",
+            "x-runtime": "0.106549",
             "vary": "Origin",
             "transfer-encoding": "chunked"
           },
@@ -101,18 +101,18 @@
     ]
   },
   {
-    "id": "8083c1ec-037f-42b6-9ac1-20586aa883f0",
+    "id": "1ed59746-5e38-4152-a241-09e0112c5617",
     "url": "http://localhost:3001/posts/1",
     "method": "GET",
     "requests": [
       {
-        "id": "221b8af0-0470-4110-8bcf-8e3472bb6747",
+        "id": "87182196-472c-4454-ae8a-df2e5b632af0",
         "user": "alice@authcov.io",
         "pageUrl": "http://localhost:3001/posts/1",
         "headers": {
           "upgrade-insecure-requests": "1",
           "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/75.0.3770.100 Safari/537.36",
-          "cookie": "_my_app_session=b4a5be4d310d7f4a6347184dd16c24fb"
+          "cookie": "_my_app_session=49554d94aaf604d5017c27b634eab724"
         },
         "response": {
           "status": 200,
@@ -124,10 +124,10 @@
             "x-permitted-cross-domain-policies": "none",
             "referrer-policy": "strict-origin-when-cross-origin",
             "content-type": "text/html; charset=utf-8",
-            "etag": "W/\"0817894d0b2c403749104c65684126d2\"",
+            "etag": "W/\"266b373487e4af3cd1e80452af9ea80e\"",
             "cache-control": "max-age=0, private, must-revalidate",
-            "x-request-id": "13fd1a61-a88a-45a7-85f6-a1b69517e082",
-            "x-runtime": "0.024986",
+            "x-request-id": "f2df2839-44ee-453a-b2fa-76ba31f4547b",
+            "x-runtime": "0.032029",
             "vary": "Origin",
             "transfer-encoding": "chunked"
           },
@@ -137,126 +137,18 @@
     ]
   },
   {
-    "id": "ce733cda-01c4-42dd-84bf-191351d38b70",
-    "url": "http://localhost:3001/posts/3",
-    "method": "GET",
-    "requests": [
-      {
-        "id": "1e07f230-671e-48ff-9f77-9db35d53a611",
-        "user": "alice@authcov.io",
-        "pageUrl": "http://localhost:3001/posts/3",
-        "headers": {
-          "upgrade-insecure-requests": "1",
-          "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/75.0.3770.100 Safari/537.36",
-          "cookie": "_my_app_session=b4a5be4d310d7f4a6347184dd16c24fb"
-        },
-        "response": {
-          "status": 200,
-          "headers": {
-            "x-frame-options": "SAMEORIGIN",
-            "x-xss-protection": "1; mode=block",
-            "x-content-type-options": "nosniff",
-            "x-download-options": "noopen",
-            "x-permitted-cross-domain-policies": "none",
-            "referrer-policy": "strict-origin-when-cross-origin",
-            "content-type": "text/html; charset=utf-8",
-            "etag": "W/\"5e5a57852ecc98662a4def8f95d5321e\"",
-            "cache-control": "max-age=0, private, must-revalidate",
-            "x-request-id": "6f1f33dc-ed43-4258-bf3f-c44d04127bf9",
-            "x-runtime": "0.167211",
-            "vary": "Origin",
-            "transfer-encoding": "chunked"
-          },
-          "authorised": true
-        }
-      }
-    ]
-  },
-  {
-    "id": "fd20639d-23e8-4299-ad27-4b1d7c5b74cb",
-    "url": "http://localhost:3001/posts/2",
-    "method": "GET",
-    "requests": [
-      {
-        "id": "bef72e21-9046-4800-ab86-0f73fda29fd6",
-        "user": "alice@authcov.io",
-        "pageUrl": "http://localhost:3001/posts/2",
-        "headers": {
-          "upgrade-insecure-requests": "1",
-          "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/75.0.3770.100 Safari/537.36",
-          "cookie": "_my_app_session=b4a5be4d310d7f4a6347184dd16c24fb"
-        },
-        "response": {
-          "status": 200,
-          "headers": {
-            "x-frame-options": "SAMEORIGIN",
-            "x-xss-protection": "1; mode=block",
-            "x-content-type-options": "nosniff",
-            "x-download-options": "noopen",
-            "x-permitted-cross-domain-policies": "none",
-            "referrer-policy": "strict-origin-when-cross-origin",
-            "content-type": "text/html; charset=utf-8",
-            "etag": "W/\"e8d79877b7f19471e36eafc5c5dd0de1\"",
-            "cache-control": "max-age=0, private, must-revalidate",
-            "x-request-id": "4f6f3ee1-0c31-4f5b-aa9c-c17d37bb842e",
-            "x-runtime": "0.185481",
-            "vary": "Origin",
-            "transfer-encoding": "chunked"
-          },
-          "authorised": true
-        }
-      }
-    ]
-  },
-  {
-    "id": "c6758a93-95be-4f89-b4a8-af6b8bc675be",
-    "url": "http://localhost:3001/posts/4",
-    "method": "GET",
-    "requests": [
-      {
-        "id": "294c7cc3-fc3f-4e1f-a1f6-88903598fdb1",
-        "user": "alice@authcov.io",
-        "pageUrl": "http://localhost:3001/posts/4",
-        "headers": {
-          "upgrade-insecure-requests": "1",
-          "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/75.0.3770.100 Safari/537.36",
-          "cookie": "_my_app_session=b4a5be4d310d7f4a6347184dd16c24fb"
-        },
-        "response": {
-          "status": 200,
-          "headers": {
-            "x-frame-options": "SAMEORIGIN",
-            "x-xss-protection": "1; mode=block",
-            "x-content-type-options": "nosniff",
-            "x-download-options": "noopen",
-            "x-permitted-cross-domain-policies": "none",
-            "referrer-policy": "strict-origin-when-cross-origin",
-            "content-type": "text/html; charset=utf-8",
-            "etag": "W/\"33d48e8a48acab803fc365b512d1b836\"",
-            "cache-control": "max-age=0, private, must-revalidate",
-            "x-request-id": "ed2d9f01-3d80-4acd-88ec-5fc7db3ea389",
-            "x-runtime": "0.187123",
-            "vary": "Origin",
-            "transfer-encoding": "chunked"
-          },
-          "authorised": true
-        }
-      }
-    ]
-  },
-  {
-    "id": "6c55a96e-0c53-4641-8a29-bce4555a368b",
+    "id": "21465575-d36c-4608-b6e3-fe995cc14e07",
     "url": "http://localhost:3001/posts/1/edit",
     "method": "GET",
     "requests": [
       {
-        "id": "07acfee8-f7e7-49a7-9fd7-6e37b01e067a",
+        "id": "7bdc9679-a07e-4a77-a83c-82505d8857ac",
         "user": "alice@authcov.io",
         "pageUrl": "http://localhost:3001/posts/1/edit",
         "headers": {
           "upgrade-insecure-requests": "1",
           "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/75.0.3770.100 Safari/537.36",
-          "cookie": "_my_app_session=b4a5be4d310d7f4a6347184dd16c24fb"
+          "cookie": "_my_app_session=49554d94aaf604d5017c27b634eab724"
         },
         "response": {
           "status": 200,
@@ -268,10 +160,10 @@
             "x-permitted-cross-domain-policies": "none",
             "referrer-policy": "strict-origin-when-cross-origin",
             "content-type": "text/html; charset=utf-8",
-            "etag": "W/\"437d3015a8e28fea716b0243819ce057\"",
+            "etag": "W/\"b5c34037d0238c2cbf7130b9a0bd222a\"",
             "cache-control": "max-age=0, private, must-revalidate",
-            "x-request-id": "10b7ee39-c31c-4527-b931-6deb38db7baf",
-            "x-runtime": "0.170622",
+            "x-request-id": "e5bc6e79-e565-4fb7-83da-5c8493ed4fef",
+            "x-runtime": "0.158928",
             "vary": "Origin",
             "transfer-encoding": "chunked"
           },
@@ -281,21 +173,21 @@
     ]
   },
   {
-    "id": "7327f7a4-f795-46dc-87a0-6acf59ba8cec",
-    "url": "http://localhost:3001/posts/4/edit",
+    "id": "8589b657-74a2-4a47-b8ea-c2a66b60f497",
+    "url": "http://localhost:3001/posts/2",
     "method": "GET",
     "requests": [
       {
-        "id": "55154299-e36d-4e2b-b88d-0c65be9442cf",
+        "id": "2abf6a7f-d372-45f6-8c4c-9882c932dbf7",
         "user": "alice@authcov.io",
-        "pageUrl": "http://localhost:3001/posts/4/edit",
+        "pageUrl": "http://localhost:3001/posts/2",
         "headers": {
           "upgrade-insecure-requests": "1",
           "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/75.0.3770.100 Safari/537.36",
-          "cookie": "_my_app_session=b4a5be4d310d7f4a6347184dd16c24fb"
+          "cookie": "_my_app_session=49554d94aaf604d5017c27b634eab724"
         },
         "response": {
-          "status": 401,
+          "status": 200,
           "headers": {
             "x-frame-options": "SAMEORIGIN",
             "x-xss-protection": "1; mode=block",
@@ -303,31 +195,32 @@
             "x-download-options": "noopen",
             "x-permitted-cross-domain-policies": "none",
             "referrer-policy": "strict-origin-when-cross-origin",
-            "content-type": "application/json; charset=utf-8",
-            "cache-control": "no-cache",
-            "x-request-id": "0699d1f2-1a68-424f-bc11-e71aa660a58e",
-            "x-runtime": "0.005975",
+            "content-type": "text/html; charset=utf-8",
+            "etag": "W/\"f39b54bd84e87f355fdacbfddd18d029\"",
+            "cache-control": "max-age=0, private, must-revalidate",
+            "x-request-id": "e971b533-5085-4de6-92bd-1c6c28a959d7",
+            "x-runtime": "0.180808",
             "vary": "Origin",
             "transfer-encoding": "chunked"
           },
-          "authorised": false
+          "authorised": true
         }
       }
     ]
   },
   {
-    "id": "941d99f1-1f93-4a4c-a933-3a0d674ec885",
+    "id": "afefa731-1210-4755-977e-1c90c09fb5dc",
     "url": "http://localhost:3001/posts/2/edit",
     "method": "GET",
     "requests": [
       {
-        "id": "37205a4f-8881-4190-bcb9-60554e3cf497",
+        "id": "29ecb3e1-2588-49d2-9f3c-afb267ba6be0",
         "user": "alice@authcov.io",
         "pageUrl": "http://localhost:3001/posts/2/edit",
         "headers": {
           "upgrade-insecure-requests": "1",
           "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/75.0.3770.100 Safari/537.36",
-          "cookie": "_my_app_session=b4a5be4d310d7f4a6347184dd16c24fb"
+          "cookie": "_my_app_session=49554d94aaf604d5017c27b634eab724"
         },
         "response": {
           "status": 200,
@@ -339,10 +232,10 @@
             "x-permitted-cross-domain-policies": "none",
             "referrer-policy": "strict-origin-when-cross-origin",
             "content-type": "text/html; charset=utf-8",
-            "etag": "W/\"96ebd4c167ca40d425341d0a1d098ff1\"",
+            "etag": "W/\"459eda516af8d854152ffb6e43be0782\"",
             "cache-control": "max-age=0, private, must-revalidate",
-            "x-request-id": "65ddf3e2-d316-4b90-9e68-84fca348674d",
-            "x-runtime": "0.188505",
+            "x-request-id": "2d78699b-a67e-4229-b8ad-286cbbcbef87",
+            "x-runtime": "0.152893",
             "vary": "Origin",
             "transfer-encoding": "chunked"
           },
@@ -352,18 +245,54 @@
     ]
   },
   {
-    "id": "bdd9f15d-59fb-42a4-8177-1360244f9d06",
+    "id": "8a41a291-8dfb-4cd8-9060-221708da95d1",
+    "url": "http://localhost:3001/posts/3",
+    "method": "GET",
+    "requests": [
+      {
+        "id": "daf810dc-3925-4b07-a923-32f98cf6012b",
+        "user": "alice@authcov.io",
+        "pageUrl": "http://localhost:3001/posts/3",
+        "headers": {
+          "upgrade-insecure-requests": "1",
+          "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/75.0.3770.100 Safari/537.36",
+          "cookie": "_my_app_session=49554d94aaf604d5017c27b634eab724"
+        },
+        "response": {
+          "status": 200,
+          "headers": {
+            "x-frame-options": "SAMEORIGIN",
+            "x-xss-protection": "1; mode=block",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-permitted-cross-domain-policies": "none",
+            "referrer-policy": "strict-origin-when-cross-origin",
+            "content-type": "text/html; charset=utf-8",
+            "etag": "W/\"9729aa45d0adfe8894a28fe01ae793ae\"",
+            "cache-control": "max-age=0, private, must-revalidate",
+            "x-request-id": "ba3eeeb7-f443-4f19-ba2d-645496647078",
+            "x-runtime": "0.163336",
+            "vary": "Origin",
+            "transfer-encoding": "chunked"
+          },
+          "authorised": true
+        }
+      }
+    ]
+  },
+  {
+    "id": "be67baa8-0cdd-46bc-a6ff-543ce2ca1b1c",
     "url": "http://localhost:3001/posts/3/edit",
     "method": "GET",
     "requests": [
       {
-        "id": "5d1129e7-e859-462f-9713-aaf4505c516a",
+        "id": "d19c838d-ce52-4e82-9783-58010e95f516",
         "user": "alice@authcov.io",
         "pageUrl": "http://localhost:3001/posts/3/edit",
         "headers": {
           "upgrade-insecure-requests": "1",
           "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/75.0.3770.100 Safari/537.36",
-          "cookie": "_my_app_session=b4a5be4d310d7f4a6347184dd16c24fb"
+          "cookie": "_my_app_session=49554d94aaf604d5017c27b634eab724"
         },
         "response": {
           "status": 401,
@@ -376,8 +305,8 @@
             "referrer-policy": "strict-origin-when-cross-origin",
             "content-type": "application/json; charset=utf-8",
             "cache-control": "no-cache",
-            "x-request-id": "0a696c02-22ec-4c08-a929-cdd2b06eb4a3",
-            "x-runtime": "0.058861",
+            "x-request-id": "ad44cffa-06cb-405e-a7f8-d6d4f59c5847",
+            "x-runtime": "0.032107",
             "vary": "Origin",
             "transfer-encoding": "chunked"
           },
@@ -387,18 +316,89 @@
     ]
   },
   {
-    "id": "e001aa0d-1f11-4741-9d86-240cd4d7ea72",
+    "id": "0212ca92-11d3-455a-ab83-6203a32761da",
+    "url": "http://localhost:3001/posts/4",
+    "method": "GET",
+    "requests": [
+      {
+        "id": "fd117327-7f13-4206-b2b3-9fad1c4384a3",
+        "user": "alice@authcov.io",
+        "pageUrl": "http://localhost:3001/posts/4",
+        "headers": {
+          "upgrade-insecure-requests": "1",
+          "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/75.0.3770.100 Safari/537.36",
+          "cookie": "_my_app_session=49554d94aaf604d5017c27b634eab724"
+        },
+        "response": {
+          "status": 200,
+          "headers": {
+            "x-frame-options": "SAMEORIGIN",
+            "x-xss-protection": "1; mode=block",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-permitted-cross-domain-policies": "none",
+            "referrer-policy": "strict-origin-when-cross-origin",
+            "content-type": "text/html; charset=utf-8",
+            "etag": "W/\"e4691720ac7f9033cd74457a424fcd2e\"",
+            "cache-control": "max-age=0, private, must-revalidate",
+            "x-request-id": "757d80c2-abfb-43b9-b4a1-a865e2dec7f8",
+            "x-runtime": "0.120683",
+            "vary": "Origin",
+            "transfer-encoding": "chunked"
+          },
+          "authorised": true
+        }
+      }
+    ]
+  },
+  {
+    "id": "57b255e3-836f-4c67-81eb-e43280ad60e1",
+    "url": "http://localhost:3001/posts/4/edit",
+    "method": "GET",
+    "requests": [
+      {
+        "id": "b346112d-dcbe-455f-935e-5aaf8ef5658d",
+        "user": "alice@authcov.io",
+        "pageUrl": "http://localhost:3001/posts/4/edit",
+        "headers": {
+          "upgrade-insecure-requests": "1",
+          "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/75.0.3770.100 Safari/537.36",
+          "cookie": "_my_app_session=49554d94aaf604d5017c27b634eab724"
+        },
+        "response": {
+          "status": 401,
+          "headers": {
+            "x-frame-options": "SAMEORIGIN",
+            "x-xss-protection": "1; mode=block",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-permitted-cross-domain-policies": "none",
+            "referrer-policy": "strict-origin-when-cross-origin",
+            "content-type": "application/json; charset=utf-8",
+            "cache-control": "no-cache",
+            "x-request-id": "8fecf275-8ed6-410d-804e-9cbd1c6ec624",
+            "x-runtime": "0.006436",
+            "vary": "Origin",
+            "transfer-encoding": "chunked"
+          },
+          "authorised": false
+        }
+      }
+    ]
+  },
+  {
+    "id": "2e127c43-8597-4aba-87c7-c494fc6fafac",
     "url": "http://localhost:3001/posts/new",
     "method": "GET",
     "requests": [
       {
-        "id": "18e91a19-9872-4105-a203-89d230f080eb",
+        "id": "e8f45d72-3a30-4330-a9f8-51160f10796a",
         "user": "alice@authcov.io",
         "pageUrl": "http://localhost:3001/posts/new",
         "headers": {
           "upgrade-insecure-requests": "1",
           "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/75.0.3770.100 Safari/537.36",
-          "cookie": "_my_app_session=b4a5be4d310d7f4a6347184dd16c24fb"
+          "cookie": "_my_app_session=49554d94aaf604d5017c27b634eab724"
         },
         "response": {
           "status": 200,
@@ -410,10 +410,10 @@
             "x-permitted-cross-domain-policies": "none",
             "referrer-policy": "strict-origin-when-cross-origin",
             "content-type": "text/html; charset=utf-8",
-            "etag": "W/\"ca308ca114c93887c8f7561718cf5e46\"",
+            "etag": "W/\"c802e7ffa0bd07944259456b7cc7d9e9\"",
             "cache-control": "max-age=0, private, must-revalidate",
-            "x-request-id": "a29a95f0-3f34-4998-87a1-8d329d8d6248",
-            "x-runtime": "0.025984",
+            "x-request-id": "cb1cda5d-577c-4a31-b608-5c79f8449e9a",
+            "x-runtime": "0.037826",
             "vary": "Origin",
             "transfer-encoding": "chunked"
           },
@@ -423,18 +423,18 @@
     ]
   },
   {
-    "id": "7bc43c4b-fcd5-4ac9-ba28-4241f478d1b6",
+    "id": "8582528c-0d10-4100-a030-ea031174abfa",
     "url": "http://localhost:3001/secrets",
     "method": "GET",
     "requests": [
       {
-        "id": "f333e146-f693-40c3-a356-665b7155da0d",
+        "id": "3be2624a-8669-4bd4-ba59-b5165ee10cbb",
         "user": "alice@authcov.io",
         "pageUrl": "http://localhost:3001/secrets",
         "headers": {
           "upgrade-insecure-requests": "1",
           "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/75.0.3770.100 Safari/537.36",
-          "cookie": "_my_app_session=b4a5be4d310d7f4a6347184dd16c24fb"
+          "cookie": "_my_app_session=49554d94aaf604d5017c27b634eab724"
         },
         "response": {
           "status": 200,
@@ -446,10 +446,10 @@
             "x-permitted-cross-domain-policies": "none",
             "referrer-policy": "strict-origin-when-cross-origin",
             "content-type": "text/html; charset=utf-8",
-            "etag": "W/\"baefc8398d4d861858928e7398bbe918\"",
+            "etag": "W/\"1680bb52559978e509a97fb4fb5c0286\"",
             "cache-control": "max-age=0, private, must-revalidate",
-            "x-request-id": "cb53c896-8f27-431e-a472-9a7abc48c7f5",
-            "x-runtime": "0.192299",
+            "x-request-id": "e0f64d08-e5ee-4911-a03f-a6050518a2c8",
+            "x-runtime": "0.142424",
             "vary": "Origin",
             "transfer-encoding": "chunked"
           },
@@ -459,18 +459,18 @@
     ]
   },
   {
-    "id": "9dbf4e9b-72ea-4176-8a0a-6509521fa229",
+    "id": "a712f833-93e9-4089-ab5a-181dd12e5ae2",
     "url": "http://localhost:3001/secrets/1",
     "method": "GET",
     "requests": [
       {
-        "id": "5c88152f-3602-404b-bcbb-1e3317482147",
+        "id": "c9858ea2-0579-4f7c-9e76-49cf4cc8c8ed",
         "user": "alice@authcov.io",
         "pageUrl": "http://localhost:3001/secrets/1",
         "headers": {
           "upgrade-insecure-requests": "1",
           "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/75.0.3770.100 Safari/537.36",
-          "cookie": "_my_app_session=b4a5be4d310d7f4a6347184dd16c24fb"
+          "cookie": "_my_app_session=49554d94aaf604d5017c27b634eab724"
         },
         "response": {
           "status": 200,
@@ -482,10 +482,10 @@
             "x-permitted-cross-domain-policies": "none",
             "referrer-policy": "strict-origin-when-cross-origin",
             "content-type": "text/html; charset=utf-8",
-            "etag": "W/\"f6af16ee2958ec4e122768c93d2cb8d0\"",
+            "etag": "W/\"5ee78f932a0c0e4f6b0e2a016f015690\"",
             "cache-control": "max-age=0, private, must-revalidate",
-            "x-request-id": "4feda544-e2c8-48c6-b079-9bac2a5ad0eb",
-            "x-runtime": "0.079918",
+            "x-request-id": "da7a3e2b-3cbf-4191-b3d3-78612adf77df",
+            "x-runtime": "0.071601",
             "vary": "Origin",
             "transfer-encoding": "chunked"
           },
@@ -495,18 +495,18 @@
     ]
   },
   {
-    "id": "1f7dd702-35eb-4189-a174-9b4773fb30ec",
+    "id": "21284686-9072-45d3-abc6-aa26f4332f56",
     "url": "http://localhost:3001/secrets/1/edit",
     "method": "GET",
     "requests": [
       {
-        "id": "dafea2c3-5af0-4fce-a976-f789a1acd6d4",
+        "id": "50518422-9e7c-4e18-a6eb-c0ae5203542c",
         "user": "alice@authcov.io",
         "pageUrl": "http://localhost:3001/secrets/1/edit",
         "headers": {
           "upgrade-insecure-requests": "1",
           "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/75.0.3770.100 Safari/537.36",
-          "cookie": "_my_app_session=b4a5be4d310d7f4a6347184dd16c24fb"
+          "cookie": "_my_app_session=49554d94aaf604d5017c27b634eab724"
         },
         "response": {
           "status": 200,
@@ -518,10 +518,10 @@
             "x-permitted-cross-domain-policies": "none",
             "referrer-policy": "strict-origin-when-cross-origin",
             "content-type": "text/html; charset=utf-8",
-            "etag": "W/\"61e43a32ff672bcf91c65b39a17dfbd5\"",
+            "etag": "W/\"cebb55627183a42a9ac1d82b0c804905\"",
             "cache-control": "max-age=0, private, must-revalidate",
-            "x-request-id": "eb215b30-fc52-4a45-9093-28dba384f2ba",
-            "x-runtime": "0.089907",
+            "x-request-id": "27f24cd7-cbdc-4597-8796-a9f1c63570b7",
+            "x-runtime": "0.091723",
             "vary": "Origin",
             "transfer-encoding": "chunked"
           },
@@ -531,18 +531,18 @@
     ]
   },
   {
-    "id": "d620585c-5e0b-4b8e-87d3-d4dee1777b1d",
+    "id": "0e519a52-8f24-49ba-8756-476b8715a0fe",
     "url": "http://localhost:3001/secrets/new",
     "method": "GET",
     "requests": [
       {
-        "id": "6534ecc5-bbcf-42a9-a1fa-e8d198abcde2",
+        "id": "196c0719-096a-4ec6-8b26-ffd29981a95b",
         "user": "alice@authcov.io",
         "pageUrl": "http://localhost:3001/secrets/new",
         "headers": {
           "upgrade-insecure-requests": "1",
           "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/75.0.3770.100 Safari/537.36",
-          "cookie": "_my_app_session=b4a5be4d310d7f4a6347184dd16c24fb"
+          "cookie": "_my_app_session=49554d94aaf604d5017c27b634eab724"
         },
         "response": {
           "status": 200,
@@ -554,10 +554,10 @@
             "x-permitted-cross-domain-policies": "none",
             "referrer-policy": "strict-origin-when-cross-origin",
             "content-type": "text/html; charset=utf-8",
-            "etag": "W/\"b74782f326a9208f8e3659d9a6ac1aea\"",
+            "etag": "W/\"d8fe4a84a578658d09e79858e503a418\"",
             "cache-control": "max-age=0, private, must-revalidate",
-            "x-request-id": "e0dc2436-0ebe-49ca-831a-4be0568adbba",
-            "x-runtime": "0.080531",
+            "x-request-id": "2e51fa65-521d-4317-a387-7e821382bafa",
+            "x-runtime": "0.075267",
             "vary": "Origin",
             "transfer-encoding": "chunked"
           },
