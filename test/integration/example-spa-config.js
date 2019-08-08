@@ -16,6 +16,8 @@ class Config {
     this.type = 'spa';
     this.authenticationType = 'cookie'; // cookie or token
     //this.maxDepth = 0;
+    this.xhrTimeout = 5;  // Wait max 5 seconds for XHR requests to complete
+    this.pageTimeout = 30;
   }
 
   async loginFunction(tab, username, password){
