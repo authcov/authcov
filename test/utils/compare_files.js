@@ -2,66 +2,45 @@ const { expect } = require('chai');
 const fs = require('fs');
 
 function compareApiEndpointsFiles(actualFile, expectedFile) {
-  const apiEndpointsActualJSON = fs.readFileSync(actualFile, {encoding: 'utf8'});
-  const apiEndpointsActual = JSON.parse(apiEndpointsActualJSON);
+  let apiEndpointsActualJSON = fs.readFileSync(actualFile, {encoding: 'utf8'});
+  let apiEndpointsExpectedJSON = fs.readFileSync(expectedFile, {encoding: 'utf8'});
 
-  const apiEndpointsExpectedJSON = fs.readFileSync(expectedFile, {encoding: 'utf8'});
-  const apiEndpointsExpected = JSON.parse(apiEndpointsExpectedJSON);
+  apiEndpointsActualJSON = _removeVolatileApiEndpointData(apiEndpointsActualJSON);
+  apiEndpointsExpectedJSON = _removeVolatileApiEndpointData(apiEndpointsExpectedJSON);
 
-  console.log(`Found actual - ${apiEndpointsActual.length}, expected - ${apiEndpointsExpected.length}`)
+  expect(apiEndpointsActualJSON).to.equal(apiEndpointsExpectedJSON);
+}
 
-  apiEndpointsActual.forEach((apiEndpointActual) => {
-    const apiEndpointExpected = apiEndpointsExpected.find((apiEndpoint) => {
-      return (apiEndpoint.url == apiEndpointActual.url && apiEndpoint.method == apiEndpointActual.method);
-    });
+// These values change every time you run the crawler so lets not use them for comparison
+function _removeVolatileApiEndpointData(str) {
+  str = str.replace(/_my_app_session=[a-z0-9]+;/g, '_my_app_session=<REMOVED>;');
+  str = str.replace(/"etag": "(.)+"/g, '"etag": "<REMOVED>"');
+  str = str.replace(/"x-runtime": "[0-9.]+"/g, '"x-runtime": "<REMOVED>"');
+  str = str.replace(/"x-request-id": "[a-z0-9-]+"/g, '"x-request-id": "<REMOVED>"');
+  str = str.replace(/"date": "[A-Za-z0-9-,:\s]+"/g, '"date": "<REMOVED>"');
+  str = str.replace(/"cookie": "_my_app_session=[a-z0-9]+"/g, '"cookie": "_my_app_session=<REMOVED>"');
+  str = str.replace(/"id": "[a-z0-9-]+"/g, '"id": "<REMOVED>"');
+  str = str.trim();
 
-    console.log(`Comparing apiEndpoint: ${apiEndpointExpected.method} ${apiEndpointExpected.url}`)
-
-    if(apiEndpointExpected === undefined) {
-      throw `Could not find apiEndpointExpected for request: ${apiEndpointActual.method} ${apiEndpointActual.url}`;
-    }
-
-    if(apiEndpointActual.requests.length != apiEndpointExpected.requests.length) {
-      throw `Unequal request length: ${apiEndpointActual.method} ${apiEndpointActual.url}`;
-    }
-
-    expect(apiEndpointActual.requests.length).to.equal(apiEndpointExpected.requests.length);
-
-    for(let i = 0; i < apiEndpointExpected.requests.length; i++) {
-      const actualRequest = apiEndpointActual.requests[i];
-      const expectedRequest = apiEndpointExpected.requests[i];
-
-      expect(actualRequest.user).to.equal(expectedRequest.user);
-      expect(actualRequest.pageUrl).to.equal(expectedRequest.pageUrl);
-
-      if(expectedRequest.response !== undefined) {
-        expect(actualRequest.response.status).to.eql(expectedRequest.response.status);
-        expect(actualRequest.response.authorised).to.eql(expectedRequest.response.authorised);
-      }
-    }
-  });
+  return str;
 }
 
 function comparePagesFiles(actualFile, expectedFile) {
-  const pagesActualJSON = fs.readFileSync(actualFile, {encoding: 'utf8'});
-  const pagesActual = JSON.parse(pagesActualJSON);
+  let pagesActualJSON = fs.readFileSync(actualFile, {encoding: 'utf8'});
+  let pagesExpectedJSON = fs.readFileSync(expectedFile, {encoding: 'utf8'});
 
-  const pagesExpectedJSON = fs.readFileSync(expectedFile, {encoding: 'utf8'});
-  const pagesExpected = JSON.parse(pagesExpectedJSON);
+  pagesActualJSON = _removeVolatilePageData(pagesActualJSON);
+  pagesExpectedJSON = _removeVolatilePageData(pagesExpectedJSON);
 
-  pagesActual.forEach((pageActual) => {
-    const pageExpected = pagesExpected.find((page) => {
-      return (page.pageUrl == pageActual.pageUrl && page.user == pageActual.user);
-    });
+  expect(pagesActualJSON).to.equal(pagesExpectedJSON);
+}
 
-    if(pageExpected === undefined) {
-      throw `Could not find pageExpected for page: ${pageActual.pageUrl}`;
-    }
+function _removeVolatilePageData(str) {
+  str = str.replace(/"id": "[a-z0-9-]+"/g, '"id": "<REMOVED>"');
+  str = str.replace(/"createdAt": "[A-Z0-9-:.]+"/g, '"createdAt": "<REMOVED>"');
+  str = str.trim();
 
-    expect(pageExpected.dialogsOpened).to.eql(pageActual.dialogsOpened);
-    expect(pageExpected.buttonsClicked).to.eql(pageActual.buttonsClicked);
-    expect(pageExpected.buttonsIgnored).to.eql(pageActual.buttonsIgnored);
-  });
+  return str;
 }
 
 module.exports = {

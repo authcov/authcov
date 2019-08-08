@@ -16,6 +16,9 @@ class Config {
     this.type = 'mpa';  // mpa or spa
     this.authenticationType = 'cookie'; // cookie or token
     this.maxDepth = 2;
+    this.xhrTimeout = 5;
+    this.pageTimeout = 30;
+    this.verboseOutput = false;
   }
 
   async loginFunction(tab, username, password){
@@ -34,12 +37,23 @@ class Config {
   }
 
   responseIsAuthorised(response, responseBody) {
+    let response_status;
+    let response_headers;
+
+    try {
+      response_status = response.status();
+      response_headers = response.headers();
+    } catch(error) {
+      response_status = response.status;
+      response_headers = response.headers;
+    }
+
     // If its redirecting to the login page
-    if(response.status() == 302 && response.headers().location.includes('/users/sign_in')) {
+    if(response_status == 302 && response_headers.location.includes('/users/sign_in')) {
       return false;
     }
 
-    if(response.status() == 401) {
+    if(response_status == 401) {
       return false;
     }
 

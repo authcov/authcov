@@ -1,9 +1,9 @@
 [
   {
-    "id": "9592afef-a63b-4ebb-9eab-b30370192206",
+    "id": "80975031-56a5-4de5-b988-2438d9e64530",
     "pageUrl": "http://localhost",
     "user": "alice@authcov.io",
-    "createdAt": "2019-08-02T07:46:26.858Z",
+    "createdAt": "2019-08-08T13:23:53.685Z",
     "dialogsOpened": [],
     "buttonsClicked": [
       "<button>Settings</button>",
@@ -12,10 +12,10 @@
     "buttonsIgnored": []
   },
   {
-    "id": "f57df199-515f-47f2-ae65-ef81051a0651",
+    "id": "5e6bac88-5e37-413a-9028-4d62f18886c8",
     "pageUrl": "http://localhost/",
     "user": "alice@authcov.io",
-    "createdAt": "2019-08-02T07:46:28.335Z",
+    "createdAt": "2019-08-08T13:23:54.774Z",
     "dialogsOpened": [],
     "buttonsClicked": [
       "<button>Settings</button>",
@@ -24,115 +24,37 @@
     "buttonsIgnored": []
   },
   {
-    "id": "7409469b-84da-434d-871d-6c22493e47e9",
-    "pageUrl": "http://localhost/posts",
-    "user": "alice@authcov.io",
-    "createdAt": "2019-08-02T07:46:28.336Z",
-    "dialogsOpened": [],
-    "buttonsClicked": [],
-    "buttonsIgnored": []
-  },
-  {
-    "id": "9a6cd5eb-1863-4f58-b10e-4a0e22be81d7",
-    "pageUrl": "http://localhost/secrets/",
-    "user": "alice@authcov.io",
-    "createdAt": "2019-08-02T07:46:28.337Z",
-    "dialogsOpened": [],
-    "buttonsClicked": [],
-    "buttonsIgnored": []
-  },
-  {
-    "id": "39f45d46-9f2a-4588-be25-4f2224ad8765",
+    "id": "368037e5-8b02-4c1c-bd48-8254017fd408",
     "pageUrl": "http://localhost/about",
     "user": "alice@authcov.io",
-    "createdAt": "2019-08-02T07:46:28.338Z",
+    "createdAt": "2019-08-08T13:23:54.779Z",
     "dialogsOpened": [],
     "buttonsClicked": [],
     "buttonsIgnored": []
   },
   {
-    "id": "b0a9854b-2dd7-45ae-829e-5fe97fa9e6d0",
-    "pageUrl": "http://localhost/secrets/new",
+    "id": "1ddfda2c-decd-404c-af27-0bd8c5559d42",
+    "pageUrl": "http://localhost/posts",
     "user": "alice@authcov.io",
-    "createdAt": "2019-08-02T07:46:29.877Z",
-    "dialogsOpened": [],
-    "buttonsClicked": [],
-    "buttonsIgnored": [
-      "<button>Save</button>"
-    ]
-  },
-  {
-    "id": "19fef8e0-a2fd-460a-99ae-955cae29386d",
-    "pageUrl": "http://localhost/secrets/1",
-    "user": "alice@authcov.io",
-    "createdAt": "2019-08-02T07:46:29.878Z",
+    "createdAt": "2019-08-08T13:23:54.776Z",
     "dialogsOpened": [],
     "buttonsClicked": [],
     "buttonsIgnored": []
   },
   {
-    "id": "38ee6089-f034-4ea7-8607-8489704824f4",
-    "pageUrl": "http://localhost/posts/new",
-    "user": "alice@authcov.io",
-    "createdAt": "2019-08-02T07:46:29.898Z",
-    "dialogsOpened": [],
-    "buttonsClicked": [],
-    "buttonsIgnored": [
-      "<button>Save</button>"
-    ]
-  },
-  {
-    "id": "c8ba1f7b-9492-4c9a-94f0-ffc8779b69dd",
+    "id": "0212bd6f-93e0-4cc0-905c-4734fac61b53",
     "pageUrl": "http://localhost/posts/1",
     "user": "alice@authcov.io",
-    "createdAt": "2019-08-02T07:46:29.899Z",
+    "createdAt": "2019-08-08T13:23:55.951Z",
     "dialogsOpened": [],
     "buttonsClicked": [],
     "buttonsIgnored": []
   },
   {
-    "id": "1745fa28-aa90-4824-942d-c885a47b7c10",
-    "pageUrl": "http://localhost/posts/2",
-    "user": "alice@authcov.io",
-    "createdAt": "2019-08-02T07:46:29.899Z",
-    "dialogsOpened": [],
-    "buttonsClicked": [],
-    "buttonsIgnored": []
-  },
-  {
-    "id": "e55e21f8-beb6-4f9b-be7d-113341fb386a",
-    "pageUrl": "http://localhost/posts/3",
-    "user": "alice@authcov.io",
-    "createdAt": "2019-08-02T07:46:29.900Z",
-    "dialogsOpened": [],
-    "buttonsClicked": [],
-    "buttonsIgnored": []
-  },
-  {
-    "id": "09af67f3-08d4-4478-8d15-e84db1de3bb2",
-    "pageUrl": "http://localhost/posts/4",
-    "user": "alice@authcov.io",
-    "createdAt": "2019-08-02T07:46:29.900Z",
-    "dialogsOpened": [],
-    "buttonsClicked": [],
-    "buttonsIgnored": []
-  },
-  {
-    "id": "478f3516-e95b-4fb8-a3bc-d05c84967db7",
-    "pageUrl": "http://localhost/posts/4/edit",
-    "user": "alice@authcov.io",
-    "createdAt": "2019-08-02T07:46:31.626Z",
-    "dialogsOpened": [],
-    "buttonsClicked": [],
-    "buttonsIgnored": [
-      "<button>Save</button>"
-    ]
-  },
-  {
-    "id": "bffa6aea-c00a-4f8d-9ba5-d021be4008e3",
+    "id": "9adc75c4-4204-4d1d-9a20-0d3276bc4a74",
     "pageUrl": "http://localhost/posts/1/edit",
     "user": "alice@authcov.io",
-    "createdAt": "2019-08-02T07:46:31.642Z",
+    "createdAt": "2019-08-08T13:23:57.246Z",
     "dialogsOpened": [],
     "buttonsClicked": [],
     "buttonsIgnored": [
@@ -140,30 +62,19 @@
     ]
   },
   {
-    "id": "d8ad5cdc-8611-4000-92e4-6e1ff999869a",
-    "pageUrl": "http://localhost/secrets",
+    "id": "de186334-a955-4566-a3ff-6a3ba569b490",
+    "pageUrl": "http://localhost/posts/2",
     "user": "alice@authcov.io",
-    "createdAt": "2019-08-02T07:46:31.644Z",
+    "createdAt": "2019-08-08T13:23:55.952Z",
     "dialogsOpened": [],
     "buttonsClicked": [],
     "buttonsIgnored": []
   },
   {
-    "id": "ffa74dd2-b241-4722-a535-9e8505dadb49",
-    "pageUrl": "http://localhost/secrets/1/edit",
-    "user": "alice@authcov.io",
-    "createdAt": "2019-08-02T07:46:31.645Z",
-    "dialogsOpened": [],
-    "buttonsClicked": [],
-    "buttonsIgnored": [
-      "<button>Save</button>"
-    ]
-  },
-  {
-    "id": "58df118c-49d9-4631-aa33-d697d23c9774",
+    "id": "23e8cb7b-2afb-4fbd-b865-cb23427c6352",
     "pageUrl": "http://localhost/posts/2/edit",
     "user": "alice@authcov.io",
-    "createdAt": "2019-08-02T07:46:31.728Z",
+    "createdAt": "2019-08-08T13:23:57.294Z",
     "dialogsOpened": [],
     "buttonsClicked": [],
     "buttonsIgnored": [
@@ -171,10 +82,99 @@
     ]
   },
   {
-    "id": "9d83ad2c-1a96-4530-b4c4-1c79741cf3b5",
+    "id": "b05e3eed-23fd-4b22-8498-769e2401c673",
+    "pageUrl": "http://localhost/posts/3",
+    "user": "alice@authcov.io",
+    "createdAt": "2019-08-08T13:23:55.953Z",
+    "dialogsOpened": [],
+    "buttonsClicked": [],
+    "buttonsIgnored": []
+  },
+  {
+    "id": "379dbd4f-c487-49c8-bb88-68dbeac7af4d",
     "pageUrl": "http://localhost/posts/3/edit",
     "user": "alice@authcov.io",
-    "createdAt": "2019-08-02T07:46:31.729Z",
+    "createdAt": "2019-08-08T13:23:57.200Z",
+    "dialogsOpened": [],
+    "buttonsClicked": [],
+    "buttonsIgnored": [
+      "<button>Save</button>"
+    ]
+  },
+  {
+    "id": "71673f60-46c9-481a-891a-3cb4b7287e3e",
+    "pageUrl": "http://localhost/posts/4",
+    "user": "alice@authcov.io",
+    "createdAt": "2019-08-08T13:23:55.954Z",
+    "dialogsOpened": [],
+    "buttonsClicked": [],
+    "buttonsIgnored": []
+  },
+  {
+    "id": "c5b4b107-4c26-4d80-9786-73ff0a28bac7",
+    "pageUrl": "http://localhost/posts/4/edit",
+    "user": "alice@authcov.io",
+    "createdAt": "2019-08-08T13:23:57.366Z",
+    "dialogsOpened": [],
+    "buttonsClicked": [],
+    "buttonsIgnored": [
+      "<button>Save</button>"
+    ]
+  },
+  {
+    "id": "7ab4eb0d-1684-4d9f-81c4-2312836b70e4",
+    "pageUrl": "http://localhost/posts/new",
+    "user": "alice@authcov.io",
+    "createdAt": "2019-08-08T13:23:55.950Z",
+    "dialogsOpened": [],
+    "buttonsClicked": [],
+    "buttonsIgnored": [
+      "<button>Save</button>"
+    ]
+  },
+  {
+    "id": "45b49d2e-d34f-4550-bad7-ff4946150c75",
+    "pageUrl": "http://localhost/secrets",
+    "user": "alice@authcov.io",
+    "createdAt": "2019-08-08T13:23:57.462Z",
+    "dialogsOpened": [],
+    "buttonsClicked": [],
+    "buttonsIgnored": []
+  },
+  {
+    "id": "f84dda32-c76a-47a5-94f0-6dd7a62d1a92",
+    "pageUrl": "http://localhost/secrets/",
+    "user": "alice@authcov.io",
+    "createdAt": "2019-08-08T13:23:54.778Z",
+    "dialogsOpened": [],
+    "buttonsClicked": [],
+    "buttonsIgnored": []
+  },
+  {
+    "id": "19a90d25-8f06-4054-a3aa-36d1bc875926",
+    "pageUrl": "http://localhost/secrets/1",
+    "user": "alice@authcov.io",
+    "createdAt": "2019-08-08T13:23:56.075Z",
+    "dialogsOpened": [],
+    "buttonsClicked": [],
+    "buttonsIgnored": []
+  },
+  {
+    "id": "b8a430a8-5a9e-462d-8534-def4dd7f84cd",
+    "pageUrl": "http://localhost/secrets/1/edit",
+    "user": "alice@authcov.io",
+    "createdAt": "2019-08-08T13:23:57.462Z",
+    "dialogsOpened": [],
+    "buttonsClicked": [],
+    "buttonsIgnored": [
+      "<button>Save</button>"
+    ]
+  },
+  {
+    "id": "333bbc78-eb49-412d-96c9-31ec2a581bf9",
+    "pageUrl": "http://localhost/secrets/new",
+    "user": "alice@authcov.io",
+    "createdAt": "2019-08-08T13:23:56.075Z",
     "dialogsOpened": [],
     "buttonsClicked": [],
     "buttonsIgnored": [
