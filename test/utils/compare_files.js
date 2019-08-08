@@ -15,6 +15,8 @@ function compareApiEndpointsFiles(actualFile, expectedFile) {
       return (apiEndpoint.url == apiEndpointActual.url && apiEndpoint.method == apiEndpointActual.method);
     });
 
+    console.log(`Comparing apiEndpoint: ${apiEndpointExpected.method} ${apiEndpointExpected.url}`)
+
     if(apiEndpointExpected === undefined) {
       throw `Could not find apiEndpointExpected for request: ${apiEndpointActual.method} ${apiEndpointActual.url}`;
     }
@@ -31,8 +33,11 @@ function compareApiEndpointsFiles(actualFile, expectedFile) {
 
       expect(actualRequest.user).to.equal(expectedRequest.user);
       expect(actualRequest.pageUrl).to.equal(expectedRequest.pageUrl);
-      expect(actualRequest.response.status).to.eql(expectedRequest.response.status);
-      expect(actualRequest.response.authorised).to.eql(expectedRequest.response.authorised);
+
+      if(expectedRequest.response !== undefined) {
+        expect(actualRequest.response.status).to.eql(expectedRequest.response.status);
+        expect(actualRequest.response.authorised).to.eql(expectedRequest.response.authorised);
+      }
     }
   });
 }

@@ -15,6 +15,10 @@ class Config {
     this.buttonXPath = 'button';
     this.type = 'spa';
     this.authenticationType = 'cookie'; // cookie or token
+    this.maxDepth = 3;
+    this.xhrTimeout = 5;
+    this.pageTimeout = 30;
+    this.verboseOutput = true;
   }
 
   async loginFunction(tab, username, password){
@@ -34,7 +38,11 @@ class Config {
   }
 
   responseIsAuthorised(response) {
-    return (response.status() != 401);
+    try {
+      return (response.status() != 401);
+    } catch(error) { // A hack, because this is run on both crawling  & report generation
+      return (response.status != 401);
+    }
   }
 
   ignoreApiRequest(url, method) {
