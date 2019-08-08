@@ -534,5 +534,61 @@
         }
       }
     ]
+  },
+  {
+    "id": "f2814aa1-35a9-43a7-924f-e0490fcac8d5",
+    "url": "http://localhost/api/slow_request.json?sleep_for=4",
+    "method": "GET",
+    "requests": [
+      {
+        "id": "bbaea8f5-8aa1-4604-98c1-0629c943d5fa",
+        "user": "alice@authcov.io",
+        "pageUrl": "http://localhost/slow/",
+        "headers": {
+          "referer": "http://localhost/slow/",
+          "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/75.0.3770.100 Safari/537.36",
+          "cookie": "_my_app_session=1253fe293056474a64afca73cedb831a"
+        },
+        "response": {
+          "status": 200,
+          "headers": {
+            "date": "Thu, 08 Aug 2019 13:48:09 GMT",
+            "x-content-type-options": "nosniff",
+            "x-permitted-cross-domain-policies": "none",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "vary": "Origin",
+            "x-xss-protection": "1; mode=block",
+            "x-request-id": "8e1d0be0-7256-466f-b0c5-21f62a28a4a1",
+            "x-runtime": "4.005040",
+            "referrer-policy": "strict-origin-when-cross-origin",
+            "server": "nginx/1.17.2",
+            "etag": "W/\"cb5aa9aa1aeae0c83bdb2f9a0ddc4b9e\"",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "content-type": "application/json; charset=utf-8",
+            "cache-control": "max-age=0, private, must-revalidate"
+          },
+          "authorised": true
+        }
+      }
+    ]
+  },
+  {
+    "id": "82977d8b-58c9-4c52-9f8f-253d92368c70",
+    "url": "http://localhost/api/slow_request.json?sleep_for=6",
+    "method": "GET",
+    "requests": [
+      {
+        "id": "cead06d0-fa47-4e32-a1cc-fbbca8e3b822",
+        "user": "alice@authcov.io",
+        "pageUrl": "http://localhost/really_slow/",
+        "headers": {
+          "referer": "http://localhost/really_slow/",
+          "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/75.0.3770.100 Safari/537.36",
+          "cookie": "_my_app_session=1253fe293056474a64afca73cedb831a"
+        }
+      }
+    ]
   }
 ]
