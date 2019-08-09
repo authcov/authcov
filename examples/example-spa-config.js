@@ -1,8 +1,8 @@
 const options = {
   "crawlUser": {"username": 'alice@authcov.io', "password": 'password'},
   "intruders": [
-    {"username": 'Public', "password": null},
-    {"username": 'bob@authcov.io', "password": 'password'}
+    {"username": 'bob@authcov.io', "password": 'password'},
+    {"username": 'Public', "password": null}
   ],
   "authorisationHeaders": ['cookie'],
   "baseUrl": "http://localhost/",
