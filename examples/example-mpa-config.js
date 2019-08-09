@@ -21,7 +21,6 @@ const options = {
 };
 
 const loginFunction = async function(tab, username, password){
-  console.log(`Logging in as ${username}...`);
   await tab.goto('http://localhost:3001/users/sign_in');
   await tab.waitForSelector('input[type=email]');
   await tab.waitForSelector('input[type=password]');

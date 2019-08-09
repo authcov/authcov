@@ -22,8 +22,6 @@ class Config {
   }
 
   async loginFunction(tab, username, password){
-    console.log(`Logging in as ${username}...`);
-
     await tab.goto('http://localhost:3000');
 
     await tab.waitForSelector('#login-trigger');
