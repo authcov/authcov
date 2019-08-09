@@ -15,6 +15,7 @@
     "ejs": "^2.6.2",
     "events": "^3.0.0",
     "lodash": "^4.17.13",
+    "path": "^0.12.7",
     "pending-xhr-puppeteer": "^2.0.0",
     "puppeteer-core": "^1.18.1",
     "request": "^2.88.0",
