@@ -10,7 +10,7 @@ describe('ApiEndpointData', () => {
           {username: 'evanrolfe@onescan.io', password: 'Password1'},
           {username: 'evanrolfe@gmail.com', password: 'Password2'}
         ],
-        authorisationHeaders: ['authorization'],
+        options: { authorisationHeaders: ['authorization'] },
         responseIsAuthorised: (response, body) => { return true; }
       }
       this.apiEndpointData = new ApiEndpointData({config: config});
@@ -41,7 +41,7 @@ describe('ApiEndpointData', () => {
           {username: 'evanrolfe@onescan.io', password: 'Password1'},
           {username: 'evanrolfe@gmail.com', password: 'Password2'}
         ],
-        authorisationHeaders: ['authorization'],
+        options: { authorisationHeaders: ['authorization'] },
         responseIsAuthorised: (response, body) => { return true; }
       }
       this.apiEndpointData = new ApiEndpointData({config: config});
@@ -105,7 +105,7 @@ describe('ApiEndpointData', () => {
           {username: 'evanrolfe@onescan.io', password: 'Password1'},
           {username: 'evanrolfe@gmail.com', password: 'Password2'}
         ],
-        authorisationHeaders: ['authorization'],
+        options: { authorisationHeaders: ['authorization'] },
         responseIsAuthorised: (response, body) => { return true; }
       }
       this.apiEndpointData = new ApiEndpointData({config: config});

@@ -5,9 +5,8 @@ const PageData = require('../lib/data/page-data.js');
 // TODO: Make require paths from root dir
 // https://gist.github.com/branneman/8048520
 const configFilePath = process.argv[2];
-const Config = require(configFilePath);
+const config = require(configFilePath);
 
-const config = new Config();
 const apiEndpointData = new ApiEndpointData({config: config});
 const pageData = new PageData({config: config});
 const usersCrawler = new UsersCrawler(config, apiEndpointData, pageData);

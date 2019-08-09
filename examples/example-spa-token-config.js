@@ -15,6 +15,9 @@ class Config {
     this.authenticationType = 'token'; // cookie or token
     this.authorisationHeaders = ['authorization'];
     this.tokenTriggeringPage = 'http://localhost:3000/secrets';
+    this.xhrTimeout = 5;
+    this.pageTimeout = 30;
+    this.verboseOutput = false;
   }
 
   async loginFunction(tab, username, password){
