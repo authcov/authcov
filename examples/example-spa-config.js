@@ -8,16 +8,18 @@ const options = {
   ],
   "authorisationHeaders": ['cookie'],
   "baseUrl": "http://localhost/",
+  "type": 'spa',
+  "authenticationType": 'cookie', // cookie or token
+  "maxDepth": 3,
+
+  // Extras:
+  "verboseOutput": false,
   "saveResponses": true,
   "saveScreenshots": true,
   "clickButtons": true,
   "buttonXPath": 'button',
-  "type": 'spa',
-  "authenticationType": 'cookie', // cookie or token
-  "maxDepth": 3,
   "xhrTimeout": 5,
   "pageTimeout": 30,
-  "verboseOutput": true
 };
 
 const loginFunction = async function(tab, username, password){
@@ -36,12 +38,8 @@ const loginFunction = async function(tab, username, password){
   return;
 };
 
-const responseIsAuthorised = function(response) {
-  try {
-    return (response.status() != 401);
-  } catch(error) { // A hack, because this is run on both crawling  & report generation
-    return (response.status != 401);
-  }
+const responseIsAuthorised = function(status, headers, body) {
+  return (status != 401);
 };
 
 const ignoreApiRequest = function(url, method) {

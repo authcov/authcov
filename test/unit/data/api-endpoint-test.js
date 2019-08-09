@@ -59,7 +59,7 @@ describe('ApiEndpoint', () => {
             {username: 'evanrolfe@gmail.com', password: 'Password2'}
           ],
           authorisationHeaders: ['authorization'],
-          responseIsAuthorised: (response, body) => { return (response.status == 200); }
+          responseIsAuthorised: (status, headers, body) => { return (status == 200); }
         };
         this.apiEndpoint = new ApiEndpoint(data, config);
       });
@@ -114,7 +114,7 @@ describe('ApiEndpoint', () => {
             {username: 'evanrolfe@gmail.com', password: 'Password2'}
           ],
           authorisationHeaders: ['authorization'],
-          responseIsAuthorised: (response, body) => { return (response.status == 200); }
+          responseIsAuthorised: (status, headers, body) => { return (status == 200); }
         };
         this.apiEndpoint = new ApiEndpoint(data, config);
       });

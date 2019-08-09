@@ -35,9 +35,9 @@ const loginFunction = async function(tab, username, password){
   return;
 }
 
-const responseIsAuthorised = function(response) {
-  return (response.status() != 401);
-}
+const responseIsAuthorised = function(status, headers, body) {
+  return (status != 401);
+};
 
 const ignoreApiRequest = function(url, method) {
   if(url.includes('http://localhost/sockjs-node')){

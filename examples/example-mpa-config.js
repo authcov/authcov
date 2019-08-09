@@ -17,7 +17,7 @@ const options = {
   "maxDepth": 3,
   "xhrTimeout": 5,
   "pageTimeout": 30,
-  "verboseOutput": true
+  "verboseOutput": false
 };
 
 const loginFunction = async function(tab, username, password){
@@ -35,24 +35,13 @@ const loginFunction = async function(tab, username, password){
   return;
 };
 
-const responseIsAuthorised = function(response, responseBody) {
-  let response_status;
-  let response_headers;
-
-  try {
-    response_status = response.status();
-    response_headers = response.headers();
-  } catch(error) {
-    response_status = response.status;
-    response_headers = response.headers;
-  }
-
+const responseIsAuthorised = function(status, headers, body) {
   // If its redirecting to the login page
-  if(response_status == 302 && response_headers.location.includes('/users/sign_in')) {
+  if(status == 302 && headers.location.includes('/users/sign_in')) {
     return false;
   }
 
-  if(response_status == 401) {
+  if(status == 401) {
     return false;
   }
 
