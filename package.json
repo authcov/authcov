@@ -5,9 +5,13 @@
   "scripts": {
     "test": "mocha"
   },
+  "bin": {
+    "authcov": "bin/authcov"
+  },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "commander": "^3.0.0",
     "ejs": "^2.6.2",
     "events": "^3.0.0",
     "lodash": "^4.17.13",
