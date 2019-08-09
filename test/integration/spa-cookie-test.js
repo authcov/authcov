@@ -7,11 +7,11 @@ const PageData = require('../../lib/data/page-data.js');
 const Config = require('./example-spa-config.js');
 const CompareFiles = require('../utils/compare_files.js');
 
-const webAppConfig = new Config();
-const apiEndpointData = new ApiEndpointData({webAppConfig: webAppConfig});
-const pageData = new PageData({webAppConfig: webAppConfig});
-const usersCrawler = new UsersCrawler(webAppConfig, apiEndpointData, pageData);
-const usersIntruder = new UsersIntruder(webAppConfig, apiEndpointData);
+const config = new Config();
+const apiEndpointData = new ApiEndpointData({config: config});
+const pageData = new PageData({config: config});
+const usersCrawler = new UsersCrawler(config, apiEndpointData, pageData);
+const usersIntruder = new UsersIntruder(config, apiEndpointData);
 
 // TODO: Make this tell you which apirequest is failing if it fails
 describe('UsersCrawler for SPA with cookie-based auth', () => {

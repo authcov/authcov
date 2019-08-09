@@ -4,7 +4,7 @@ const ApiEndpointData = require('../../../lib/data/api-endpoint-data.js'); // TO
 describe('ApiEndpointData', () => {
   describe('#findAuthorisationHeadersForUsername()', () => {
     beforeEach(() => {
-      const webAppConfig = {
+      const config = {
         users: [
           {username: 'Public', password: null},
           {username: 'evanrolfe@onescan.io', password: 'Password1'},
@@ -13,7 +13,7 @@ describe('ApiEndpointData', () => {
         authorisationHeaders: ['authorization'],
         responseIsAuthorised: (response, body) => { return true; }
       }
-      this.apiEndpointData = new ApiEndpointData({webAppConfig: webAppConfig});
+      this.apiEndpointData = new ApiEndpointData({config: config});
       this.apiEndpointData.loadFile('./test/unit/fixtures/api_endpoints.json');
     });
 
@@ -35,7 +35,7 @@ describe('ApiEndpointData', () => {
 
   describe('#findIntrusionRequestsForUsername()', () => {
     beforeEach(() => {
-      const webAppConfig = {
+      const config = {
         users: [
           {username: 'Public', password: null},
           {username: 'evanrolfe@onescan.io', password: 'Password1'},
@@ -44,7 +44,7 @@ describe('ApiEndpointData', () => {
         authorisationHeaders: ['authorization'],
         responseIsAuthorised: (response, body) => { return true; }
       }
-      this.apiEndpointData = new ApiEndpointData({webAppConfig: webAppConfig});
+      this.apiEndpointData = new ApiEndpointData({config: config});
       this.apiEndpointData.loadFile('./test/unit/fixtures/api_endpoints.json');
     });
 
@@ -99,7 +99,7 @@ describe('ApiEndpointData', () => {
 
   describe('#apiResponseCallback()', () => {
     beforeEach(() => {
-      const webAppConfig = {
+      const config = {
         users: [
           {username: 'Public', password: null},
           {username: 'evanrolfe@onescan.io', password: 'Password1'},
@@ -108,7 +108,7 @@ describe('ApiEndpointData', () => {
         authorisationHeaders: ['authorization'],
         responseIsAuthorised: (response, body) => { return true; }
       }
-      this.apiEndpointData = new ApiEndpointData({webAppConfig: webAppConfig});
+      this.apiEndpointData = new ApiEndpointData({config: config});
 
       this.mockResponse = {
         url() { return 'http://localhost:3001/secrets/1.json' },

@@ -1,11 +1,11 @@
 const Crawler = require('../lib/crawler/crawler.js');
 const ApiEndpointData = require('../lib/data/api-endpoint-data.js');
 const PageData = require('../lib/data/page-data.js');
-const ExampleMpaConfig = require('./example-mpa-config.js');
+const Config = require('../examples/obs-config.js');
 
-const webAppConfig = new ExampleMpaConfig();
-const apiEndpointData = new ApiEndpointData({webAppConfig: webAppConfig});
-const pageData = new PageData({webAppConfig: webAppConfig});
+const config = new Config();
+const apiEndpointData = new ApiEndpointData({config: config});
+const pageData = new PageData({config: config});
 
 
 // google-chrome --remote-debugging-port=9222 --disable-web-security --user-data-dir=/home/evan/.chrome --headless
@@ -13,11 +13,11 @@ const pageData = new PageData({webAppConfig: webAppConfig});
   const crawler = await Crawler.init({
     apiEndpointData: apiEndpointData,
     pageData: pageData,
-    webAppConfig: webAppConfig,
+    config: config,
     maxConcurrency: 10
   });
 
-  await crawler.login(webAppConfig.users[1].username, webAppConfig.users[1].password);
+  await crawler.login(config.users[0].username, config.users[0].password);
   await crawler.close();
   return;
 })();

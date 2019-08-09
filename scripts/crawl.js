@@ -7,10 +7,10 @@ const PageData = require('../lib/data/page-data.js');
 const configFilePath = process.argv[2];
 const Config = require(configFilePath);
 
-const webAppConfig = new Config();
-const apiEndpointData = new ApiEndpointData({webAppConfig: webAppConfig});
-const pageData = new PageData({webAppConfig: webAppConfig});
-const usersCrawler = new UsersCrawler(webAppConfig, apiEndpointData, pageData);
+const config = new Config();
+const apiEndpointData = new ApiEndpointData({config: config});
+const pageData = new PageData({config: config});
+const usersCrawler = new UsersCrawler(config, apiEndpointData, pageData);
 
 // google-chrome --remote-debugging-port=9222 --disable-web-security --user-data-dir=/home/evan/.chrome --headless
 (async () => {

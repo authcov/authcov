@@ -9,7 +9,7 @@ class Config {
     ];
     this.authorisationHeaders = ['cookie'];
     this.baseUrl = 'http://localhost';
-    this.saveResponses = false;
+    this.saveResponses = true;
     this.saveScreenshots = true;
     this.clickButtons = true;
     this.buttonXPath = 'button';
@@ -60,8 +60,6 @@ class Config {
 
     return false;
   }
-
-  //TODO: Add authorised checking function here
 }
 
 module.exports = Config;

@@ -5,10 +5,10 @@ const PageData = require('../lib/data/page-data.js');
 
 const configFilePath = process.argv[2];
 const Config = require(configFilePath);
-const webAppConfig = new Config();
+const config = new Config();
 
-const apiEndpointData = new ApiEndpointData({webAppConfig: webAppConfig});
-const pageData = new PageData({webAppConfig: webAppConfig});
+const apiEndpointData = new ApiEndpointData({config: config});
+const pageData = new PageData({config: config});
 apiEndpointData.loadFile('./tmp/api_endpoints.json');
 pageData.loadFile('./tmp/pages.json');
 

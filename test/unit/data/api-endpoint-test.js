@@ -52,7 +52,7 @@ describe('ApiEndpoint', () => {
             }
           ]
         };
-        const webAppConfig = {
+        const config = {
           users: [
             {username: 'Public', password: null},
             {username: 'evanrolfe@onescan.io', password: 'Password1'},
@@ -61,7 +61,7 @@ describe('ApiEndpoint', () => {
           authorisationHeaders: ['authorization'],
           responseIsAuthorised: (response, body) => { return (response.status == 200); }
         };
-        this.apiEndpoint = new ApiEndpoint(data, webAppConfig);
+        this.apiEndpoint = new ApiEndpoint(data, config);
       });
 
       it('should return the aclKey', () => {
@@ -107,7 +107,7 @@ describe('ApiEndpoint', () => {
             }
           ]
         };
-        const webAppConfig = {
+        const config = {
           users: [
             {username: 'Public', password: null},
             {username: 'evanrolfe@onescan.io', password: 'Password1'},
@@ -116,7 +116,7 @@ describe('ApiEndpoint', () => {
           authorisationHeaders: ['authorization'],
           responseIsAuthorised: (response, body) => { return (response.status == 200); }
         };
-        this.apiEndpoint = new ApiEndpoint(data, webAppConfig);
+        this.apiEndpoint = new ApiEndpoint(data, config);
       });
 
       it('should not include the incomplete request in the aclKey', () => {

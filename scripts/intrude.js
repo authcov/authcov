@@ -6,11 +6,11 @@ const ApiEndpointData = require('../lib/data/api-endpoint-data.js');
 const configFilePath = process.argv[2];
 const Config = require(configFilePath);
 
-const webAppConfig = new Config();
-const apiEndpointData = new ApiEndpointData({webAppConfig: webAppConfig});
+const config = new Config();
+const apiEndpointData = new ApiEndpointData({config: config});
 apiEndpointData.loadFile('./tmp/api_endpoints.json');
 
-const usersIntruder = new UsersIntruder(webAppConfig, apiEndpointData);
+const usersIntruder = new UsersIntruder(config, apiEndpointData);
 
 (async () => {
   usersIntruder.start();
