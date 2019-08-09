@@ -15,7 +15,10 @@ const options = {
   "maxDepth": 2,
   "xhrTimeout": 5,  // Wait max 5 seconds for XHR requests to complete
   "pageTimeout": 30,
-  "verboseOutput": false
+  "verboseOutput": false,
+  "apiEndpointsFile": "./tmp/api_endpoints.json",
+  "pagesFile": "./tmp/pages.json",
+  "reportPath": "./tmp/report"
 };
 
 const loginFunction = async function(tab, username, password){

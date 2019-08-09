@@ -14,7 +14,10 @@ const options = {
   "authenticationType": 'cookie', // cookie or token
   "maxDepth": 3,
   "xhrTimeout": 5,  // Wait max 5 seconds for XHR requests to complet,
-  "pageTimeout": 30
+  "pageTimeout": 30,
+  "apiEndpointsFile": "./tmp/api_endpoints.json",
+  "pagesFile": "./tmp/pages.json",
+  "reportPath": "./tmp/report"
 };
 
 const loginFunction = async function(tab, username, password){

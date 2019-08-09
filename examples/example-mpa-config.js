@@ -15,7 +15,10 @@ const options = {
   "maxDepth": 3,
   "xhrTimeout": 5,
   "pageTimeout": 30,
-  "verboseOutput": false
+  "verboseOutput": false,
+  "apiEndpointsFile": "./tmp/api_endpoints.json",
+  "pagesFile": "./tmp/pages.json",
+  "reportPath": "./tmp/report"
 };
 
 const loginFunction = async function(tab, username, password){
@@ -47,7 +50,6 @@ const responseIsAuthorised = function(status, headers, body) {
 
 const ignoreLink = function(url) {
   if(url.includes('/users/sign_out')) {
-    console.log(`Ignoring link: ${url}`);
     return true;
   }
 

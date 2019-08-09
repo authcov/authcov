@@ -18,6 +18,9 @@ const options = {
   "buttonXPath": 'button',
   "xhrTimeout": 5,
   "pageTimeout": 30,
+  "apiEndpointsFile": "./tmp/api_endpoints.json",
+  "pagesFile": "./tmp/pages.json",
+  "reportPath": "./tmp/report"
 };
 
 const loginFunction = async function(tab, username, password){
