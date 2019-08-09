@@ -4,8 +4,7 @@ const ApiEndpointsPresenter = require('../lib/data/api-endpoints-presenter.js');
 const PageData = require('../lib/data/page-data.js');
 
 const configFilePath = process.argv[2];
-const Config = require(configFilePath);
-const config = new Config();
+const config = require(configFilePath);
 
 const apiEndpointData = new ApiEndpointData({config: config});
 const pageData = new PageData({config: config});
