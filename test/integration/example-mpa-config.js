@@ -1,7 +1,5 @@
 const options = {
-  "users": [
-    {"username": "alice@authcov.io", "password": "password"}
-  ],
+  "crawlUser": {"username": 'alice@authcov.io', "password": 'password'},
   "intruders": [
     {"username": "Public", "password": null},
     {"username": "bob@authcov.io", "password": "password"}
