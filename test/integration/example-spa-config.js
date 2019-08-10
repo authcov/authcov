@@ -56,10 +56,19 @@ const ignoreButton = function(outerHTML) {
   return false;
 }
 
+const ignoreLink = function(url) {
+  if(url.includes('/slow') || url.includes('/really_slow')) {
+    return true;
+  }
+
+  return false;
+};
+
 module.exports = {
   options: options,
   loginFunction: loginFunction,
   responseIsAuthorised: responseIsAuthorised,
   ignoreApiRequest: ignoreApiRequest,
-  ignoreButton: ignoreButton
+  ignoreButton: ignoreButton,
+  ignoreLink: ignoreLink
 };
