@@ -3,7 +3,7 @@ const fs = require('fs');
 
 const UsersIntruder = require('../../lib/intruder/users-intruder.js');
 const ApiEndpointData = require('../../lib/data/api-endpoint-data.js');
-const config = require('./configs/example-spa-config.js');
+const config = require('./configs/spa-config.js');
 const CompareFiles = require('../utils/compare_files.js');
 
 describe('Intruding SPA with cookie-based auth', () => {

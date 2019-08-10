@@ -3,7 +3,7 @@ const fs = require('fs');
 
 const UsersIntruder = require('../../lib/intruder/users-intruder.js');
 const ApiEndpointData = require('../../lib/data/api-endpoint-data.js');
-const config = require('./configs/example-mpa-config.js');
+const config = require('./configs/mpa-config.js');
 const CompareFiles = require('../utils/compare_files.js');
 
 // TODO: Make this tell you which apirequest is failing if it fails

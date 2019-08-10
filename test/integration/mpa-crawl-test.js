@@ -3,7 +3,7 @@ const { expect } = require('chai');
 const UsersCrawler = require('../../lib/crawler/users-crawler.js');
 const ApiEndpointData = require('../../lib/data/api-endpoint-data.js');
 const PageData = require('../../lib/data/page-data.js');
-const config = require('./configs/example-mpa-config.js');
+const config = require('./configs/mpa-config.js');
 const CompareFiles = require('../utils/compare_files.js');
 
 const apiEndpointData = new ApiEndpointData({config: config});
