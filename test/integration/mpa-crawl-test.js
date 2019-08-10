@@ -3,7 +3,7 @@ const { expect } = require('chai');
 const UsersCrawler = require('../../lib/crawler/users-crawler.js');
 const ApiEndpointData = require('../../lib/data/api-endpoint-data.js');
 const PageData = require('../../lib/data/page-data.js');
-const config = require('./example-mpa-config.js');
+const config = require('./configs/example-mpa-config.js');
 const CompareFiles = require('../utils/compare_files.js');
 
 const apiEndpointData = new ApiEndpointData({config: config});
@@ -14,8 +14,8 @@ describe('UsersCrawler for MPA with cookie-based auth', () => {
   describe('./tmp/api_endpoints.json', () => {
     it('should save apiRequests for users: Public, evanrolfe@gmail.com, evanrolfe@onescan.io', async () => {
       await usersCrawler.start();
-      CompareFiles.compareApiEndpointsFiles('./tmp/api_endpoints.json', './test/integration/expected_output/mpa_cookie_api_endpoints.json');
-      CompareFiles.comparePagesFiles('./tmp/pages.json', './test/integration/expected_output/mpa_cookie_pages.json');
+      CompareFiles.compareApiEndpointsFiles('./tmp/api_endpoints.json', './test/integration/expected_output/mpa_crawl_api_endpoints.json');
+      CompareFiles.comparePagesFiles('./tmp/pages.json', './test/integration/expected_output/mpa_crawl_pages.json');
     });
   });
 });
