@@ -7,8 +7,8 @@ const options = {
   "authorisationHeaders": ['cookie'],
   "baseUrl": 'http://localhost:3001',
   "saveResponses": false,
-  "saveScreenshots": true,
-  "clickButtons": true,
+  "saveScreenshots": false,
+  "clickButtons": false,
   "buttonXPath": 'button',
   "type": 'mpa',  // mpa or spa
   "authenticationType": 'cookie', // cookie or token
