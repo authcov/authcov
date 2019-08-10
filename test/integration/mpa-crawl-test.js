@@ -14,8 +14,8 @@ describe('UsersCrawler for MPA with cookie-based auth', () => {
   describe('./tmp/api_endpoints.json', () => {
     it('should save apiRequests for users: Public, evanrolfe@gmail.com, evanrolfe@onescan.io', async () => {
       await usersCrawler.start();
-      CompareFiles.compareApiEndpointsFiles('./tmp/api_endpoints.json', './test/integration/expected_output/mpa_crawl_api_endpoints.json');
-      CompareFiles.comparePagesFiles('./tmp/pages.json', './test/integration/expected_output/mpa_crawl_pages.json');
+      CompareFiles.compareApiEndpointsFiles('./tmp/api_endpoints.json', './test/integration/expected_output/spa_button_click_api_endpoints.json');
+      CompareFiles.comparePagesFiles('./tmp/pages.json', './test/integration/expected_output/spa_button_click_pages.json');
     });
   });
 });
