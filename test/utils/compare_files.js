@@ -8,6 +8,9 @@ function compareApiEndpointsFiles(actualFile, expectedFile) {
   apiEndpointsActualJSON = _removeVolatileApiEndpointData(apiEndpointsActualJSON);
   apiEndpointsExpectedJSON = _removeVolatileApiEndpointData(apiEndpointsExpectedJSON);
 
+  //fs.writeFileSync('./tmp/api_endpoints_expected.json', apiEndpointsExpectedJSON, {encoding: 'utf8'});
+  //fs.writeFileSync('./tmp/api_endpoints_actual.json', apiEndpointsActualJSON, {encoding: 'utf8'});
+
   expect(apiEndpointsActualJSON).to.equal(apiEndpointsExpectedJSON);
 }
 

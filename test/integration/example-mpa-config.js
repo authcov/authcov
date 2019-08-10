@@ -50,7 +50,6 @@ const responseIsAuthorised = function(status, headers, body) {
 
 const ignoreLink = function(url) {
   if(url.includes('/users/sign_out')) {
-    console.log(`Ignoring link: ${url}`);
     return true;
   }
 
