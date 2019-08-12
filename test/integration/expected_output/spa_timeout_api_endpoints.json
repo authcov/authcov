@@ -1,0 +1,19 @@
+[
+  {
+    "id": "5bb7972b-6e0b-4b4d-ab50-b3917ba6a5f3",
+    "url": "http://localhost/api/slow_request.json?sleep_for=6",
+    "method": "GET",
+    "requests": [
+      {
+        "id": "5c073112-4f35-4a6a-b65c-0e66a4e91fad",
+        "user": "alice@authcov.io",
+        "pageUrl": "http://localhost/really_slow",
+        "headers": {
+          "referer": "http://localhost/really_slow",
+          "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/75.0.3770.100 Safari/537.36",
+          "cookie": "_my_app_session=b699bbb88b3fbfb51888fbb9bc5e7d58"
+        }
+      }
+    ]
+  }
+]
