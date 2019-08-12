@@ -12,6 +12,7 @@ describe('UsersCrawler for SPA with cookie-based auth', () => {
       // Deep clone the config and set clickButtons to true
       const configButtonClick = Object.assign({}, config);
       configButtonClick.options = Object.assign({}, configButtonClick.options);
+      configButtonClick.options.crawlUser = {username: 'Public', password: null};
       configButtonClick.options.baseUrl = 'http://localhost/really_slow';
       configButtonClick.options.maxDepth = 0;
 
