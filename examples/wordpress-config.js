@@ -12,7 +12,7 @@ const options = {
   "buttonXPath": 'button',
   "type": 'mpa',  // mpa or spa
   "authenticationType": 'cookie', // cookie or token
-  "maxDepth": 2,
+  "maxDepth": 1,
   "xhrTimeout": 5,
   "pageTimeout": 30,
   "apiEndpointsFile": "./tmp/api_endpoints.json",
