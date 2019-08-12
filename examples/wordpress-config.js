@@ -1,7 +1,7 @@
 const options = {
   "crawlUser": {"username": 'evan', "password": 'fdsklj34'},
   "intruders": [
-    {username: 'contributer', password: 'contributorspassword'},
+    {username: 'contributer1', password: 'contributorspassword'},
     {username: 'Public', password: null}
   ],
   "authorisationHeaders": ['cookie'],
@@ -12,23 +12,25 @@ const options = {
   "buttonXPath": 'button',
   "type": 'mpa',  // mpa or spa
   "authenticationType": 'cookie', // cookie or token
-  "maxDepth": 1,
+  // For example, in wordpress the admin cookie is restricted to the path: /wp-admin
+  "cookiesTriggeringPage": 'http://localhost:8000/wp-admin/profile.php',
+  "maxDepth": 2,
   "xhrTimeout": 5,
   "pageTimeout": 30,
   "apiEndpointsFile": "./tmp/api_endpoints.json",
   "pagesFile": "./tmp/pages.json",
   "reportPath": "./tmp/report",
-  "verboseOutput": false
+  "verboseOutput": false,
 };
 
 const loginFunction = async function(tab, username, password){
   await tab.goto('http://localhost:8000/wp-login.php');
   await tab.waitForSelector('#user_login');
   await tab.waitForSelector('#user_pass');
-
-  await tab.type('#user_login', username);
-  await tab.type('#user_pass', password);
-
+  await tab.waitFor(500);
+  await tab.type('#user_login', username, {delay: 100});
+  await tab.type('#user_pass', password, {delay: 100});
+  await tab.waitFor(500);
   await tab.tap('input[type=submit]');
   await tab.waitFor(500);
 
