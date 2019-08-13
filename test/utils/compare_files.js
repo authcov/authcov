@@ -23,6 +23,7 @@ function _removeVolatileApiEndpointData(str) {
   str = str.replace(/"date": "[A-Za-z0-9-,:\s]+"/g, '"date": "<REMOVED>"');
   str = str.replace(/"cookie": "_my_app_session=[a-z0-9]+"/g, '"cookie": "_my_app_session=<REMOVED>"');
   str = str.replace(/"id": "[a-z0-9-]+"/g, '"id": "<REMOVED>"');
+  str = str.replace(/"user-agent": "(.)+"/g, '"user-agent": "<REMOVED>"');
   str = str.trim();
 
   return str;

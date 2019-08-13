@@ -1,16 +1,17 @@
 [
   {
-    "id": "3cfac9d8-6d29-4f7a-b7c5-c73217bdcb34",
+    "id": "830d3098-2f54-4055-8a97-475fc51451f0",
     "url": "http://localhost/api/slow_request.json?sleep_for=6",
     "method": "GET",
     "requests": [
       {
-        "id": "0f722fca-b92e-4ae4-8f6f-054c01fedc8a",
+        "id": "350786ba-14ac-4a58-88b5-93399e2a3891",
         "user": "Public",
         "pageUrl": "http://localhost/really_slow",
         "headers": {
+          "sec-fetch-mode": "cors",
           "referer": "http://localhost/really_slow",
-          "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/75.0.3770.100 Safari/537.36"
+          "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/77.0.3844.0 Safari/537.36"
         }
       }
     ]
