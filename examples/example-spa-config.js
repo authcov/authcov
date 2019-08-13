@@ -1,26 +1,25 @@
 const options = {
   "crawlUser": {"username": 'alice@authcov.io', "password": 'password'},
   "intruders": [
-    {"username": 'bob@authcov.io', "password": 'password'},
-    {"username": 'Public', "password": null}
+    {"username": 'Public', "password": null},
+    {"username": 'bob@authcov.io', "password": 'password'}
   ],
   "authorisationHeaders": ['cookie'],
-  "baseUrl": "http://localhost/",
+  "baseUrl": 'http://localhost',
+  "saveResponses": false,
+  "saveScreenshots": false,
+  "clickButtons": false,
+  "buttonXPath": 'button',
   "type": 'spa',
   "authenticationType": 'cookie', // cookie or token
   "maxDepth": 3,
-
-  // Extras:
-  "verboseOutput": false,
-  "saveResponses": true,
-  "saveScreenshots": true,
-  "clickButtons": true,
-  "buttonXPath": 'button',
-  "xhrTimeout": 5,
+  "xhrTimeout": 5,  // Wait max 5 seconds for XHR requests to complet,
   "pageTimeout": 30,
   "apiEndpointsFile": "./tmp/api_endpoints.json",
   "pagesFile": "./tmp/pages.json",
-  "reportPath": "./tmp/report"
+  "reportPath": "./tmp/report",
+  "verboseOutput": false,
+  "browserURL": "http://localhost:9222"
 };
 
 const loginFunction = async function(tab, username, password){
@@ -36,7 +35,7 @@ const loginFunction = async function(tab, username, password){
   await tab.waitFor(1000);
 
   return;
-};
+}
 
 const responseIsAuthorised = function(status, headers, body) {
   return (status != 401);
@@ -58,10 +57,19 @@ const ignoreButton = function(outerHTML) {
   return false;
 }
 
+const ignoreLink = function(url) {
+  if(url.includes('/slow') || url.includes('/really_slow')) {
+    return true;
+  }
+
+  return false;
+};
+
 module.exports = {
   options: options,
   loginFunction: loginFunction,
   responseIsAuthorised: responseIsAuthorised,
   ignoreApiRequest: ignoreApiRequest,
-  ignoreButton: ignoreButton
+  ignoreButton: ignoreButton,
+  ignoreLink: ignoreLink
 };
