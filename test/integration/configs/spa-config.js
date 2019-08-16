@@ -18,7 +18,8 @@ const options = {
   "apiEndpointsFile": "./tmp/api_endpoints.json",
   "pagesFile": "./tmp/pages.json",
   "reportPath": "./tmp/report",
-  "verboseOutput": false
+  "verboseOutput": false,
+  "headless": true
 };
 
 const loginFunction = async function(tab, username, password){

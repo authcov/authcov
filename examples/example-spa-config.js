@@ -19,7 +19,7 @@ const options = {
   "pagesFile": "./tmp/pages.json",
   "reportPath": "./tmp/report",
   "verboseOutput": false,
-  "browserURL": "http://localhost:9222"
+  "headless": true
 };
 
 const loginFunction = async function(tab, username, password){

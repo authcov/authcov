@@ -1,91 +1,99 @@
-class Config {
-  constructor() {
-    this.users = [
-      {username: 'Admin', password: 'opensuse'}
-    ];
-    this.intruders = [
-      {username: 'Public', password: null}
-    ];
-    this.authorisationHeaders = ['cookie'];
-    this.baseUrl = 'http://localhost:3000';
-    this.saveResponses = true;
-    this.saveScreenshots = true;
-    this.clickButtons = false;
-    this.buttonXPath = 'button';
-    this.type = 'mpa';  // mpa or spa
-    this.authenticationType = 'cookie'; // cookie or token
-    this.maxDepth = 1;
-    this.maxConcurrency = 10;
-    this.verboseOutput = false;
-    this.xhrTimeout = 5;  // Wait max 5 seconds for XHR requests to complete
-    this.pageTimeout = 30;
+const options = {
+  "crawlUser": {username: 'Admin', password: 'opensuse'},
+  "intruders": [
+    {username: 'Public', password: null}
+  ],
+  "authorisationHeaders": ['cookie'],
+  "baseUrl": 'http://localhost:3000',
+  "saveResponses": true,
+  "saveScreenshots": true,
+  "clickButtons": false,
+  "buttonXPath": 'button',
+  "type": 'mpa',  // mpa or spa
+  "authenticationType": 'cookie', // cookie or token
+  "maxDepth": 2,
+  "maxConcurrency": 10,
+  "verboseOutput": false,
+  "xhrTimeout": 5,  // Wait max 5 seconds for XHR requests to complete
+  "pageTimeout": 30,
+  "apiEndpointsFile": "./tmp/api_endpoints.json",
+  "pagesFile": "./tmp/pages.json",
+  "reportPath": "./tmp/report",
+  "headless": true
+};
+
+const loginFunction = async function(tab, username, password){
+  await tab.goto('http://localhost:3000');
+
+  await tab.waitForSelector('#login-trigger');
+  await tab.tap('#login-trigger');
+
+  await tab.waitForSelector('input[name=username]');
+  await tab.waitForSelector('input[name=password]');
+
+  await tab.type('input[name=username]', username);
+  await tab.type('input[name=password]', password);
+
+  await tab.tap('input[type=submit]');
+  await tab.waitFor(500);
+
+  return;
+};
+
+const responseIsAuthorised = function(response, responseBody) {
+  let response_status;
+
+  try {
+    response_status = response.status();
+  } catch(error) {
+    response_status = response.status;
   }
 
-  async loginFunction(tab, username, password){
-    await tab.goto('http://localhost:3000');
-
-    await tab.waitForSelector('#login-trigger');
-    await tab.tap('#login-trigger');
-
-    await tab.waitForSelector('input[name=username]');
-    await tab.waitForSelector('input[name=password]');
-
-    await tab.type('input[name=username]', username);
-    await tab.type('input[name=password]', password);
-
-    await tab.tap('input[type=submit]');
-    await tab.waitFor(500);
-
-    return;
+  if([401, 403, 404, 400].includes(response_status)) {
+    return false;
   }
 
-  responseIsAuthorised(response, responseBody) {
-    let response_status;
+  return true;
+};
 
-    try {
-      response_status = response.status();
-    } catch(error) {
-      response_status = response.status;
-    }
-
-    if([401, 403, 404, 400].includes(response_status)) {
-      return false;
-    }
-
+const ignoreLink = function(url) {
+  if(url === null) {
     return true;
   }
 
-  ignoreLink(url) {
-    if(url === null) {
-      return true;
-    }
-
-    if(!url.includes(this.baseUrl)){
-      return true;
-    }
-
-    if(url.includes('/session/destroy')) { // || url.includes('/image_templates')
-      return true;
-    }
-
-    return false;
+  if(!url.includes(this.options.baseUrl)){
+    return true;
   }
 
-  ignoreApiRequest(url, method) {
-    if(url.includes('http://localhost:8000/sockjs-node')){
-      return true;
-    }
-
-    return false;
+  if(url.includes('/session/destroy')) { // || url.includes('/image_templates')
+    return true;
   }
 
-  ignoreButton(outerHTML) {
-    if(outerHTML.includes('Logout') || outerHTML.includes('submit') || outerHTML.includes('Save')) {
-      return true;
-    }
+  return false;
+};
 
-    return false;
+const ignoreApiRequest = function(url, method) {
+  if(url.includes('http://localhost:8000/sockjs-node')){
+    return true;
   }
-}
 
-module.exports = Config;
+  return false;
+};
+
+const ignoreButton = function(outerHTML) {
+  if(outerHTML.includes('Logout') || outerHTML.includes('submit') || outerHTML.includes('Save')) {
+    return true;
+  }
+
+  return false;
+};
+
+module.exports = {
+  options: options,
+  loginFunction: loginFunction,
+  responseIsAuthorised: responseIsAuthorised,
+  ignoreApiRequest: ignoreApiRequest,
+  ignoreButton: ignoreButton,
+  ignoreLink: ignoreLink
+};
+

@@ -21,6 +21,7 @@ const options = {
   "pagesFile": "./tmp/pages.json",
   "reportPath": "./tmp/report",
   "verboseOutput": false,
+  "headless": true
 };
 
 const loginFunction = async function(tab, username, password){
