@@ -46,24 +46,23 @@ const options = {
     }
 
     return true;
+  },
+  "ignoreLink": function(url) {
+    if(url === null) {
+      return true;
+    }
+
+    if(!url.includes(this.options.baseUrl)){
+      return true;
+    }
+
+    if(url.includes('wp-login.php')) {
+      return true;
+    }
+
+    return false;
   }
 };
-
-const ignoreLink = function(url) {
-  if(url === null) {
-    return true;
-  }
-
-  if(!url.includes(this.options.baseUrl)){
-    return true;
-  }
-
-  if(url.includes('wp-login.php')) {
-    return true;
-  }
-
-  return false;
-}
 
 const ignoreApiRequest = function(url, method) {
   if(url.includes('http://localhost:8000/sockjs-node')){
@@ -85,6 +84,5 @@ module.exports = {
   options: options,
   responseIsAuthorised: responseIsAuthorised,
   ignoreApiRequest: ignoreApiRequest,
-  ignoreButton: ignoreButton,
-  ignoreLink: ignoreLink
+  ignoreButton: ignoreButton
 };

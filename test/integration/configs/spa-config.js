@@ -36,6 +36,13 @@ const options = {
   },
   "responseIsAuthorised": function(status, headers, body) {
     return (status != 401);
+  },
+  "ignoreLink": function(url) {
+    if(url.includes('/slow') || url.includes('/really_slow')) {
+      return true;
+    }
+
+    return false;
   }
 };
 
@@ -55,17 +62,8 @@ const ignoreButton = function(outerHTML) {
   return false;
 }
 
-const ignoreLink = function(url) {
-  if(url.includes('/slow') || url.includes('/really_slow')) {
-    return true;
-  }
-
-  return false;
-};
-
 module.exports = {
   options: options,
   ignoreApiRequest: ignoreApiRequest,
-  ignoreButton: ignoreButton,
-  ignoreLink: ignoreLink
+  ignoreButton: ignoreButton
 };

@@ -51,23 +51,22 @@ const options = {
     }
 
     return true;
-  }
-};
+  },
+  "ignoreLink": function(url) {
+    if(url === null) {
+      return true;
+    }
 
-const ignoreLink = function(url) {
-  if(url === null) {
-    return true;
-  }
+    if(!url.includes(this.options.baseUrl)){
+      return true;
+    }
 
-  if(!url.includes(this.options.baseUrl)){
-    return true;
-  }
+    if(url.includes('/session/destroy')) { // || url.includes('/image_templates')
+      return true;
+    }
 
-  if(url.includes('/session/destroy')) { // || url.includes('/image_templates')
-    return true;
+    return false;
   }
-
-  return false;
 };
 
 const ignoreApiRequest = function(url, method) {
@@ -90,7 +89,6 @@ module.exports = {
   options: options,
   responseIsAuthorised: responseIsAuthorised,
   ignoreApiRequest: ignoreApiRequest,
-  ignoreButton: ignoreButton,
-  ignoreLink: ignoreLink
+  ignoreButton: ignoreButton
 };
 

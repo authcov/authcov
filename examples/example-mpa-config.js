@@ -44,15 +44,14 @@ const options = {
     }
 
     return true;
-  }
-};
+  },
+  "ignoreLink": function(url) {
+    if(url.includes('/users/sign_out')) {
+      return true;
+    }
 
-const ignoreLink = function(url) {
-  if(url.includes('/users/sign_out')) {
-    return true;
+    return false;
   }
-
-  return false;
 };
 
 const ignoreApiRequest = function(url, method) {
@@ -74,6 +73,5 @@ const ignoreButton = function(outerHTML) {
 module.exports = {
   options: options,
   ignoreApiRequest: ignoreApiRequest,
-  ignoreButton: ignoreButton,
-  ignoreLink: ignoreLink
+  ignoreButton: ignoreButton
 };
