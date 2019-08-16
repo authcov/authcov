@@ -1,4 +1,4 @@
-const options = {
+const config = {
   "crawlUser": {username: 'Admin', password: 'opensuse'},
   "intruders": [
     {username: 'Public', password: null}
@@ -83,7 +83,5 @@ const options = {
   }
 };
 
-module.exports = {
-  options: options
-};
+module.exports = config;
 

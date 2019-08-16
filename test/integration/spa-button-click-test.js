@@ -8,10 +8,9 @@ const CompareFiles = require('../utils/compare_files.js');
 
 // Deep clone the config and set clickButtons to true
 const configButtonClick = Object.assign({}, config);
-configButtonClick.options = Object.assign({}, configButtonClick.options);
-configButtonClick.options.clickButtons = true;
-configButtonClick.options.maxDepth = 0;
-configButtonClick.options.crawlUser = {username: 'Public', password: null};
+configButtonClick.clickButtons = true;
+configButtonClick.maxDepth = 0;
+configButtonClick.crawlUser = {username: 'Public', password: null};
 
 const apiEndpointData = new ApiEndpointData({config: configButtonClick});
 const pageData = new PageData({config: configButtonClick});

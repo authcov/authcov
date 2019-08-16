@@ -11,10 +11,9 @@ describe('UsersCrawler for SPA with cookie-based auth', () => {
     it('should stop waiting for API requests that take longer than the timeout limit', async () => {
       // Deep clone the config and set clickButtons to true
       const configButtonClick = Object.assign({}, config);
-      configButtonClick.options = Object.assign({}, configButtonClick.options);
-      configButtonClick.options.crawlUser = {username: 'Public', password: null};
-      configButtonClick.options.baseUrl = 'http://localhost/really_slow';
-      configButtonClick.options.maxDepth = 0;
+      configButtonClick.crawlUser = {username: 'Public', password: null};
+      configButtonClick.baseUrl = 'http://localhost/really_slow';
+      configButtonClick.maxDepth = 0;
 
       const apiEndpointData = new ApiEndpointData({config: configButtonClick});
       const pageData = new PageData({config: configButtonClick});

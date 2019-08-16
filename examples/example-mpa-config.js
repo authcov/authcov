@@ -1,4 +1,4 @@
-const options = {
+const config = {
   "crawlUser": {"username": 'alice@authcov.io', "password": 'password'},
   "intruders": [
     {"username": 'bob@authcov.io', "password": 'password'},
@@ -68,6 +68,4 @@ const options = {
   }
 };
 
-module.exports = {
-  options: options
-};
+module.exports = config;
