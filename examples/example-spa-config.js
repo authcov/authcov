@@ -7,7 +7,7 @@ const options = {
   "authorisationHeaders": ['cookie'],
   "baseUrl": 'http://localhost',
   "saveResponses": false,
-  "saveScreenshots": false,
+  "saveScreenshots": true,
   "clickButtons": false,
   "buttonXPath": 'button',
   "type": 'spa',
