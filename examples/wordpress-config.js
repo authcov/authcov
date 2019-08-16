@@ -21,35 +21,33 @@ const options = {
   "pagesFile": "./tmp/pages.json",
   "reportPath": "./tmp/report",
   "verboseOutput": false,
-  "headless": true
+  "headless": true,
+  "loginFunction": async function(tab, username, password){
+    await tab.goto('http://localhost:8000/wp-login.php');
+    await tab.waitForSelector('#user_login');
+    await tab.waitForSelector('#user_pass');
+    await tab.waitFor(500);
+    await tab.type('#user_login', username, {delay: 100});
+    await tab.type('#user_pass', password, {delay: 100});
+    await tab.waitFor(500);
+    await tab.tap('input[type=submit]');
+    await tab.waitFor(500);
+
+    return;
+  },
+  "responseIsAuthorised": function(status, headers, body) {
+    // If its redirecting to the login page
+    if(status == 302 && headers.location.includes('wp-login.php')) {
+      return false;
+    }
+
+    if([401, 403, 400].includes(status)) {
+      return false;
+    }
+
+    return true;
+  }
 };
-
-const loginFunction = async function(tab, username, password){
-  await tab.goto('http://localhost:8000/wp-login.php');
-  await tab.waitForSelector('#user_login');
-  await tab.waitForSelector('#user_pass');
-  await tab.waitFor(500);
-  await tab.type('#user_login', username, {delay: 100});
-  await tab.type('#user_pass', password, {delay: 100});
-  await tab.waitFor(500);
-  await tab.tap('input[type=submit]');
-  await tab.waitFor(500);
-
-  return;
-}
-
-const responseIsAuthorised = function(status, headers, body) {
-  // If its redirecting to the login page
-  if(status == 302 && headers.location.includes('wp-login.php')) {
-    return false;
-  }
-
-  if([401, 403, 400].includes(status)) {
-    return false;
-  }
-
-  return true;
-}
 
 const ignoreLink = function(url) {
   if(url === null) {
@@ -85,7 +83,6 @@ const ignoreButton = function(outerHTML) {
 
 module.exports = {
   options: options,
-  loginFunction: loginFunction,
   responseIsAuthorised: responseIsAuthorised,
   ignoreApiRequest: ignoreApiRequest,
   ignoreButton: ignoreButton,

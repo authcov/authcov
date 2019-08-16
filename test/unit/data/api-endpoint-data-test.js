@@ -10,8 +10,10 @@ describe('ApiEndpointData', () => {
           {username: 'evanrolfe@onescan.io', password: 'Password1'},
           {username: 'evanrolfe@gmail.com', password: 'Password2'}
         ],
-        options: { authorisationHeaders: ['authorization'] },
-        responseIsAuthorised: (response, body) => { return true; }
+        options: {
+          authorisationHeaders: ['authorization'],
+          responseIsAuthorised: (response, body) => { return true; }
+        },
       }
       this.apiEndpointData = new ApiEndpointData({config: config});
       this.apiEndpointData.loadFile('./test/unit/fixtures/api_endpoints.json');
@@ -41,8 +43,10 @@ describe('ApiEndpointData', () => {
           {username: 'evanrolfe@onescan.io', password: 'Password1'},
           {username: 'evanrolfe@gmail.com', password: 'Password2'}
         ],
-        options: { authorisationHeaders: ['authorization'] },
-        responseIsAuthorised: (response, body) => { return true; }
+        options: {
+          authorisationHeaders: ['authorization'],
+          responseIsAuthorised: (response, body) => { return true; }
+        },
       }
       this.apiEndpointData = new ApiEndpointData({config: config});
       this.apiEndpointData.loadFile('./test/unit/fixtures/api_endpoints.json');
@@ -105,8 +109,10 @@ describe('ApiEndpointData', () => {
           {username: 'evanrolfe@onescan.io', password: 'Password1'},
           {username: 'evanrolfe@gmail.com', password: 'Password2'}
         ],
-        options: { authorisationHeaders: ['authorization'] },
-        responseIsAuthorised: (response, body) => { return true; }
+        options: {
+          authorisationHeaders: ['authorization'],
+          responseIsAuthorised: (response, body) => { return true; }
+        },
       }
       this.apiEndpointData = new ApiEndpointData({config: config});
 

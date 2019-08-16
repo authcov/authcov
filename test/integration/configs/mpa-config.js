@@ -19,34 +19,32 @@ const options = {
   "apiEndpointsFile": "./tmp/api_endpoints.json",
   "pagesFile": "./tmp/pages.json",
   "reportPath": "./tmp/report",
-  "headless": true
-};
+  "headless": true,
+  "loginFunction": async function(tab, username, password){
+    await tab.goto('http://localhost:3001/users/sign_in');
+    await tab.waitForSelector('input[type=email]');
+    await tab.waitForSelector('input[type=password]');
 
-const loginFunction = async function(tab, username, password){
-  await tab.goto('http://localhost:3001/users/sign_in');
-  await tab.waitForSelector('input[type=email]');
-  await tab.waitForSelector('input[type=password]');
+    await tab.type('input[type=email]', username);
+    await tab.type('input[type=password]', password);
 
-  await tab.type('input[type=email]', username);
-  await tab.type('input[type=password]', password);
+    await tab.tap('input[type=submit]');
+    await tab.waitFor(500);
 
-  await tab.tap('input[type=submit]');
-  await tab.waitFor(500);
+    return;
+  },
+  "responseIsAuthorised": function(status, headers, body) {
+    // If its redirecting to the login page
+    if(status == 302 && headers.location.includes('/users/sign_in')) {
+      return false;
+    }
 
-  return;
-};
+    if(status == 401) {
+      return false;
+    }
 
-const responseIsAuthorised = function(status, headers, body) {
-  // If its redirecting to the login page
-  if(status == 302 && headers.location.includes('/users/sign_in')) {
-    return false;
+    return true;
   }
-
-  if(status == 401) {
-    return false;
-  }
-
-  return true;
 };
 
 const ignoreLink = function(url) {
@@ -75,8 +73,6 @@ const ignoreButton = function(outerHTML) {
 
 module.exports = {
   options: options,
-  loginFunction: loginFunction,
-  responseIsAuthorised: responseIsAuthorised,
   ignoreApiRequest: ignoreApiRequest,
   ignoreButton: ignoreButton,
   ignoreLink: ignoreLink

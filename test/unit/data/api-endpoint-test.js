@@ -53,13 +53,10 @@ describe('ApiEndpoint', () => {
           ]
         };
         const config = {
-          users: [
-            {username: 'Public', password: null},
-            {username: 'evanrolfe@onescan.io', password: 'Password1'},
-            {username: 'evanrolfe@gmail.com', password: 'Password2'}
-          ],
-          authorisationHeaders: ['authorization'],
-          responseIsAuthorised: (status, headers, body) => { return (status == 200); }
+          options: {
+            authorisationHeaders: ['authorization'],
+            responseIsAuthorised: (status, headers, body) => { return (status == 200); }
+          }
         };
         this.apiEndpoint = new ApiEndpoint(data, config);
       });
@@ -108,13 +105,10 @@ describe('ApiEndpoint', () => {
           ]
         };
         const config = {
-          users: [
-            {username: 'Public', password: null},
-            {username: 'evanrolfe@onescan.io', password: 'Password1'},
-            {username: 'evanrolfe@gmail.com', password: 'Password2'}
-          ],
-          authorisationHeaders: ['authorization'],
-          responseIsAuthorised: (status, headers, body) => { return (status == 200); }
+          options: {
+            authorisationHeaders: ['authorization'],
+            responseIsAuthorised: (status, headers, body) => { return (status == 200); }
+          }
         };
         this.apiEndpoint = new ApiEndpoint(data, config);
       });

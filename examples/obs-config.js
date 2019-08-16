@@ -19,41 +19,39 @@ const options = {
   "apiEndpointsFile": "./tmp/api_endpoints.json",
   "pagesFile": "./tmp/pages.json",
   "reportPath": "./tmp/report",
-  "headless": true
-};
+  "headless": true,
+  "loginFunction": async function(tab, username, password){
+    await tab.goto('http://localhost:3000');
 
-const loginFunction = async function(tab, username, password){
-  await tab.goto('http://localhost:3000');
+    await tab.waitForSelector('#login-trigger');
+    await tab.tap('#login-trigger');
 
-  await tab.waitForSelector('#login-trigger');
-  await tab.tap('#login-trigger');
+    await tab.waitForSelector('input[name=username]');
+    await tab.waitForSelector('input[name=password]');
 
-  await tab.waitForSelector('input[name=username]');
-  await tab.waitForSelector('input[name=password]');
+    await tab.type('input[name=username]', username);
+    await tab.type('input[name=password]', password);
 
-  await tab.type('input[name=username]', username);
-  await tab.type('input[name=password]', password);
+    await tab.tap('input[type=submit]');
+    await tab.waitFor(500);
 
-  await tab.tap('input[type=submit]');
-  await tab.waitFor(500);
+    return;
+  },
+  "responseIsAuthorised": function(response, responseBody) {
+    let response_status;
 
-  return;
-};
+    try {
+      response_status = response.status();
+    } catch(error) {
+      response_status = response.status;
+    }
 
-const responseIsAuthorised = function(response, responseBody) {
-  let response_status;
+    if([401, 403, 404, 400].includes(response_status)) {
+      return false;
+    }
 
-  try {
-    response_status = response.status();
-  } catch(error) {
-    response_status = response.status;
+    return true;
   }
-
-  if([401, 403, 404, 400].includes(response_status)) {
-    return false;
-  }
-
-  return true;
 };
 
 const ignoreLink = function(url) {
@@ -90,7 +88,6 @@ const ignoreButton = function(outerHTML) {
 
 module.exports = {
   options: options,
-  loginFunction: loginFunction,
   responseIsAuthorised: responseIsAuthorised,
   ignoreApiRequest: ignoreApiRequest,
   ignoreButton: ignoreButton,

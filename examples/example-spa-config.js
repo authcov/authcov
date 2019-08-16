@@ -19,26 +19,24 @@ const options = {
   "pagesFile": "./tmp/pages.json",
   "reportPath": "./tmp/report",
   "verboseOutput": false,
-  "headless": true
-};
+  "headless": true,
+  "loginFunction": async function(tab, username, password){
+    await tab.goto('http://localhost/login');
+    await tab.waitForSelector('input[name=email]');
+    await tab.waitForSelector('input[name=password]');
+    await tab.waitFor(1000);
 
-const loginFunction = async function(tab, username, password){
-  await tab.goto('http://localhost/login');
-  await tab.waitForSelector('input[name=email]');
-  await tab.waitForSelector('input[name=password]');
-  await tab.waitFor(1000);
+    await tab.type('input[name=email]', username);
+    await tab.type('input[name=password]', password);
 
-  await tab.type('input[name=email]', username);
-  await tab.type('input[name=password]', password);
+    await tab.tap('#login-button')
+    await tab.waitFor(1000);
 
-  await tab.tap('#login-button')
-  await tab.waitFor(1000);
-
-  return;
-}
-
-const responseIsAuthorised = function(status, headers, body) {
-  return (status != 401);
+    return;
+  },
+  "responseIsAuthorised": function(status, headers, body) {
+    return (status != 401);
+  }
 };
 
 const ignoreApiRequest = function(url, method) {
@@ -67,8 +65,6 @@ const ignoreLink = function(url) {
 
 module.exports = {
   options: options,
-  loginFunction: loginFunction,
-  responseIsAuthorised: responseIsAuthorised,
   ignoreApiRequest: ignoreApiRequest,
   ignoreButton: ignoreButton,
   ignoreLink: ignoreLink
