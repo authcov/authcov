@@ -43,16 +43,15 @@ const options = {
     }
 
     return false;
+  },
+  "ignoreApiRequest": function(url, method) {
+    if(url.includes('http://localhost/sockjs-node')){
+      return true;
+    }
+
+    return false;
   }
 };
-
-const ignoreApiRequest = function(url, method) {
-  if(url.includes('http://localhost/sockjs-node')){
-    return true;
-  }
-
-  return false;
-}
 
 const ignoreButton = function(outerHTML) {
   if(outerHTML.includes('submit') || outerHTML.includes('Save')) {
@@ -64,6 +63,5 @@ const ignoreButton = function(outerHTML) {
 
 module.exports = {
   options: options,
-  ignoreApiRequest: ignoreApiRequest,
   ignoreButton: ignoreButton
 };

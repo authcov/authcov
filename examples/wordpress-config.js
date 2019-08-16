@@ -61,16 +61,15 @@ const options = {
     }
 
     return false;
+  },
+  "ignoreApiRequest": function(url, method) {
+    if(url.includes('http://localhost:8000/sockjs-node')){
+      return true;
+    }
+
+    return false;
   }
 };
-
-const ignoreApiRequest = function(url, method) {
-  if(url.includes('http://localhost:8000/sockjs-node')){
-    return true;
-  }
-
-  return false;
-}
 
 const ignoreButton = function(outerHTML) {
   if(outerHTML.includes('Logout') || outerHTML.includes('submit') || outerHTML.includes('Save')) {
@@ -82,7 +81,5 @@ const ignoreButton = function(outerHTML) {
 
 module.exports = {
   options: options,
-  responseIsAuthorised: responseIsAuthorised,
-  ignoreApiRequest: ignoreApiRequest,
   ignoreButton: ignoreButton
 };
