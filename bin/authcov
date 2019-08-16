@@ -1,5 +1,3 @@
 #!/usr/bin/env node
 
-console.log('AuthCov');
-
-require('../lib/cli/authcov.js');
+require('../lib/cli/app.js');
