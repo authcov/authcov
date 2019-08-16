@@ -68,18 +68,16 @@ const options = {
     }
 
     return false;
+  },
+  "ignoreButton": function(outerHTML) {
+    if(outerHTML.includes('Logout') || outerHTML.includes('submit') || outerHTML.includes('Save')) {
+      return true;
+    }
+
+    return false;
   }
 };
 
-const ignoreButton = function(outerHTML) {
-  if(outerHTML.includes('Logout') || outerHTML.includes('submit') || outerHTML.includes('Save')) {
-    return true;
-  }
-
-  return false;
-}
-
 module.exports = {
-  options: options,
-  ignoreButton: ignoreButton
+  options: options
 };
