@@ -9,12 +9,29 @@ AuthCov crawls your web application using a Chrome headless browser while logged
 [![](https://raw.githubusercontent.com/authcov/authcov/master/docs/example_report_screenshot.png)](https://authcov.github.io/example_report/index.html)
 
 ## Features
+- Works with single-page-applications and traditional multi-page-applications
+- Handles token-based and cookie-based authentication mechanisms
+- Generates an in-depth report in HTML format
+- Screenshots of each page crawled can be viewed in the report
 
 ## Installation
 
 ## Usage
 
-## License
+1. Generate a config for the site you want to scan:
+```bash
+$ authcov new myconfig.js
+```
+2. Update the values in myconfig.js
+3. Crawl your site:
+```bash
+$ authcov crawl myconfig.js
+```
+4. Attempt intrusion against the resources discovered during the crawling phase:
+```bash
+$ authcov intrude myconfig.js
+```
+5. View the generated report at: `./tmp/report/index.html`
 
 ## Contributing
 
