@@ -22,6 +22,7 @@ const config = {
   "headless": true,
   "ignoreLinksIncluding": ["/slow", "/really_slow"],
   "unAuthorizedStatusCodes": [401],
+  "ignoreAPIrequestsIncluding": ["/sockjs-node"],
 
   "loginFunction": async function(tab, username, password){
     await tab.goto('http://localhost/login');
@@ -51,6 +52,7 @@ const config = {
     return false;
   },
 */
+/*
   "ignoreApiRequest": function(url, method) {
     if(url.includes('http://localhost/sockjs-node')){
       return true;
@@ -58,6 +60,7 @@ const config = {
 
     return false;
   },
+*/
   "ignoreButton": function(outerHTML) {
     if(outerHTML.includes('submit') || outerHTML.includes('Save')) {
       return true;
