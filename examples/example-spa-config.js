@@ -19,7 +19,7 @@ const config = {
   "pagesFile": "./tmp/pages.json",
   "reportPath": "./tmp/report",
   "verboseOutput": false,
-  "headless": false,
+  "headless": true,
   "unAuthorizedStatusCodes": [401],
   "ignoreLinksIncluding": ["/slow", "/really_slow"],
   "ignoreAPIrequestsIncluding": ["/sockjs-node"],
