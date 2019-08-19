@@ -20,6 +20,9 @@ const config = {
   "reportPath": "./tmp/report",
   "verboseOutput": false,
   "headless": true,
+  "ignoreLinksIncluding": ["/slow", "/really_slow"],
+  "unAuthorizedStatusCodes": [401],
+
   "loginFunction": async function(tab, username, password){
     await tab.goto('http://localhost/login');
     await tab.waitForSelector('input[name=email]');
@@ -34,9 +37,12 @@ const config = {
 
     return;
   },
+/*
   "responseIsAuthorised": function(status, headers, body) {
     return (status != 401);
   },
+*/
+/*
   "ignoreLink": function(url) {
     if(url.includes('/slow') || url.includes('/really_slow')) {
       return true;
@@ -44,6 +50,7 @@ const config = {
 
     return false;
   },
+*/
   "ignoreApiRequest": function(url, method) {
     if(url.includes('http://localhost/sockjs-node')){
       return true;

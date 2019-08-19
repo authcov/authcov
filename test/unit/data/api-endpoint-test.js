@@ -53,10 +53,8 @@ describe('ApiEndpoint', () => {
           ]
         };
         const config = {
-          options: {
-            authorisationHeaders: ['authorization'],
-            responseIsAuthorised: (status, headers, body) => { return (status == 200); }
-          }
+          authorisationHeaders: ['authorization'],
+          responseIsAuthorised: (status, headers, body) => { return (status == 200); }
         };
         this.apiEndpoint = new ApiEndpoint(data, config);
       });
@@ -105,10 +103,8 @@ describe('ApiEndpoint', () => {
           ]
         };
         const config = {
-          options: {
-            authorisationHeaders: ['authorization'],
-            responseIsAuthorised: (status, headers, body) => { return (status == 200); }
-          }
+          authorisationHeaders: ['authorization'],
+          responseIsAuthorised: (status, headers, body) => { return (status == 200); }
         };
         this.apiEndpoint = new ApiEndpoint(data, config);
       });
