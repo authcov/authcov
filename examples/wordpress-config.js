@@ -1,39 +1,28 @@
 const config = {
-  "crawlUser": {"username": 'evan', "password": 'fdsklj34'},
+  "crawlUser": {"username": 'admin', "password": 'adminpassword'},
   "intruders": [
-    {username: 'contributer1', password: 'contributorspassword'},
+    {username: 'contributor', password: 'contributorspassword'},
     {username: 'Public', password: null}
   ],
-  "authorisationHeaders": ['cookie'],
   "baseUrl": 'http://localhost:8000',
   "saveResponses": true,
   "saveScreenshots": true,
   "clickButtons": false,
-  "buttonXPath": 'button',
-  "type": 'mpa',  // mpa or spa
-  "authenticationType": 'cookie', // cookie or token
+  "type": 'mpa',
+  "authenticationType": 'cookie',
+  "authorisationHeaders": ['cookie'],
   // For example, in wordpress the admin cookie is restricted to the path: /wp-admin
-  "cookiesTriggeringPage": 'http://localhost:8000/wp-admin/profile.php',
+  "cookiesTriggeringPage": 'http://localhost:8000/wp-admin/index.php',
   "maxDepth": 2,
   "xhrTimeout": 5,
   "pageTimeout": 30,
-  "apiEndpointsFile": "./tmp/api_endpoints.json",
-  "pagesFile": "./tmp/pages.json",
-  "reportPath": "./tmp/report",
   "verboseOutput": false,
   "headless": true,
-  "loginFunction": async function(tab, username, password){
-    await tab.goto('http://localhost:8000/wp-login.php');
-    await tab.waitForSelector('#user_login');
-    await tab.waitForSelector('#user_pass');
-    await tab.waitFor(500);
-    await tab.type('#user_login', username, {delay: 100});
-    await tab.type('#user_pass', password, {delay: 100});
-    await tab.waitFor(500);
-    await tab.tap('input[type=submit]');
-    await tab.waitFor(500);
-
-    return;
+  "loginConfig": {
+    "url": "http://localhost:8000/wp-login.php",
+    "usernameXpath": "#user_login",
+    "passwordXpath": "#user_pass",
+    "submitXpath": "input[type=submit]"
   },
   "responseIsAuthorised": function(status, headers, body) {
     // If its redirecting to the login page
@@ -41,36 +30,14 @@ const config = {
       return false;
     }
 
-    if([401, 403, 400].includes(status)) {
+    if([400, 401, 403, 404, 500].includes(status)) {
       return false;
     }
 
     return true;
   },
   "ignoreLink": function(url) {
-    if(url === null) {
-      return true;
-    }
-
-    if(!url.includes(this.options.baseUrl)){
-      return true;
-    }
-
-    if(url.includes('wp-login.php')) {
-      return true;
-    }
-
-    return false;
-  },
-  "ignoreApiRequest": function(url, method) {
-    if(url.includes('http://localhost:8000/sockjs-node')){
-      return true;
-    }
-
-    return false;
-  },
-  "ignoreButton": function(outerHTML) {
-    if(outerHTML.includes('Logout') || outerHTML.includes('submit') || outerHTML.includes('Save')) {
+    if(!url.includes(this.baseUrl) || url.includes('wp-login.php')){
       return true;
     }
 
