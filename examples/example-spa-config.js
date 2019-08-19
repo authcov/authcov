@@ -8,7 +8,7 @@ const config = {
   "baseUrl": 'http://localhost',
   "saveResponses": false,
   "saveScreenshots": true,
-  "clickButtons": false,
+  "clickButtons": true,
   "buttonXPath": 'button',
   "type": 'spa',
   "authenticationType": 'cookie', // cookie or token
@@ -23,6 +23,7 @@ const config = {
   "ignoreLinksIncluding": ["/slow", "/really_slow"],
   "unAuthorizedStatusCodes": [401],
   "ignoreAPIrequestsIncluding": ["/sockjs-node"],
+  "ignoreButtonsIncluding": ["submit", "Save"],
 
   "loginFunction": async function(tab, username, password){
     await tab.goto('http://localhost/login');
@@ -37,36 +38,6 @@ const config = {
     await tab.waitFor(1000);
 
     return;
-  },
-/*
-  "responseIsAuthorised": function(status, headers, body) {
-    return (status != 401);
-  },
-*/
-/*
-  "ignoreLink": function(url) {
-    if(url.includes('/slow') || url.includes('/really_slow')) {
-      return true;
-    }
-
-    return false;
-  },
-*/
-/*
-  "ignoreApiRequest": function(url, method) {
-    if(url.includes('http://localhost/sockjs-node')){
-      return true;
-    }
-
-    return false;
-  },
-*/
-  "ignoreButton": function(outerHTML) {
-    if(outerHTML.includes('submit') || outerHTML.includes('Save')) {
-      return true;
-    }
-
-    return false;
   }
 };
 
