@@ -1,23 +1,22 @@
 # AuthCov
 
-**Install**
-```bash
-$ git clone git@github.com:authcov/authcov.git && cd authcov
-$ npm install
-```
+Web app authorization coverage scanning.
 
-Start headless chrome browser:
-```bash
-$ google-chrome --remote-debugging-port=9222 --disable-web-security --user-data-dir=/home/evan/.chrome --headless
-```
+## Introduction
 
-**Run an example**
+AuthCov crawls your web application using a Chrome headless browser while logged in as a pre-defined user. It intercepts and logs API requests as well as pages loaded during the crawling phase. In the next phase it logs in under a different user account, the "intruder", and attempts to access each of one of the API requests or pages discovered previously. It repeats this step for each intruder user defined. Finally it generates a detailed report listing the resources discovered and whether or not they are accessible to the intruder users. 
 
-Start the example app (see integration tests).
-```bash
-$ node scripts/crawl.js ../examples/example-spa-config.js
-$ node scripts/intrude.js ../examples/example-spa-config.js
-```
+[![](https://raw.githubusercontent.com/authcov/authcov/master/docs/example_report_screenshot.png)](https://authcov.github.io/example_report/index.html)
+
+## Features
+
+## Installation
+
+## Usage
+
+## License
+
+## Contributing
 
 **Unit Tests**
 
