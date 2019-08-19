@@ -3,8 +3,11 @@ const fs = require('fs');
 
 const UsersIntruder = require('../../lib/intruder/users-intruder.js');
 const ApiEndpointData = require('../../lib/data/api-endpoint-data.js');
-const config = require('./configs/mpa-config.js');
+const configArgs = require('./configs/mpa-config.js');
+const BaseConfig = require('../../lib/config/base-config.js');
 const CompareFiles = require('../utils/compare_files.js');
+
+const config = new BaseConfig(configArgs);
 
 // TODO: Make this tell you which apirequest is failing if it fails
 describe('UsersCrawler for MPA with cookie-based auth', () => {

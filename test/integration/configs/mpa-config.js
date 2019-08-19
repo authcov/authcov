@@ -20,19 +20,15 @@ const config = {
   "pagesFile": "./tmp/pages.json",
   "reportPath": "./tmp/report",
   "headless": true,
-  "loginFunction": async function(tab, username, password){
-    await tab.goto('http://localhost:3001/users/sign_in');
-    await tab.waitForSelector('input[type=email]');
-    await tab.waitForSelector('input[type=password]');
-
-    await tab.type('input[type=email]', username);
-    await tab.type('input[type=password]', password);
-
-    await tab.tap('input[type=submit]');
-    await tab.waitFor(500);
-
-    return;
+  "loginConfig": {
+    "url": "http://localhost:3001/users/sign_in",
+    "usernameXpath": "input[type=email]",
+    "passwordXpath": "input[type=password]",
+    "submitXpath": "input[type=submit]"
   },
+  "ignoreLinksIncluding": ["/users/sign_out"],
+  "ignoreAPIrequestsIncluding": ["/sockjs-node"],
+  "ignoreButtonsIncluding": ["Logout", "submit", "Save"],
   "responseIsAuthorised": function(status, headers, body) {
     // If its redirecting to the login page
     if(status == 302 && headers.location.includes('/users/sign_in')) {
@@ -44,27 +40,6 @@ const config = {
     }
 
     return true;
-  },
-  "ignoreLink": function(url) {
-    if(url.includes('/users/sign_out')) {
-      return true;
-    }
-
-    return false;
-  },
-  "ignoreApiRequest": function(url, method) {
-    if(url.includes('http://localhost:3001/sockjs-node')){
-      return true;
-    }
-
-    return false;
-  },
-  "ignoreButton": function(outerHTML) {
-    if(outerHTML.includes('Logout') || outerHTML.includes('submit') || outerHTML.includes('Save')) {
-      return true;
-    }
-
-    return false;
   }
 };
 

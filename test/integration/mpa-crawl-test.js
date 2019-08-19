@@ -3,11 +3,13 @@ const { expect } = require('chai');
 const UsersCrawler = require('../../lib/crawler/users-crawler.js');
 const ApiEndpointData = require('../../lib/data/api-endpoint-data.js');
 const PageData = require('../../lib/data/page-data.js');
-const config = require('./configs/mpa-config.js');
+const configArgs = require('./configs/mpa-config.js');
+const BaseConfig = require('../../lib/config/base-config.js');
 const CompareFiles = require('../utils/compare_files.js');
 const ApiEndpointsPresenter = require('../../lib/data/api-endpoints-presenter.js');
 const ReportGenerator = require('../../lib/reporter/report-generator.js');
 
+const config = new BaseConfig(configArgs);
 const apiEndpointData = new ApiEndpointData({config: config});
 const pageData = new PageData({config: config});
 const apiEndpointsPresenter = new ApiEndpointsPresenter(apiEndpointData.apiEndpoints);

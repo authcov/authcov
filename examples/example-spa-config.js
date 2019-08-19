@@ -8,7 +8,7 @@ const config = {
   "baseUrl": 'http://localhost',
   "saveResponses": false,
   "saveScreenshots": true,
-  "clickButtons": true,
+  "clickButtons": false,
   "buttonXPath": 'button',
   "type": 'spa',
   "authenticationType": 'cookie', // cookie or token
@@ -19,25 +19,16 @@ const config = {
   "pagesFile": "./tmp/pages.json",
   "reportPath": "./tmp/report",
   "verboseOutput": false,
-  "headless": true,
-  "ignoreLinksIncluding": ["/slow", "/really_slow"],
+  "headless": false,
   "unAuthorizedStatusCodes": [401],
+  "ignoreLinksIncluding": ["/slow", "/really_slow"],
   "ignoreAPIrequestsIncluding": ["/sockjs-node"],
   "ignoreButtonsIncluding": ["submit", "Save"],
-
-  "loginFunction": async function(tab, username, password){
-    await tab.goto('http://localhost/login');
-    await tab.waitForSelector('input[name=email]');
-    await tab.waitForSelector('input[name=password]');
-    await tab.waitFor(1000);
-
-    await tab.type('input[name=email]', username);
-    await tab.type('input[name=password]', password);
-
-    await tab.tap('#login-button')
-    await tab.waitFor(1000);
-
-    return;
+  "loginConfig": {
+    "url": "http://localhost/login",
+    "usernameXpath": "input[name=email]",
+    "passwordXpath": "input[name=password]",
+    "submitXpath": "#login-button"
   }
 };
 
