@@ -5,10 +5,14 @@ const ApiEndpointData = require('../../lib/data/api-endpoint-data.js');
 const PageData = require('../../lib/data/page-data.js');
 const config = require('./configs/spa-config.js');
 const CompareFiles = require('../utils/compare_files.js');
+const ApiEndpointsPresenter = require('../../lib/data/api-endpoints-presenter.js');
+const ReportGenerator = require('../../lib/reporter/report-generator.js');
 
 const apiEndpointData = new ApiEndpointData({config: config});
 const pageData = new PageData({config: config});
-const usersCrawler = new UsersCrawler(config, apiEndpointData, pageData);
+const apiEndpointsPresenter = new ApiEndpointsPresenter(apiEndpointData.apiEndpoints);
+const reporter = new ReportGenerator(apiEndpointsPresenter, pageData);
+const usersCrawler = new UsersCrawler(config, apiEndpointData, pageData, reporter);
 
 describe('UsersCrawler for SPA with cookie-based auth', () => {
   describe('./tmp/api_endpoints.json', () => {

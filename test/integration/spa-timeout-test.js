@@ -5,6 +5,8 @@ const ApiEndpointData = require('../../lib/data/api-endpoint-data.js');
 const PageData = require('../../lib/data/page-data.js');
 const config = require('./configs/spa-config.js');
 const CompareFiles = require('../utils/compare_files.js');
+const ApiEndpointsPresenter = require('../../lib/data/api-endpoints-presenter.js');
+const ReportGenerator = require('../../lib/reporter/report-generator.js');
 
 describe('UsersCrawler for SPA with cookie-based auth', () => {
   describe('./tmp/api_endpoints.json', () => {
@@ -17,7 +19,9 @@ describe('UsersCrawler for SPA with cookie-based auth', () => {
 
       const apiEndpointData = new ApiEndpointData({config: configButtonClick});
       const pageData = new PageData({config: configButtonClick});
-      const usersCrawler = new UsersCrawler(configButtonClick, apiEndpointData, pageData);
+      const apiEndpointsPresenter = new ApiEndpointsPresenter(apiEndpointData.apiEndpoints);
+      const reporter = new ReportGenerator(apiEndpointsPresenter, pageData);
+      const usersCrawler = new UsersCrawler(configButtonClick, apiEndpointData, pageData, reporter);
 
       await usersCrawler.start();
       CompareFiles.compareApiEndpointsFiles('./tmp/api_endpoints.json', './test/integration/expected_output/spa_timeout_api_endpoints.json');
