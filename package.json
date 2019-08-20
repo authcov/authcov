@@ -1,6 +1,6 @@
 {
   "name": "authcov",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Web app authorization coverage scanning using Chrome headless browser",
   "keywords": ["puppeteer", "security", "crawler", "scanner"],
   "homepage": "https://github.com/authcov/authcov",

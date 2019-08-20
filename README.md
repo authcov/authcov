@@ -19,6 +19,12 @@ An example report generated from scanning a local Wordpress instance:
 
 ## Installation
 
+Install node 10. Then run:
+
+```bash
+$ npm install -g authcov
+```
+
 ## Usage
 
 1. Generate a config for the site you want to scan:
@@ -26,15 +32,19 @@ An example report generated from scanning a local Wordpress instance:
 $ authcov new myconfig.js
 ```
 2. Update the values in myconfig.js
-3. Crawl your site:
+3. Test your configuration values by running this command to ensure the browser is logging in successfully.
+```
+$ authcov test-login myconfig.js --headless=false
+```
+4. Crawl your site:
 ```bash
 $ authcov crawl myconfig.js
 ```
-4. Attempt intrusion against the resources discovered during the crawling phase:
+5. Attempt intrusion against the resources discovered during the crawling phase:
 ```bash
 $ authcov intrude myconfig.js
 ```
-5. View the generated report at: `./tmp/report/index.html`
+6. View the generated report at: `./tmp/report/index.html`
 
 ## Contributing
 
