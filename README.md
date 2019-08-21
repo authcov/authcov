@@ -53,12 +53,20 @@ The following options can be set in your config file:
 
 | option | type | description |
 | --- | --- | --- |
-| baseUrl | string | The base URL of the site. This is where the crawler will start from. |
-| crawlUser | object | The user to crawl the site under. |
-| intruders | array | The users who will intrude on the api endpoints and pages discovered during the crawling phase. Generally these will be users the same or less privilege than the crawlUser. To intrude as a not-logged-in user, add a user with the username "Public" and password null. |
+| baseUrl | string | The base URL of the site. This is where the crawler will start from.|
+| crawlUser | object | The user to crawl the site under.  Example: `{"username": "admin", "password": "1234"}`|
+| intruders | array | The users who will intrude on the api endpoints and pages discovered during the crawling phase. Generally these will be users the same or less privilege than the crawlUser. To intrude as a not-logged-in user, add a user with the username "Public" and password null.  Example: `[{"username": "john", "password": "4321"}, {"username": "Public", "password": null}]`|
 | type | string | Is this a single-page-application (i.e. javascript frontend which queries an API backend) or a more "traditional" multi-page-application. (Choose "mpa" or "spa"). |
 | authenticationType | string | Does the site authenticate users by using the cookies sent by the browser, or by a token sent in a request header? For an MPA this will almost always be set to "cookie". In an SPA this could be either "cookie" or "token". (Choose "cookie" or "token") |
-| authorisationHeaders | array | Which request headers are needed to be sent in order to authenticate a user? If authenticationType=cookie, then this should be set to ["cookie"]. If authenticationType=token, then this will be something like: ["X-Auth-Token"]. |
+| authorisationHeaders | array | Which request headers are needed to be sent in order to authenticate a user? If authenticationType=cookie, then this should be set to `["cookie"]`. If authenticationType=token, then this will be something like: `["X-Auth-Token"]`. |
+| maxDepth | integer | The maximum depth with which to crawl the site. Recommend starting at 1 and then try crawling at higher depths to make sure the crawler is able to finish fast enough. |
+| verboseOutput | boolean | Log at a verbose level, useful for debugging. |
+| saveResponses | boolean | Save the response bodies from API endpoints so you can view them in the report. |
+| saveScreenshots | boolean | Save browser screenshots for the pages crawled so you can view them in the report. |
+| clickButtons | boolean | (Experimental feature) on each page crawled, click all the buttons on that page and record any API requests made. Can be useful on sites which have lots of user interactions through modals, popups etc. |
+| xhrTimeout | integer | How long to wait for XHR requests to complete while crawling each page. (seconds) |
+| pageTimeout | integer | How long to wait for page to load while crawling. (seconds) |
+| headless | boolean | Set this to false for the crawler to open a chrome browser so you can see the crawling happening live. |
 
 ## Contributing
 
