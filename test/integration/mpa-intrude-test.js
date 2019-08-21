@@ -22,6 +22,7 @@ describe('UsersCrawler for MPA with cookie-based auth', () => {
       const usersIntruder = new UsersIntruder(config, apiEndpointData);
 
       await usersIntruder.start();
+      apiEndpointData.saveToFile('./tmp/api_endpoints.json');
       CompareFiles.compareApiEndpointsFiles('./tmp/api_endpoints.json', './test/integration/expected_output/mpa_intrude_api_endpoints.json');
     });
   });
