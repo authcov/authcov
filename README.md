@@ -50,6 +50,7 @@ $ authcov intrude myconfig.js
 ## Configuration
 
 The following options can be set in your config file:
+
 | option | type | description |
 | --- | --- | --- |
 | baseUrl | string | The base URL of the site. This is where the crawler will start from. |
