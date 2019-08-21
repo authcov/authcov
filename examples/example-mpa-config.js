@@ -22,16 +22,16 @@ const config = {
   "headless": true,
   "unAuthorizedStatusCodes": [302, 401],
 
-  "loginFunction": async function(tab, username, password){
-    await tab.goto('http://localhost:3001/users/sign_in');
-    await tab.waitForSelector('input[type=email]');
-    await tab.waitForSelector('input[type=password]');
+  "loginFunction": async function(page, username, password){
+    await page.goto('http://localhost:3001/users/sign_in');
+    await page.waitForSelector('input[type=email]');
+    await page.waitForSelector('input[type=password]');
 
-    await tab.type('input[type=email]', username);
-    await tab.type('input[type=password]', password);
+    await page.type('input[type=email]', username);
+    await page.type('input[type=password]', password);
 
-    await tab.tap('input[type=submit]');
-    await tab.waitFor(500);
+    await page.tap('input[type=submit]');
+    await page.waitFor(500);
 
     return;
   },
