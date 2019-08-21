@@ -47,6 +47,18 @@ $ authcov intrude myconfig.js
 ```
 6. View the generated report at: `./tmp/report/index.html`
 
+## Configuration
+
+The following options can be set in your config file:
+| option | type | description |
+| --- | --- | --- |
+| baseUrl | string | The base URL of the site. This is where the crawler will start from. |
+| crawlUser | object | The user to crawl the site under. |
+| intruders | array | The users who will intrude on the api endpoints and pages discovered during the crawling phase. Generally these will be users the same or less privilege than the crawlUser. To intrude as a not-logged-in user, add a user with the username "Public" and password null. |
+| type | string | Is this a single-page-application (i.e. javascript frontend which queries an API backend) or a more "traditional" multi-page-application. (Choose "mpa" or "spa"). |
+| authenticationType | string | Does the site authenticate users by using the cookies sent by the browser, or by a token sent in a request header? For an MPA this will almost always be set to "cookie". In an SPA this could be either "cookie" or "token". (Choose "cookie" or "token") |
+| authorisationHeaders | array | Which request headers are needed to be sent in order to authenticate a user? If authenticationType=cookie, then this should be set to ["cookie"]. If authenticationType=token, then this will be something like: ["X-Auth-Token"]. |
+
 ## Contributing
 
 **Unit Tests**
