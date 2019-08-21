@@ -67,13 +67,13 @@ The following options can be set in your config file:
 | xhrTimeout | integer | How long to wait for XHR requests to complete while crawling each page. (seconds) |
 | pageTimeout | integer | How long to wait for page to load while crawling. (seconds) |
 | headless | boolean | Set this to false for the crawler to open a chrome browser so you can see the crawling happening live. |
-| UnAuthorizedStatusCodes | array | The HTTP response status codes that decide whether or not an API endpoint or page are authorized for the user requesting it. Optionally define a function responseIsAuthorised to determine if a request was authorized. Example: `[401, 403, 404]`|
+| unAuthorizedStatusCodes | array | The HTTP response status codes that decide whether or not an API endpoint or page are authorized for the user requesting it. Optionally define a function responseIsAuthorised to determine if a request was authorized. Example: `[401, 403, 404]`|
 | ignoreLinksIncluding | array | Do not crawl URLs containing any strings in this array. For example, if set to `["/logout"]` then the url: http://localhost:3000/logout will not be crawled. Optionally define a function ignoreLink(url) below to determine if a URL should be crawled or not. |
 | ignoreAPIrequestsIncluding | array | Do not record API records made to URLs which contain any of the the strings in this array. Optionally define a function ignoreApiRequest(url) to determine if a request should be recorded or not. |
 | ignoreButtonsIncluding | array | If clickButtons set to true, then do not click buttons who's outer HTML contains any of the strings in this array. Optionally define a function ignoreButton(url) below. |
 | loginConfig | object | Configure how the browser will login to your web app. Optionally define an async function loginFunction(page, username, password). (More about this below). |
-| CookiesTriggeringPage | string | (optional) when authenticationType=cookie, this will set a page so that the intruder will browse to this page and then capture the cookies from the browser. This can be useful if the site sets the path field on cookies. Defaults to options.baseUrl. |
-| TokenTriggeringPage | string | (optional) when authenticationType=token, this will set a page so that the the intruder will browse to this page and then capture the authorisationHeaders from the intercepted API requests. This can be useful if the site's baseUrl does not make any API requests and so cannot capture the auth headers from that page. Defaults to options.baseUrl. |
+| cookiesTriggeringPage | string | (optional) when authenticationType=cookie, this will set a page so that the intruder will browse to this page and then capture the cookies from the browser. This can be useful if the site sets the path field on cookies. Defaults to options.baseUrl. |
+| tokenTriggeringPage | string | (optional) when authenticationType=token, this will set a page so that the the intruder will browse to this page and then capture the authorisationHeaders from the intercepted API requests. This can be useful if the site's baseUrl does not make any API requests and so cannot capture the auth headers from that page. Defaults to options.baseUrl. |
 
 **Configuring the Login**
 
