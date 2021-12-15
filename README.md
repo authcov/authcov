@@ -20,7 +20,7 @@ An example report generated from scanning a local Wordpress instance:
 
 ## Installation
 
-Install node 10. Then run:
+Install the latest node version. Then run:
 
 ```bash
 $ npm install -g authcov
