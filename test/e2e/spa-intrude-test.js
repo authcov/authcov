@@ -11,7 +11,7 @@ const config = new BaseConfig(configArgs);
 describe('Intruding SPA with cookie-based auth', () => {
   describe('./tmp/api_endpoints.json', () => {
     it('should save apiRequests', async () => {
-      fs.copyFileSync('./test/e2e/expected_output/spa_crawl_api_endpoints.json', './tmp/api_endpoints.json', (err) => {
+      fs.copyFileSync('./test/e2e/expected_output/spa_crawl_api_endpoints.json', './tmp/api_endpoints.json', fs.constants.COPYFILE_FICLONE, (err) => {
         if (err) throw err;
       });
 
