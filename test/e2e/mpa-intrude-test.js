@@ -13,7 +13,7 @@ const config = new BaseConfig(configArgs);
 describe('UsersCrawler for MPA with cookie-based auth', () => {
   describe('./tmp/api_endpoints.json', () => {
     it('should save apiRequests for users: Public, evanrolfe@gmail.com, evanrolfe@onescan.io', async () => {
-      fs.copyFileSync('./test/e2e/expected_output/mpa_crawl_api_endpoints.json', './tmp/api_endpoints.json', (err) => {
+      fs.copyFileSync('./test/e2e/expected_output/mpa_crawl_api_endpoints.json', './tmp/api_endpoints.json', fs.constants.COPYFILE_FICLONE, (err) => {
         if (err) throw err;
       });
 
