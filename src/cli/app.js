@@ -23,7 +23,7 @@ cli
   .command('new <configFileName>')
   .description('Generate a config file for the site you want to scan.\nExample: authcov new myconfig.js\n')
   .action((configFileName) => {
-    const configTemplatePath = path.join(packagePath, '/lib/config/config-template.js');
+    const configTemplatePath = path.join(packagePath, '/src/config/config-template.js');
 
     generateConfig(configFileName, configTemplatePath);
   });

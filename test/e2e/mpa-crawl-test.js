@@ -1,13 +1,13 @@
 const { expect } = require('chai');
 
-const UsersCrawler = require('../../lib/crawler/users-crawler.js');
-const ApiEndpointData = require('../../lib/data/api-endpoint-data.js');
-const PageData = require('../../lib/data/page-data.js');
+const UsersCrawler = require('../../src/crawler/users-crawler.js');
+const ApiEndpointData = require('../../src/data/api-endpoint-data.js');
+const PageData = require('../../src/data/page-data.js');
 const configArgs = require('./configs/mpa-config.js');
-const BaseConfig = require('../../lib/config/base-config.js');
-const CompareFiles = require('../utils/compare_files.js');
-const ApiEndpointsPresenter = require('../../lib/data/api-endpoints-presenter.js');
-const ReportGenerator = require('../../lib/reporter/report-generator.js');
+const BaseConfig = require('../../src/config/base-config.js');
+const { createTmpDir, compareApiEndpointsFiles, comparePagesFiles } = require('../utils/compare_files.js');
+const ApiEndpointsPresenter = require('../../src/data/api-endpoints-presenter.js');
+const ReportGenerator = require('../../src/reporter/report-generator.js');
 
 const config = new BaseConfig(configArgs);
 const apiEndpointData = new ApiEndpointData({config: config});
@@ -18,11 +18,17 @@ const reporter = new ReportGenerator(apiEndpointsPresenter, pageData);
 const usersCrawler = new UsersCrawler(config, apiEndpointData, pageData, reporter);
 
 describe('UsersCrawler for MPA with cookie-based auth', () => {
-  describe('./tmp/api_endpoints.json', () => {
-    it('should save apiRequests for users: Public, evanrolfe@gmail.com, evanrolfe@onescan.io', async () => {
-      await usersCrawler.start();
-      CompareFiles.compareApiEndpointsFiles('./tmp/api_endpoints.json', './test/e2e/expected_output/mpa_crawl_api_endpoints.json');
-      CompareFiles.comparePagesFiles('./tmp/pages.json', './test/e2e/expected_output/mpa_crawl_pages.json');
-    });
+  beforeEach(() => {
+    createTmpDir();
+  });
+
+  it('saves apiRequests and pages for users: Public, evanrolfe@gmail.com, evanrolfe@onescan.io', async () => {
+    await usersCrawler.start();
+
+    compareApiEndpointsFiles(
+      './tmp/api_endpoints.json',
+      './test/e2e/expected_output/mpa_crawl_api_endpoints.json'
+    );
+    comparePagesFiles('./tmp/pages.json', './test/e2e/expected_output/mpa_crawl_pages.json');
   });
 });

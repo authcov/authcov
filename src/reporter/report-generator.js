@@ -57,7 +57,7 @@ class ReportGenerator {
         apiEndpoint: apiEndpoint,
         activePage: null
       };
-      this._generateFile(this.packagePath + '/lib/reporter/views/resource.ejs', `${this.reportPath}/resources/${apiEndpoint.id}.html`, data);
+      this._generateFile(this.packagePath + '/src/reporter/views/resource.ejs', `${this.reportPath}/resources/${apiEndpoint.id}.html`, data);
     });
   }
 
@@ -80,7 +80,7 @@ class ReportGenerator {
           page: page,
           activePage: null
         };
-        this._generateFile(this.packagePath + '/lib/reporter/views/request.ejs', `${this.reportPath}/resources/${apiEndpoint.id}/${request.id}.html`, data);
+        this._generateFile(this.packagePath + '/src/reporter/views/request.ejs', `${this.reportPath}/resources/${apiEndpoint.id}/${request.id}.html`, data);
       });
     });
   }
@@ -91,7 +91,7 @@ class ReportGenerator {
         page: page,
         activePage: 'pages'
       };
-      this._generateFile(this.packagePath + '/lib/reporter/views/page.ejs', `${this.reportPath}/pages/${page.id}.html`, data);
+      this._generateFile(this.packagePath + '/src/reporter/views/page.ejs', `${this.reportPath}/pages/${page.id}.html`, data);
     });
   }
 
@@ -101,7 +101,7 @@ class ReportGenerator {
       usersRequested: this.apiEndpointsPresenter.usersRequested(),
       activePage: 'index'
     };
-    this._generateFile(this.packagePath + '/lib/reporter/views/index.ejs', `${this.reportPath}/index.html`, data);
+    this._generateFile(this.packagePath + '/src/reporter/views/index.ejs', `${this.reportPath}/index.html`, data);
   }
 
   _generateAuthGroups() {
@@ -110,7 +110,7 @@ class ReportGenerator {
       usersRequested: this.apiEndpointsPresenter.usersRequested(),
       activePage: 'groups'
     };
-    this._generateFile(this.packagePath + '/lib/reporter/views/groups.ejs', `${this.reportPath}/groups.html`, data);
+    this._generateFile(this.packagePath + '/src/reporter/views/groups.ejs', `${this.reportPath}/groups.html`, data);
   }
 
   _generatePagesCrawled() {
@@ -118,12 +118,12 @@ class ReportGenerator {
       pages: this.pageData.pages,
       activePage: 'pages'
     };
-    this._generateFile(this.packagePath + '/lib/reporter/views/pages.ejs', `${this.reportPath}/pages.html`, data);
+    this._generateFile(this.packagePath + '/src/reporter/views/pages.ejs', `${this.reportPath}/pages.html`, data);
   }
 
   _generateFile(templatePath, outputPath, data) {
     const template = fs.readFileSync(templatePath, 'utf8');
-    const html = Ejs.render(template, data, {views:[this.packagePath + '/lib/reporter/views']});
+    const html = Ejs.render(template, data, {views:[this.packagePath + '/src/reporter/views']});
 
     fs.writeFileSync(outputPath, html, (error) => {
       if(error) {
@@ -133,19 +133,19 @@ class ReportGenerator {
   }
 
   _copyAssets() {
-    fs.copyFile(this.packagePath + '/lib/reporter/views/bootstrap.min.css', `${this.reportPath}/bootstrap.min.css`, (err) => {
+    fs.copyFile(this.packagePath + '/src/reporter/views/bootstrap.min.css', `${this.reportPath}/bootstrap.min.css`, (err) => {
       if (err) throw err;
     });
-    fs.copyFile(this.packagePath + '/lib/reporter/views/bootstrap.min.js', `${this.reportPath}/bootstrap.min.js`, (err) => {
+    fs.copyFile(this.packagePath + '/src/reporter/views/bootstrap.min.js', `${this.reportPath}/bootstrap.min.js`, (err) => {
       if (err) throw err;
     });
-    fs.copyFile(this.packagePath + '/lib/reporter/views/jquery-3.4.1.min.js', `${this.reportPath}/jquery-3.4.1.min.js`, (err) => {
+    fs.copyFile(this.packagePath + '/src/reporter/views/jquery-3.4.1.min.js', `${this.reportPath}/jquery-3.4.1.min.js`, (err) => {
       if (err) throw err;
     });
-    fs.copyFile(this.packagePath + '/lib/reporter/views/popper.min.js', `${this.reportPath}/popper.min.js`, (err) => {
+    fs.copyFile(this.packagePath + '/src/reporter/views/popper.min.js', `${this.reportPath}/popper.min.js`, (err) => {
       if (err) throw err;
     });
-    fs.copyFile(this.packagePath + '/lib/reporter/views/dashboard.css', `${this.reportPath}/dashboard.css`, (err) => {
+    fs.copyFile(this.packagePath + '/src/reporter/views/dashboard.css', `${this.reportPath}/dashboard.css`, (err) => {
       if (err) throw err;
     });
   }

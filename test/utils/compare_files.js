@@ -47,7 +47,16 @@ function _removeVolatilePageData(str) {
   return str;
 }
 
+function createTmpDir() {
+  const dir = './tmp';
+
+  if (!fs.existsSync(dir)){
+    fs.mkdirSync(dir);
+  }
+}
+
 module.exports = {
   compareApiEndpointsFiles: compareApiEndpointsFiles,
-  comparePagesFiles: comparePagesFiles
+  comparePagesFiles: comparePagesFiles,
+  createTmpDir: createTmpDir
 }

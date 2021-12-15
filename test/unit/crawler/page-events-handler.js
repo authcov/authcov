@@ -1,5 +1,5 @@
 const { expect } = require('chai');
-const PageEventsHandler = require('../../../lib/crawler/page-events-handler.js');
+const PageEventsHandler = require('../../../src/crawler/page-events-handler.js');
 
 describe('PageEventsHandler', () => {
   describe('#pendingRequests', () => {

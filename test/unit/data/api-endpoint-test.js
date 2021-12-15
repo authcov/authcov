@@ -1,5 +1,5 @@
 const { expect } = require('chai');
-const ApiEndpoint = require('../../../lib/data/api-endpoint.js');
+const ApiEndpoint = require('../../../src/data/api-endpoint.js');
 
 describe('ApiEndpoint', () => {
   describe('#aclKey()', () => {

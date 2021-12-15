@@ -1,7 +1,7 @@
 const { expect } = require('chai');
 const fs = require('fs');
-const ApiEndpointData = require('../../../lib/data/api-endpoint-data.js');
-const ApiEndpointsPresenter = require('../../../lib/data/api-endpoints-presenter.js');
+const ApiEndpointData = require('../../../src/data/api-endpoint-data.js');
+const ApiEndpointsPresenter = require('../../../src/data/api-endpoints-presenter.js');
 
 describe('ApiEndpointsPresenter', () => {
   /*
