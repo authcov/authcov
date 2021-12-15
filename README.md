@@ -117,9 +117,9 @@ Unit tests:
 $ npm test test/unit
 ```
 
-**Integration tests:**
+**End2End tests:**
 
 First download and run the [example app](https://github.com/evanrolfe/example_app). Then run the tests:
 ```bash
-$ npm test test/integration
+$ npm test test/e2e
 ```

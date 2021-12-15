@@ -13,7 +13,7 @@ const config = new BaseConfig(configArgs);
 describe('UsersCrawler for MPA with cookie-based auth', () => {
   describe('./tmp/api_endpoints.json', () => {
     it('should save apiRequests for users: Public, evanrolfe@gmail.com, evanrolfe@onescan.io', async () => {
-      fs.copyFileSync('./test/integration/expected_output/mpa_crawl_api_endpoints.json', './tmp/api_endpoints.json', (err) => {
+      fs.copyFileSync('./test/e2e/expected_output/mpa_crawl_api_endpoints.json', './tmp/api_endpoints.json', (err) => {
         if (err) throw err;
       });
 
@@ -23,7 +23,7 @@ describe('UsersCrawler for MPA with cookie-based auth', () => {
 
       await usersIntruder.start();
       apiEndpointData.saveToFile('./tmp/api_endpoints.json');
-      CompareFiles.compareApiEndpointsFiles('./tmp/api_endpoints.json', './test/integration/expected_output/mpa_intrude_api_endpoints.json');
+      CompareFiles.compareApiEndpointsFiles('./tmp/api_endpoints.json', './test/e2e/expected_output/mpa_intrude_api_endpoints.json');
     });
   });
 });

@@ -26,8 +26,8 @@ describe('UsersCrawler for SPA with cookie-based auth', () => {
       const usersCrawler = new UsersCrawler(config, apiEndpointData, pageData, reporter);
 
       await usersCrawler.start();
-      CompareFiles.compareApiEndpointsFiles('./tmp/api_endpoints.json', './test/integration/expected_output/spa_timeout_api_endpoints.json');
-      CompareFiles.comparePagesFiles('./tmp/pages.json', './test/integration/expected_output/spa_timeout_pages.json');
+      CompareFiles.compareApiEndpointsFiles('./tmp/api_endpoints.json', './test/e2e/expected_output/spa_timeout_api_endpoints.json');
+      CompareFiles.comparePagesFiles('./tmp/pages.json', './test/e2e/expected_output/spa_timeout_pages.json');
     });
   });
 });
