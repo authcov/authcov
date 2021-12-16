@@ -79,7 +79,7 @@ The following options can be set in your config file:
 
 There are two ways to configure the login in your config file:
 
-1. Using the default login mechanism which uses puppeteer to enter the username and password into the specified inputs and then click the specified submit button. This can be configured by setting the `loginConfig` option in your config file like this. See this [example](https://github.com/authcov/authcov/blob/master/examples/example-spa-config.js#L27-L32) too.
+1. Using the default login mechanism which uses puppeteer to enter the username and password into the specified inputs and then click the specified submit button. This can be configured by setting the `loginConfig` option in your config file like this. See this [example](https://github.com/authcov/authcov/blob/master/docs/examples/example-spa-config.js#L27-L32) too.
 ```js
 "loginConfig": {
   "url": "http://localhost/login",
@@ -89,7 +89,7 @@ There are two ways to configure the login in your config file:
 }
 ```
 
-2. If your login form is more complex and involves more user interaction then you can define your own puppeteer function in your config file like this. See this [example](https://github.com/authcov/authcov/blob/master/examples/example-mpa-config.js#L25-L37) too.
+2. If your login form is more complex and involves more user interaction then you can define your own puppeteer function in your config file like this. See this [example](https://github.com/authcov/authcov/blob/master/docs/examples/example-mpa-config.js#L25-L37) too.
 ```js
   "loginFunction": async function(page, username, password){
     await page.goto('http://localhost:3001/users/sign_in');
