@@ -1,7 +1,7 @@
 const { expect } = require('chai');
 /*
 const Config = require('../../examples/example-spa-token-config.js');
-const IntruderCredentialsGrabber = require('../../src/intruder/intruder-credentials-grabber.js')
+const IntruderCredentialsGrabber = require('../../dist/intruder/intruder-credentials-grabber.js')
 
 const config = new Config();
 

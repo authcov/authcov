@@ -1,5 +1,5 @@
 const { expect } = require('chai');
-const ApiEndpointData = require('../../../src/data/api-endpoint-data.js'); // TODO: Sort out these requires
+const ApiEndpointData = require('../../../dist/data/api-endpoint-data.js'); // TODO: Sort out these requires
 
 describe('ApiEndpointData', () => {
   describe('#findAuthorisationHeadersForUsername()', () => {
