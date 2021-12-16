@@ -1,15 +1,14 @@
-export {};
-const chalk = require('chalk');
+import chalk from 'chalk';
 
-const ConfigValidator = require('../config/config-validator.js');
-const mergeConfigs = require('../config/config-merger.js');
-const BaseConfig = require('../config/base-config.js');
-const UsersCrawler = require('../crawler/users-crawler.js');
-const ApiEndpointData = require('../data/api-endpoint-data.js');
-const PageData = require('../data/page-data.js');
-const ReportGenerator = require('../reporter/report-generator.js');
+import ConfigValidator from '../config/config-validator';
+import { mergeConfigs } from '../config/config-merger';
+import BaseConfig from '../config/base-config';
+import UsersCrawler from '../crawler/users-crawler';
+import ApiEndpointData from '../data/api-endpoint-data';
+import PageData from '../data/page-data';
+import ReportGenerator from '../reporter/report-generator';
 
-async function crawl(configPath, packagePath, cliOptions) {
+export async function crawl(configPath, packagePath, cliOptions) {
   let configArgs = require(configPath);
   configArgs = mergeConfigs(configArgs, cliOptions);
 
@@ -37,5 +36,3 @@ async function crawl(configPath, packagePath, cliOptions) {
   reporter.generate(config.reportPath);
   return;
 }
-
-module.exports = crawl;

@@ -1,1 +1,3 @@
-export declare function IsNullOrEmpty(str: string): boolean;
+export default class Test {
+    saySomething(): string;
+}

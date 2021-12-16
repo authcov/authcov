@@ -1,6 +1,6 @@
-const Puppeteer = require('puppeteer');
+import Puppeteer from 'puppeteer';
 
-module.exports = class Browser {
+export default class Browser {
   puppeteer_browser: any;
   puppeteer_context: any;
   maxConcurrency: any;

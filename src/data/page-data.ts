@@ -1,7 +1,6 @@
-export {};
-const fs = require('fs');
+import * as fs from 'fs';
 
-class PageData {
+export default class PageData {
   config: any;
   pages: any[];
 
@@ -14,7 +13,7 @@ class PageData {
   }
 
   loadFile(filePath) {
-    let rawJson = fs.readFileSync(filePath);
+    let rawJson = fs.readFileSync(filePath).toString();
     this.pages = JSON.parse(rawJson);
   }
 
@@ -25,11 +24,7 @@ class PageData {
       return 0;
     });
 
-    fs.writeFileSync(fileName, JSON.stringify(this.pages, null, 2), (error) => {
-      if(error) {
-        console.log('Error saving file!');
-      }
-    });
+    fs.writeFileSync(fileName, JSON.stringify(this.pages, null, 2));
   }
 
   pageCrawledCallback(pageUrl, id, currentUser) {
@@ -81,5 +76,3 @@ class PageData {
     });
   }
 }
-
-module.exports = PageData;

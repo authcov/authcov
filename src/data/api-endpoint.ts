@@ -1,4 +1,4 @@
-class ApiEndpoint {
+export default class ApiEndpoint {
   id: string;
   url: string;
   method: string;
@@ -92,5 +92,3 @@ class ApiEndpoint {
     return this.url.match(/[a-zA-Z0-9]+/g);
   }
 }
-
-module.exports = ApiEndpoint;

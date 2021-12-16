@@ -1,7 +1,6 @@
-export {};
-const chalk = require('chalk');
+import chalk from 'chalk';
 
-class ConfigValidator {
+export default class ConfigValidator {
   config: any;
   errors: any;
 
@@ -324,5 +323,3 @@ class ConfigValidator {
     this.errors[field].push(message);
   }
 }
-
-module.exports = ConfigValidator;

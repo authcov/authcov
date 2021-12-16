@@ -1,4 +1,4 @@
-module.exports = class BaseConfig {
+export default class BaseConfig {
   apiEndpointsFile: string;
   pagesFile: string;
   reportPath: string;
@@ -8,6 +8,7 @@ module.exports = class BaseConfig {
   unAuthorizedStatusCodes: string[];
   ignoreLinksIncluding: string[];
   loginConfig: any;
+  crawlUser: any;
 
   constructor(configArgs) {
     // Default values:

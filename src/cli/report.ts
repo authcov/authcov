@@ -1,14 +1,13 @@
-export {};
 // TODO:
-const ApiEndpointData = require('../data/api-endpoint-data.js');
-const PageData = require('../data/page-data.js');
+import ApiEndpointData from '../data/api-endpoint-data';
+import PageData from '../data/page-data';
 
-const ReportGenerator = require('../reporter/report-generator.js');
-const ApiEndpointsPresenter = require('../data/api-endpoints-presenter.js');
+import ReportGenerator from '../reporter/report-generator';
+import ApiEndpointsPresenter from '../data/api-endpoints-presenter';
 
 const configPath = './examples/wordpress-config.js';
 
-async function report(configPath) {
+export async function report(configPath) {
   const config = require(configPath);
   const apiEndpointData = new ApiEndpointData({config: config});
   const pageData = new PageData({config: config});
@@ -18,11 +17,9 @@ async function report(configPath) {
 
   // 2. Generate the report
   const apiEndpointsPresenter = new ApiEndpointsPresenter(apiEndpointData.apiEndpoints);
-  const reporter = new ReportGenerator(apiEndpointsPresenter, pageData);
+  const reporter = new ReportGenerator(apiEndpointsPresenter, pageData, '.');
   reporter.generate(config.reportPath);
   return;
 }
-
-module.exports = report;
 
 report(configPath);

@@ -1,7 +1,5 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-const fs = require('fs');
-const ApiEndpoints = require('./api-endpoints.js');
+import * as fs from 'fs';
+import ApiEndpoints from './api-endpoint';
 class DataStore {
     constructor(options) {
         if (typeof (options.config) == 'object') {
@@ -21,3 +19,4 @@ class DataStore {
     }
 }
 module.exports = DataStore;
+//# sourceMappingURL=data-store.js.map

@@ -1,19 +1,19 @@
-export {};
-const chalk = require('chalk');
-const LinkQueue = require('./link-queue.js');
-const Browser = require('./browser.js');
-const PageExplorer = require('./page-explorer.js');
-const PageEventsHandler = require('./page-events-handler.js');
+import chalk from 'chalk';
+import LinkQueue from './link-queue.js';
+import Browser from './browser.js';
+import PageExplorer from './page-explorer.js';
+import PageEventsHandler from './page-events-handler.js';
 
-const EventEmitter = require('events');
-const { parse, resolve } = require('url');
-const trim = require('lodash/trim');
-const startsWith = require('lodash/startsWith');
-const includes = require('lodash/includes');
-const noop = require('lodash/noop');
-const uuid = require('uuid/v4');
+import { EventEmitter } from 'events';
+import { parse, resolve } from 'url';
+import trim from 'lodash/trim';
+import startsWith from 'lodash/startsWith';
+import includes from 'lodash/includes';
+import noop from 'lodash/noop';
+import pkg from 'uuid/v4';
+const { v4: uuid } = pkg;
 
-module.exports = class Crawler {
+export default class Crawler {
   browser: any;
   events: any;
   linkQueue: any;

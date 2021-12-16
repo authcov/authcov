@@ -1,6 +1,6 @@
-const Ejs = require('ejs');
-const fs = require('fs');
-const ApiEndpointsPresenter = require('../data/api-endpoints-presenter.js');
+import Ejs from 'ejs';
+import * as fs from 'fs';
+import ApiEndpointsPresenter from '../data/api-endpoints-presenter.js';
 
 const deleteFolderRecursive = function(path) {
   if (fs.existsSync(path)) {
@@ -16,7 +16,7 @@ const deleteFolderRecursive = function(path) {
   }
 };
 
-class ReportGenerator {
+export default class ReportGenerator {
   apiEndpointsPresenter: any;
   pageData: any;
   packagePath: any;
@@ -130,11 +130,7 @@ class ReportGenerator {
     const template = fs.readFileSync(templatePath, 'utf8');
     const html = Ejs.render(template, data, {views:[this.packagePath + '/src/reporter/views']});
 
-    fs.writeFileSync(outputPath, html, (error) => {
-      if(error) {
-        console.log('Error saving file!');
-      }
-    });
+    fs.writeFileSync(outputPath, html);
   }
 
   _copyAssets() {
@@ -155,5 +151,3 @@ class ReportGenerator {
     });
   }
 }
-
-module.exports = ReportGenerator;

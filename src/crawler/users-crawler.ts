@@ -1,6 +1,6 @@
-const Crawler = require('./crawler.js');
+import Crawler from './crawler.js';
 
-module.exports = class UsersCrawler {
+export default class UsersCrawler {
   config: any;
   apiEndpointData: any;
   pageData: any;

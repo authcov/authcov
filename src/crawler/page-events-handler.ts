@@ -1,4 +1,4 @@
-class PageEventsHandler {
+export default class PageEventsHandler {
   page: any;
   promise: any[];
   pendingRequests: Set<any>;
@@ -74,5 +74,3 @@ class PageEventsHandler {
     return ['xhr','fetch'].includes(request.resourceType());
   }
 }
-
-module.exports = PageEventsHandler;

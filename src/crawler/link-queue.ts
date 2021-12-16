@@ -1,6 +1,7 @@
-const includes = require('lodash/includes');
+import pkg from 'lodash/includes';
+const { includes } = pkg;
 
-class LinkQueue {
+export default class LinkQueue {
   queuedUrls: string[];
 
   constructor() {
@@ -23,5 +24,3 @@ class LinkQueue {
     return this.queuedUrls.length;
   }
 }
-
-module.exports = LinkQueue;

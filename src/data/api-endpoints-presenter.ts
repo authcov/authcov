@@ -1,4 +1,4 @@
-module.exports = class ApiEndpointsPresenter {
+export default class ApiEndpointsPresenter {
   apiEndpoints: any[];
 
   constructor(apiEndpoints) {

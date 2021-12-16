@@ -1,6 +1,6 @@
-const Browser = require('../crawler/browser.js');
+import Browser from '../crawler/browser.js';
 
-module.exports = class IntruderCredentialsGrabber {
+export default class IntruderCredentialsGrabber {
   config: any;
   browser: any;
 

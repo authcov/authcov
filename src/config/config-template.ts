@@ -1,4 +1,4 @@
-const config = {
+export const config = {
   /*
    * BaseUrl: The base URL of the site. This is where the crawler will start from.
    */
@@ -246,5 +246,3 @@ const config = {
   }
 */
 };
-
-module.exports = config;

@@ -1,6 +1,6 @@
-const chalk = require('chalk');
-const request = require('request');
-const IntruderCredentialsGrabber = require('./intruder-credentials-grabber.js');
+import chalk from 'chalk';
+import request from 'request';
+import IntruderCredentialsGrabber from './intruder-credentials-grabber.js';
 
 async function sleep(ms) {
   return new Promise(resolve => {
@@ -8,7 +8,7 @@ async function sleep(ms) {
   });
 }
 
-class UsersIntruder {
+export default class UsersIntruder {
   config: any;
   apiEndpointData: any;
 
@@ -112,5 +112,3 @@ class UsersIntruder {
     return intruderHeaders;
   }
 }
-
-module.exports = UsersIntruder;

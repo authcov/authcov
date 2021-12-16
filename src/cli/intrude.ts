@@ -1,13 +1,12 @@
-export {};
-const UsersIntruder = require('../intruder/users-intruder.js');
-const ApiEndpointData = require('../data/api-endpoint-data.js');
-const ConfigValidator = require('../config/config-validator.js');
-const mergeConfigs = require('../config/config-merger.js');
-const BaseConfig = require('../config/base-config.js');
-const PageData = require('../data/page-data.js');
-const ReportGenerator = require('../reporter/report-generator.js');
+import UsersIntruder from '../intruder/users-intruder';
+import ApiEndpointData from '../data/api-endpoint-data';
+import ConfigValidator from '../config/config-validator';
+import { mergeConfigs } from '../config/config-merger';
+import BaseConfig from '../config/base-config';
+import PageData from '../data/page-data';
+import ReportGenerator from '../reporter/report-generator';
 
-async function intrude(configPath, packagePath, cliOptions) {
+export async function intrude(configPath, packagePath, cliOptions) {
   let configArgs = require(configPath);
   configArgs = mergeConfigs(configArgs, cliOptions);
 
@@ -33,5 +32,3 @@ async function intrude(configPath, packagePath, cliOptions) {
   reporter.generate(config.reportPath);
   return;
 }
-
-module.exports = intrude;

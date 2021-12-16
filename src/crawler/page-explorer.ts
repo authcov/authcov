@@ -1,5 +1,4 @@
-
-class PageExplorer {
+export default class PageExplorer {
   page: any;
   pageUrl: string;
   currentUser: any;
@@ -85,5 +84,3 @@ class PageExplorer {
     }
   }
 }
-
-module.exports = PageExplorer;

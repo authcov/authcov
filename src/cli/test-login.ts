@@ -1,10 +1,9 @@
-export {};
-const IntruderCredentialsGrabber = require('../intruder/intruder-credentials-grabber.js')
-const ConfigValidator = require('../config/config-validator.js');
-const mergeConfigs = require('../config/config-merger.js');
-const BaseConfig = require('../config/base-config.js');
+import IntruderCredentialsGrabber from '../intruder/intruder-credentials-grabber';
+import ConfigValidator from '../config/config-validator';
+import { mergeConfigs } from '../config/config-merger';
+import BaseConfig from '../config/base-config';
 
-async function testLogin(configPath, cliOptions) {
+export async function testLogin(configPath, cliOptions) {
   let configArgs = require(configPath);
   configArgs = mergeConfigs(configArgs, cliOptions);
 
@@ -27,5 +26,3 @@ async function testLogin(configPath, cliOptions) {
   await credsGrabber.disconnect();
   return;
 }
-
-module.exports = testLogin;

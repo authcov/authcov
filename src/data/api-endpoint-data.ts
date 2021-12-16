@@ -1,9 +1,10 @@
-export {};
-const fs = require('fs');
-const uuid = require('uuid/v4');
-const ApiEndpoint = require('./api-endpoint.js');
+import * as fs from 'fs';
+import pkg from 'uuid/v4';
+const { v4: uuid } = pkg;
 
-class ApiEndpointData {
+import ApiEndpoint from './api-endpoint.js';
+
+export default class ApiEndpointData {
   config: any;
   apiEndpoints: any[];
 
@@ -17,7 +18,7 @@ class ApiEndpointData {
 
   loadFile(filePath) {
     let rawJson = fs.readFileSync(filePath);
-    this.apiEndpoints = JSON.parse(rawJson).map((data) => new ApiEndpoint(data, this.config));
+    this.apiEndpoints = JSON.parse(rawJson.toString()).map((data) => new ApiEndpoint(data, this.config));
   }
 
   saveToFile(fileName) {
@@ -29,11 +30,7 @@ class ApiEndpointData {
     });
 
     const apiEndpointsData = this.apiEndpoints.map(apiEndpoint => apiEndpoint.data());
-    fs.writeFileSync(fileName, JSON.stringify(apiEndpointsData, null, 2), (error) => {
-      if(error) {
-        console.log('Error saving file!');
-      }
-    });
+    fs.writeFileSync(fileName, JSON.stringify(apiEndpointsData, null, 2));
   }
 
   urlCrawledCallback(url) {
@@ -236,7 +233,7 @@ class ApiEndpointData {
         url: url,
         method: method,
         requests: []
-      });
+      }, {});
       this.apiEndpoints.push(apiEndpoint);
     }
 
@@ -253,5 +250,3 @@ class ApiEndpointData {
     console.log(`Discovered ${this.apiEndpoints.length} api-endpoints`);
   }
 }
-
-module.exports = ApiEndpointData;
