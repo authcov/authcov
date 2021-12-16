@@ -1,5 +1,4 @@
-import pkg from 'lodash/includes';
-const { includes } = pkg;
+import { includes } from 'lodash/includes';
 export default class LinkQueue {
     constructor() {
         this.queuedUrls = [];
