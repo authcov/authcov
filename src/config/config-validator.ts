@@ -1,6 +1,10 @@
+export {};
 const chalk = require('chalk');
 
 class ConfigValidator {
+  config: any;
+  errors: any;
+
   constructor(config) {
     this.config = config;
     this.errors = {};
@@ -84,7 +88,7 @@ class ConfigValidator {
       return;
     }
 
-    if(typeof(intruders) === 'array') {
+    if(Array.isArray(intruders)) {
       this._addErrorMessage('config.intruders', 'must be an array of user objects');
       return;
     }
@@ -106,7 +110,7 @@ class ConfigValidator {
     const authorisationHeaders = this.config.authorisationHeaders;
 
     if(authorisationHeaders !== undefined) {
-      if(typeof(authorisationHeaders) === 'array') {
+      if(Array.isArray(authorisationHeaders)) {
         this._addErrorMessage('config.authorisationHeaders', 'must be an array of strings');
         return;
       }

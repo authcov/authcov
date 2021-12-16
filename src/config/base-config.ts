@@ -1,4 +1,14 @@
-class BaseConfig {
+module.exports = class BaseConfig {
+  apiEndpointsFile: string;
+  pagesFile: string;
+  reportPath: string;
+  buttonXPath: string;
+  ignoreButtonsIncluding: string[];
+  ignoreAPIrequestsIncluding: string[];
+  unAuthorizedStatusCodes: string[];
+  ignoreLinksIncluding: string[];
+  loginConfig: any;
+
   constructor(configArgs) {
     // Default values:
     this.apiEndpointsFile = "./api_endpoints.json";
@@ -69,5 +79,3 @@ class BaseConfig {
     return;
   }
 }
-
-module.exports = BaseConfig;

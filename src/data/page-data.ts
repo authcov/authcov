@@ -1,7 +1,11 @@
+export {};
 const fs = require('fs');
 
 class PageData {
-  constructor(options = {}) {
+  config: any;
+  pages: any[];
+
+  constructor(options) {
     if(typeof(options.config) == 'object') {
       this.config = options.config;
     }

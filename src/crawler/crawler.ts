@@ -1,3 +1,4 @@
+export {};
 const chalk = require('chalk');
 const LinkQueue = require('./link-queue.js');
 const Browser = require('./browser.js');
@@ -12,7 +13,19 @@ const includes = require('lodash/includes');
 const noop = require('lodash/noop');
 const uuid = require('uuid/v4');
 
-class Crawler {
+module.exports = class Crawler {
+  browser: any;
+  events: any;
+  linkQueue: any;
+  visitedUrls: any;
+  _resolveIdle: any;
+  currentUser: any;
+  apiEndpointData: any;
+  pageData: any;
+  config: any;
+  processEvents: any;
+  cookiesStr: any[];
+
   constructor(browser, options) {
     this.browser = browser;
     this.events = new EventEmitter();
@@ -40,7 +53,7 @@ class Crawler {
     }
   }
 
-  static async init(options={}) {
+  static async init(options) {
     const browser = await Browser.init(options.config);
     const crawler = new Crawler(browser, options);
     return crawler;
@@ -270,5 +283,3 @@ class Crawler {
     }
   }
 }
-
-module.exports = Crawler;

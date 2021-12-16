@@ -1,5 +1,12 @@
 
 class PageExplorer {
+  page: any;
+  pageUrl: string;
+  currentUser: any;
+  config: any;
+  pageData: any;
+  buttonsClicked: any[];
+
   constructor(page, pageUrl, currentUser, config, pageData) {
     this.page = page;
 
@@ -61,10 +68,12 @@ class PageExplorer {
   async _pageClickButtons(buttons) {
     for(let i = 0; i < buttons.length; i++) {
       let button = buttons[i];
+       // @ts-ignore
       const doNotClick = await doNotClickButton(button.outerHTML);
 
       if(doNotClick===false) {
         await button.click();
+         // @ts-ignore
         buttonClicked(button.outerHTML);
       }
     }

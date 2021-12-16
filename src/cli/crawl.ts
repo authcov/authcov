@@ -1,3 +1,4 @@
+export {};
 const chalk = require('chalk');
 
 const ConfigValidator = require('../config/config-validator.js');
@@ -13,7 +14,7 @@ async function crawl(configPath, packagePath, cliOptions) {
   configArgs = mergeConfigs(configArgs, cliOptions);
 
   // 1. Validate config params
-  configValidator = new ConfigValidator(configArgs);
+  const configValidator = new ConfigValidator(configArgs);
   if(configValidator.valid() === false) {
     console.log(configValidator.errorMessage());
     return;

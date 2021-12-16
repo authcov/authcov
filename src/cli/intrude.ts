@@ -1,3 +1,4 @@
+export {};
 const UsersIntruder = require('../intruder/users-intruder.js');
 const ApiEndpointData = require('../data/api-endpoint-data.js');
 const ConfigValidator = require('../config/config-validator.js');
@@ -11,7 +12,7 @@ async function intrude(configPath, packagePath, cliOptions) {
   configArgs = mergeConfigs(configArgs, cliOptions);
 
   // 1. Validate config params
-  configValidator = new ConfigValidator(configArgs);
+  const configValidator = new ConfigValidator(configArgs);
   if(configValidator.valid() === false) {
     console.log(configValidator.errorMessage());
     return;

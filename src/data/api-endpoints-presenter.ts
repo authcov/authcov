@@ -1,4 +1,6 @@
-class ApiEndpointsPresenter {
+module.exports = class ApiEndpointsPresenter {
+  apiEndpoints: any[];
+
   constructor(apiEndpoints) {
     this.apiEndpoints = apiEndpoints;
   }
@@ -56,6 +58,7 @@ class ApiEndpointsPresenter {
 
   // Sort by the number of authorised user requests
   _sortApiEndpoints() {
+    // @ts-ignore
     this.apiEndpoints.sort((a, b) => { return this._compareAclKeys(a, b) });
   }
 
@@ -89,5 +92,3 @@ class ApiEndpointsPresenter {
     }
   }
 }
-
-module.exports = ApiEndpointsPresenter;

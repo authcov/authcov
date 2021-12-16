@@ -1,5 +1,11 @@
 class ApiEndpoint {
-  constructor(data = {}, config) {
+  id: string;
+  url: string;
+  method: string;
+  config: any;
+  requests: any[];
+
+  constructor(data, config) {
     this.id = data.id;
     this.url = data.url;
     this.method = data.method;
@@ -66,6 +72,7 @@ class ApiEndpoint {
     if(trueOneValues.length == 0) {
       return 0;
     } else {
+      // @ts-ignore
       return trueOneValues.reduce((a, b) => a + b);
     }
   }

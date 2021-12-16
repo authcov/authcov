@@ -1,6 +1,9 @@
 const Browser = require('../crawler/browser.js');
 
-class IntruderCredentialsGrabber {
+module.exports = class IntruderCredentialsGrabber {
+  config: any;
+  browser: any;
+
   constructor(config, browser) {
     this.config = config;
     this.browser = browser;
@@ -109,5 +112,3 @@ class IntruderCredentialsGrabber {
     return authHeaders;
   }
 }
-
-module.exports = IntruderCredentialsGrabber;

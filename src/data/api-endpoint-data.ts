@@ -1,9 +1,13 @@
+export {};
 const fs = require('fs');
 const uuid = require('uuid/v4');
 const ApiEndpoint = require('./api-endpoint.js');
 
 class ApiEndpointData {
-  constructor(options = {}) {
+  config: any;
+  apiEndpoints: any[];
+
+  constructor(options) {
     if(typeof(options.config) == 'object') {
       this.config = options.config;
     }
@@ -63,7 +67,7 @@ class ApiEndpointData {
       const headers = apiRequestAuthHeaders.map(headers => headers[key]);
       const uniqValues = [...new Set(headers)];
 
-      if(uniqValues > 1) {
+      if(uniqValues.length > 1) {
         throw `Multiple authorisation headers found for header: ${key}!`;
       }
     });
@@ -164,7 +168,7 @@ class ApiEndpointData {
     };
 
     if(this.config.saveResponses === true) {
-      requestObj.response.body = responseBody;
+      requestObj.response = Object.assign({ body: responseBody }, requestObj.response);
     }
     apiEndpoint.requests.push(requestObj);
 
@@ -214,7 +218,7 @@ class ApiEndpointData {
     };
 
     if(this.config.saveResponses === true) {
-      responseObj.body = responseBody;
+      requestObj.response = Object.assign({ body: responseBody }, requestObj.response);
     }
 
     requestObj.response = responseObj;

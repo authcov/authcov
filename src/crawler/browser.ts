@@ -1,6 +1,12 @@
 const Puppeteer = require('puppeteer');
 
-class Browser {
+module.exports = class Browser {
+  puppeteer_browser: any;
+  puppeteer_context: any;
+  maxConcurrency: any;
+  pendingRequests: any;
+  browserLaunched: any;
+
   constructor(puppeteer_browser, puppeteer_context, maxConcurrency, browserLaunched) {
     this.puppeteer_browser = puppeteer_browser;
     this.puppeteer_context = puppeteer_context;
@@ -61,5 +67,3 @@ class Browser {
     }
   }
 }
-
-module.exports = Browser;

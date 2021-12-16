@@ -1,8 +1,12 @@
+export {};
 const fs = require('fs');
 const ApiEndpoints = require('./api-endpoints.js')
 
 class DataStore {
-  constructor(options = {}) {
+  config: any;
+  apiEndpoints: any;
+
+  constructor(options) {
     if(typeof(options.config) == 'object') {
       this.config = options.config;
     }

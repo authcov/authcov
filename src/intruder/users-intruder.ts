@@ -9,6 +9,9 @@ async function sleep(ms) {
 }
 
 class UsersIntruder {
+  config: any;
+  apiEndpointData: any;
+
   constructor(config, apiEndpointData) {
     this.config = config;
     this.apiEndpointData = apiEndpointData;
@@ -90,7 +93,7 @@ class UsersIntruder {
         this.apiEndpointData.apiRequestCallback(responseObj.request(), null, null, intruder.username);
         this.apiEndpointData.apiResponseCallback(responseObj, null, null, intruder.username);
 
-        setTimeout(() => { resolve() }, 100);
+        setTimeout(() => { resolve(undefined) }, 100);
       });
     });
   }

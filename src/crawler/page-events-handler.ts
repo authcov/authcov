@@ -1,4 +1,9 @@
 class PageEventsHandler {
+  page: any;
+  promise: any[];
+  pendingRequests: Set<any>;
+  promises: Promise<any>[];
+
   constructor(page) {
     this.page = page;
     this.promises = [];
@@ -14,7 +19,7 @@ class PageEventsHandler {
       this.waitForAllXhrFinished(),
       new Promise(resolve => {
         setTimeout(() => {
-          resolve();
+          resolve(undefined);
         }, timeoutSeconds * 1000);
       }),
     ]);
@@ -67,12 +72,6 @@ class PageEventsHandler {
 
   _isXhr(request) {
     return ['xhr','fetch'].includes(request.resourceType());
-  }
-
-  _deleteRequest(request) {
-    this.pendingRequests = this.pendingRequests.filter((item) => {
-      return (item);
-    })
   }
 }
 

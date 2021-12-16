@@ -1,6 +1,8 @@
 const includes = require('lodash/includes');
 
 class LinkQueue {
+  queuedUrls: string[];
+
   constructor() {
     this.queuedUrls = [];
   }

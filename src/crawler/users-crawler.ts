@@ -1,6 +1,11 @@
 const Crawler = require('./crawler.js');
 
-class UsersCrawler {
+module.exports = class UsersCrawler {
+  config: any;
+  apiEndpointData: any;
+  pageData: any;
+  reporter: any;
+
   constructor(config, apiEndpointData, pageData, reporter) {
     this.config = config;
     this.apiEndpointData = apiEndpointData;
@@ -41,5 +46,3 @@ class UsersCrawler {
     return;
   }
 }
-
-module.exports = UsersCrawler;

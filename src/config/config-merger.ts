@@ -1,3 +1,5 @@
+export {};
+
 const mergeConfigs = (config, cliOptions) => {
   Object.keys(config).forEach((key) => {
     if(cliOptions[key] !== undefined) {

@@ -1,3 +1,4 @@
+export {};
 // TODO:
 const ApiEndpointData = require('../data/api-endpoint-data.js');
 const PageData = require('../data/page-data.js');
@@ -5,7 +6,7 @@ const PageData = require('../data/page-data.js');
 const ReportGenerator = require('../reporter/report-generator.js');
 const ApiEndpointsPresenter = require('../data/api-endpoints-presenter.js');
 
-configPath = './examples/wordpress-config.js';
+const configPath = './examples/wordpress-config.js';
 
 async function report(configPath) {
   const config = require(configPath);
@@ -24,4 +25,4 @@ async function report(configPath) {
 
 module.exports = report;
 
-report();
+report(configPath);

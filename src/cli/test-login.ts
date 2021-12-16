@@ -1,3 +1,4 @@
+export {};
 const IntruderCredentialsGrabber = require('../intruder/intruder-credentials-grabber.js')
 const ConfigValidator = require('../config/config-validator.js');
 const mergeConfigs = require('../config/config-merger.js');
@@ -8,7 +9,7 @@ async function testLogin(configPath, cliOptions) {
   configArgs = mergeConfigs(configArgs, cliOptions);
 
   // 1. Validate config params
-  configValidator = new ConfigValidator(configArgs);
+  const configValidator = new ConfigValidator(configArgs);
   if(configValidator.valid() === false) {
     console.log(configValidator.errorMessage());
     return;

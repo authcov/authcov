@@ -1,3 +1,4 @@
+export {};
 const fs = require('fs');
 
 function generateConfig(configPath, configTemplatePath) {

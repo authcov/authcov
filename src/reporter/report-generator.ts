@@ -17,6 +17,11 @@ const deleteFolderRecursive = function(path) {
 };
 
 class ReportGenerator {
+  apiEndpointsPresenter: any;
+  pageData: any;
+  packagePath: any;
+  reportPath: any;
+
   constructor(apiEndpoints, pageData, packagePath) {
     this.apiEndpointsPresenter = new ApiEndpointsPresenter(apiEndpoints);
     this.pageData = pageData;
