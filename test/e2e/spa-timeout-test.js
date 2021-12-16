@@ -1,13 +1,13 @@
 const { expect } = require('chai');
 
-const UsersCrawler = require('../../src/crawler/users-crawler.js');
-const ApiEndpointData = require('../../src/data/api-endpoint-data.js');
-const PageData = require('../../src/data/page-data.js');
+const UsersCrawler = require('../../dist/crawler/users-crawler.js');
+const ApiEndpointData = require('../../dist/data/api-endpoint-data.js');
+const PageData = require('../../dist/data/page-data.js');
 const configArgs = require('./configs/spa-config.js');
-const BaseConfig = require('../../src/config/base-config.js');
+const BaseConfig = require('../../dist/config/base-config.js');
 const { createTmpDir, compareApiEndpointsFiles, comparePagesFiles } = require('../utils/compare_files.js');
-const ApiEndpointsPresenter = require('../../src/data/api-endpoints-presenter.js');
-const ReportGenerator = require('../../src/reporter/report-generator.js');
+const ApiEndpointsPresenter = require('../../dist/data/api-endpoints-presenter.js');
+const ReportGenerator = require('../../dist/reporter/report-generator.js');
 
 describe('UsersCrawler for SPA with cookie-based auth', () => {
   beforeEach(() => {

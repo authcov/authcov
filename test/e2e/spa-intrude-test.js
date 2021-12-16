@@ -1,10 +1,10 @@
 const { expect } = require('chai');
 const fs = require('fs');
 
-const UsersIntruder = require('../../src/intruder/users-intruder.js');
-const ApiEndpointData = require('../../src/data/api-endpoint-data.js');
+const UsersIntruder = require('../../dist/intruder/users-intruder.js');
+const ApiEndpointData = require('../../dist/data/api-endpoint-data.js');
 const configArgs = require('./configs/spa-config.js');
-const BaseConfig = require('../../src/config/base-config.js');
+const BaseConfig = require('../../dist/config/base-config.js');
 const { createTmpDir, compareApiEndpointsFiles } = require('../utils/compare_files.js');
 const config = new BaseConfig(configArgs);
 
