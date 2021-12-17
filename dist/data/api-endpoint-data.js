@@ -1,7 +1,6 @@
 import * as fs from 'fs';
-import pkg from 'uuid/v4';
-const { v4: uuid } = pkg;
-import ApiEndpoint from './api-endpoint.js';
+import { v4 as uuid } from 'uuid';
+import ApiEndpoint from './api-endpoint';
 export default class ApiEndpointData {
     constructor(options) {
         if (typeof (options.config) == 'object') {

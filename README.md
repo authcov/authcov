@@ -1,7 +1,7 @@
 # AuthCov
 [![npm version](https://badge.fury.io/js/authcov.svg)](https://badge.fury.io/js/authcov)
 
-Web app authorization coverage scanning.
+Web app authorisation coverage scanning.
 
 ![](./docs/terminal.gif)
 
