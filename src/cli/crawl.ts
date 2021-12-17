@@ -9,8 +9,8 @@ import PageData from '../data/page-data';
 import ReportGenerator from '../reporter/report-generator';
 
 export async function crawl(configPath, packagePath, cliOptions) {
-  let configArgs = require(configPath);
-  configArgs = mergeConfigs(configArgs, cliOptions);
+  const c = await import(configPath);
+  const configArgs = mergeConfigs(c.config, cliOptions);
 
   // 1. Validate config params
   const configValidator = new ConfigValidator(configArgs);

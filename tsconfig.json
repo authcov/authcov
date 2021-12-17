@@ -8,7 +8,7 @@
     "lib": ["es2020"],
     "moduleResolution": "node",
     "esModuleInterop": true,
-    "sourceMap": true,
+    "sourceMap": true
   },
   "exclude": ["node_modules", "dist", "test", "test_old"]
 }

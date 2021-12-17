@@ -68,7 +68,7 @@ export default class ConfigValidator {
             this._addErrorMessage('config.intruders', 'must be defined');
             return;
         }
-        if (Array.isArray(intruders)) {
+        if (!Array.isArray(intruders)) {
             this._addErrorMessage('config.intruders', 'must be an array of user objects');
             return;
         }
@@ -86,7 +86,7 @@ export default class ConfigValidator {
     _validateAuthorisationHeaders() {
         const authorisationHeaders = this.config.authorisationHeaders;
         if (authorisationHeaders !== undefined) {
-            if (Array.isArray(authorisationHeaders)) {
+            if (!Array.isArray(authorisationHeaders)) {
                 this._addErrorMessage('config.authorisationHeaders', 'must be an array of strings');
                 return;
             }
