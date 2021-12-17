@@ -6,7 +6,6 @@ import { crawl } from './crawl';
 import { intrude } from './intrude';
 import { testLogin } from './test-login';
 
-
 const __dirname = path.resolve();
 const packagePath = path.resolve(__dirname + '../../../');
 
@@ -26,8 +25,7 @@ cli
   .command('new <configFileName>')
   .description('Generate a config file for the site you want to scan.\nExample: authcov new myconfig.js\n')
   .action((configFileName) => {
-    const configTemplatePath = path.join(packagePath, '/src/config/config-template.js');
-
+    const configTemplatePath = path.join(__dirname, '/src/config/config-template.ts');
     generateConfig(configFileName, configTemplatePath);
   });
 
@@ -51,7 +49,7 @@ cli
   .action((configFileName, options) => {
     const configPath = path.join(process.cwd(), configFileName);
 
-    crawl(configPath, packagePath, options);
+    crawl(configPath, __dirname, options);
   });
 
 cli
@@ -71,7 +69,7 @@ cli
   .option('--browser-url <value>', 'if you wish to use an existing chrome instance, set the url i.e. http://localhost:9222')
   .action((configFileName, options) => {
     const configPath = path.join(process.cwd(), configFileName);
-    intrude(configPath, packagePath, options);
+    intrude(configPath, __dirname, options);
   });
 
 cli

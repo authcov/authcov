@@ -1,7 +1,6 @@
 import * as fs from 'fs';
 
 export function generateConfig(configPath, configTemplatePath) {
-  return true;
   let defaultConfig = fs.readFileSync(configTemplatePath).toString();
 
   fs.writeFile(configPath, defaultConfig, (error) => {
