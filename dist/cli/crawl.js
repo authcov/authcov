@@ -28,6 +28,5 @@ export async function crawl(configPath, packagePath, cliOptions) {
     console.log(chalk.green('Finished crawling.'));
     // 4. Generate the report
     reporter.generate(config.reportPath);
-    return;
 }
 //# sourceMappingURL=crawl.js.map

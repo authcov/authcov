@@ -3,8 +3,8 @@ import ConfigValidator from '../config/config-validator';
 import { mergeConfigs } from '../config/config-merger';
 import BaseConfig from '../config/base-config';
 export async function testLogin(configPath, cliOptions) {
-    let configArgs = require(configPath);
-    configArgs = mergeConfigs(configArgs, cliOptions);
+    const c = await import(configPath);
+    const configArgs = mergeConfigs(c.config, cliOptions);
     // 1. Validate config params
     const configValidator = new ConfigValidator(configArgs);
     if (configValidator.valid() === false) {

@@ -34,5 +34,4 @@ export async function crawl(configPath, packagePath, cliOptions) {
 
   // 4. Generate the report
   reporter.generate(config.reportPath);
-  return;
 }
