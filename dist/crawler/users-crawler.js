@@ -7,8 +7,8 @@ export default class UsersCrawler {
         this.reporter = reporter;
     }
     async start() {
-        this.reporter._clearReportDir();
-        this.reporter._createReportDir();
+        // this.reporter._clearReportDir();
+        // this.reporter._createReportDir();
         const startTime = Date.now();
         await this.crawlUser(this.config.crawlUser.username, this.config.crawlUser.password);
         this.apiEndpointData.saveToFile(this.config.apiEndpointsFile);

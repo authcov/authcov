@@ -14,8 +14,8 @@ export default class UsersCrawler {
   }
 
   async start() {
-    this.reporter._clearReportDir();
-    this.reporter._createReportDir();
+    // this.reporter._clearReportDir();
+    // this.reporter._createReportDir();
 
     const startTime = Date.now();
 

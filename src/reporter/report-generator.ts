@@ -30,9 +30,9 @@ export default class ReportGenerator {
 
   generate(reportPath) {
     this.reportPath = reportPath;
-    // These two functions have already been called by UsersCrawler at the start
-    //this._clearReportDir();
-    //this._createReportDir();
+
+    this._clearReportDir();
+    this._createReportDir();
     this._copyAssets();
 
     this._generateResourcePages();
@@ -42,18 +42,18 @@ export default class ReportGenerator {
     this._generateAuthGroups();
     this._generatePagesCrawled();
 
-    console.log(`Generated report in ${reportPath}`);
+    console.log(`Generated report in ${this.reportPath}`);
   }
 
   _clearReportDir() {
-    deleteFolderRecursive('./report');
+    deleteFolderRecursive(this.reportPath);
   }
 
   _createReportDir() {
-    fs.mkdirSync('./report');
-    fs.mkdirSync('./report/resources');
-    fs.mkdirSync('./report/pages');
-    fs.mkdirSync('./report/screenshots');
+    fs.mkdirSync(this.reportPath);
+    fs.mkdirSync(`${this.reportPath}/resources`);
+    fs.mkdirSync(`${this.reportPath}/pages`);
+    fs.mkdirSync(`${this.reportPath}/screenshots`);
   }
 
   _generateResourcePages() {
@@ -68,13 +68,11 @@ export default class ReportGenerator {
 
   _generateRequestPages() {
     this.apiEndpointsPresenter.apiEndpoints.forEach((apiEndpoint) => {
-      const dir = `./report/resources/${apiEndpoint.id}`;
+      const dir = `${this.reportPath}/resources/${apiEndpoint.id}`;
 
-      if(fs.existsSync(dir)) {
-        deleteFolderRecursive(dir);
+      if(!fs.existsSync(dir)) {
+        fs.mkdirSync(dir);
       }
-
-      fs.mkdirSync(dir);
 
       apiEndpoint.requests.forEach((request) => {
         const page = this.pageData.findPage(request.pageUrl, request.user);
@@ -85,6 +83,7 @@ export default class ReportGenerator {
           page: page,
           activePage: null
         };
+
         this._generateFile(this.packagePath + '/src/reporter/views/request.ejs', `${this.reportPath}/resources/${apiEndpoint.id}/${request.id}.html`, data);
       });
     });
