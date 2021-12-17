@@ -3,6 +3,6 @@ export default class LinkQueue {
     constructor();
     enqueue(url: any): void;
     dequeue(url: any): void;
-    alreadyQueued(url: any): any;
+    alreadyQueued(url: any): boolean;
     get length(): number;
 }

@@ -1,7 +1,6 @@
-const { expect } = require('chai');
-const fs = require('fs');
+import * as fs from 'fs';
 
-function compareApiEndpointsFiles(actualFile, expectedFile) {
+export function compareApiEndpointsFiles(actualFile, expectedFile) {
   let apiEndpointsActualJSON = fs.readFileSync(actualFile, {encoding: 'utf8'});
   let apiEndpointsExpectedJSON = fs.readFileSync(expectedFile, {encoding: 'utf8'});
 
@@ -11,7 +10,7 @@ function compareApiEndpointsFiles(actualFile, expectedFile) {
   //fs.writeFileSync('./tmp/api_endpoints_expected.json', apiEndpointsExpectedJSON, {encoding: 'utf8'});
   //fs.writeFileSync('./tmp/api_endpoints_actual.json', apiEndpointsActualJSON, {encoding: 'utf8'});
 
-  expect(apiEndpointsActualJSON).to.equal(apiEndpointsExpectedJSON);
+  expect(apiEndpointsActualJSON).toEqual(apiEndpointsExpectedJSON);
 }
 
 // These values change every time you run the crawler so lets not use them for comparison
@@ -29,14 +28,14 @@ function _removeVolatileApiEndpointData(str) {
   return str;
 }
 
-function comparePagesFiles(actualFile, expectedFile) {
+export function comparePagesFiles(actualFile, expectedFile) {
   let pagesActualJSON = fs.readFileSync(actualFile, {encoding: 'utf8'});
   let pagesExpectedJSON = fs.readFileSync(expectedFile, {encoding: 'utf8'});
 
   pagesActualJSON = _removeVolatilePageData(pagesActualJSON);
   pagesExpectedJSON = _removeVolatilePageData(pagesExpectedJSON);
 
-  expect(pagesActualJSON).to.equal(pagesExpectedJSON);
+  expect(pagesActualJSON).toEqual(pagesExpectedJSON);
 }
 
 function _removeVolatilePageData(str) {
@@ -47,16 +46,10 @@ function _removeVolatilePageData(str) {
   return str;
 }
 
-function createTmpDir() {
+export function createTmpDir() {
   const dir = './tmp';
 
   if (!fs.existsSync(dir)){
     fs.mkdirSync(dir);
   }
-}
-
-module.exports = {
-  compareApiEndpointsFiles: compareApiEndpointsFiles,
-  comparePagesFiles: comparePagesFiles,
-  createTmpDir: createTmpDir
 }

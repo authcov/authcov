@@ -1,7 +1,4 @@
-const { expect } = require('chai');
-const fs = require('fs');
-const ApiEndpointData = require('../../../dist/data/api-endpoint-data.js');
-const ApiEndpointsPresenter = require('../../../dist/data/api-endpoints-presenter.js');
+import ApiEndpointsPresenter from '../../../src/data/api-endpoints-presenter';
 
 describe('ApiEndpointsPresenter', () => {
   /*
@@ -56,23 +53,25 @@ describe('ApiEndpointsPresenter', () => {
   */
 
   describe('#_aclTitle()', () => {
+    let presenter;
+
     beforeEach(() => {
-      this.presenter = new ApiEndpointsPresenter([]);
+      presenter = new ApiEndpointsPresenter([]);
     });
 
     it('should return the title when accessible to everybody', () => {
       const aclKeyString = '{"alice@authcov.io":true,"Public":true,"bob@authcov.io":true}';
-      expect(this.presenter._aclTitle(aclKeyString)).to.equal('Accessible to everyone');
+      expect(presenter._aclTitle(aclKeyString)).toEqual('Accessible to everyone');
     });
 
     it('should return the title when accessible to alice and bob', () => {
       const aclKeyString = '{"alice@authcov.io":true,"Public":false,"bob@authcov.io":true}';
-      expect(this.presenter._aclTitle(aclKeyString)).to.equal('Accessible to alice@authcov.io, bob@authcov.io');
+      expect(presenter._aclTitle(aclKeyString)).toEqual('Accessible to alice@authcov.io, bob@authcov.io');
     });
 
     it('should return the title when accessible to only alice', () => {
       const aclKeyString = '{"alice@authcov.io":true,"Public":false,"bob@authcov.io":false}';
-      expect(this.presenter._aclTitle(aclKeyString)).to.equal('Accessible to only alice@authcov.io');
+      expect(presenter._aclTitle(aclKeyString)).toEqual('Accessible to only alice@authcov.io');
     });
   });
 });

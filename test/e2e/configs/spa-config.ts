@@ -1,4 +1,4 @@
-const config = {
+export const config = {
   "crawlUser": {"username": 'alice@authcov.io', "password": 'password'},
   "intruders": [
     {"username": 'Public', "password": null},
@@ -31,5 +31,3 @@ const config = {
     "submitXpath": "#login-button"
   }
 };
-
-module.exports = config;

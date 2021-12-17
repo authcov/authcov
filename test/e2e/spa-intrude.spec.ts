@@ -1,11 +1,10 @@
-const { expect } = require('chai');
-const fs = require('fs');
+import * as fs from 'fs';
 
-const UsersIntruder = require('../../dist/intruder/users-intruder.js');
-const ApiEndpointData = require('../../dist/data/api-endpoint-data.js');
-const configArgs = require('./configs/spa-config.js');
-const BaseConfig = require('../../dist/config/base-config.js');
-const { createTmpDir, compareApiEndpointsFiles } = require('../utils/compare_files.js');
+import UsersIntruder from '../../src/intruder/users-intruder';
+import ApiEndpointData from '../../src/data/api-endpoint-data';
+import { config as configArgs } from './configs/spa-config';
+import BaseConfig from '../../src/config/base-config';
+import { createTmpDir, compareApiEndpointsFiles } from '../utils/compare_files';
 const config = new BaseConfig(configArgs);
 
 describe('Intruding SPA with cookie-based auth', () => {
@@ -14,9 +13,7 @@ describe('Intruding SPA with cookie-based auth', () => {
   });
 
   it('saves apiRequests', async () => {
-    fs.copyFileSync('./test/e2e/expected_output/spa_crawl_api_endpoints.json', './tmp/api_endpoints.json', fs.constants.COPYFILE_FICLONE, (err) => {
-      if (err) throw err;
-    });
+    fs.copyFileSync('./test/e2e/expected_output/spa_crawl_api_endpoints.json', './tmp/api_endpoints.json', fs.constants.COPYFILE_FICLONE);
 
     const apiEndpointData = new ApiEndpointData({config: config});
     apiEndpointData.loadFile('./tmp/api_endpoints.json');

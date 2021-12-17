@@ -1,4 +1,3 @@
-import { includes } from 'lodash/includes';
 export default class LinkQueue {
     constructor() {
         this.queuedUrls = [];
@@ -10,7 +9,7 @@ export default class LinkQueue {
         this.queuedUrls = this.queuedUrls.filter(item => item !== url);
     }
     alreadyQueued(url) {
-        return includes(this.queuedUrls, url);
+        return this.queuedUrls.includes(url);
     }
     get length() {
         return this.queuedUrls.length;

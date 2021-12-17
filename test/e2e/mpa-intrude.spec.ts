@@ -1,11 +1,10 @@
-const { expect } = require('chai');
-const fs = require('fs');
+import * as fs from 'fs';
 
-const UsersIntruder = require('../../dist/intruder/users-intruder.js');
-const ApiEndpointData = require('../../dist/data/api-endpoint-data.js');
-const configArgs = require('./configs/mpa-config.js');
-const BaseConfig = require('../../dist/config/base-config.js');
-const { createTmpDir, compareApiEndpointsFiles } = require('../utils/compare_files.js');
+import UsersIntruder from '../../src/intruder/users-intruder';
+import ApiEndpointData from '../../src/data/api-endpoint-data';
+import { config as configArgs } from './configs/mpa-config';
+import BaseConfig from '../../src/config/base-config';
+import { createTmpDir, compareApiEndpointsFiles } from '../utils/compare_files';
 
 const config = new BaseConfig(configArgs);
 

@@ -1,17 +1,39 @@
 [
   {
-    "id": "800d1807-c4d9-4fb4-887d-d39a4226d802",
+    "id": "e95775ad-cfff-46a5-9072-532fc4acbb3b",
     "url": "http://localhost/api/settings/one.json",
     "method": "GET",
     "requests": [
       {
-        "id": "7effe292-652e-4d10-9e01-056ab5678170",
+        "id": "8c246f62-70e7-4872-8025-3cbd8a0d1595",
         "user": "Public",
         "pageUrl": "http://localhost",
         "headers": {
           "sec-fetch-mode": "cors",
           "referer": "http://localhost/",
           "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/77.0.3844.0 Safari/537.36"
+        },
+        "response": {
+          "status": 200,
+          "headers": {
+            "date": "Fri, 17 Dec 2021 09:49:00 GMT",
+            "x-content-type-options": "nosniff",
+            "x-permitted-cross-domain-policies": "none",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "vary": "Origin",
+            "x-xss-protection": "1; mode=block",
+            "x-request-id": "09e47b50-01d4-4337-907d-eaa47212b45f",
+            "x-runtime": "2.004655",
+            "referrer-policy": "strict-origin-when-cross-origin",
+            "server": "nginx/1.21.4",
+            "etag": "W/\"2ff439d24c9e548c6bbf2e6aa0387051\"",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "content-type": "application/json; charset=utf-8",
+            "cache-control": "max-age=0, private, must-revalidate"
+          },
+          "authorised": true
         }
       }
     ]

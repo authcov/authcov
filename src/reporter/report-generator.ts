@@ -1,6 +1,6 @@
 import Ejs from 'ejs';
 import * as fs from 'fs';
-import ApiEndpointsPresenter from '../data/api-endpoints-presenter.js';
+import ApiEndpointsPresenter from '../data/api-endpoints-presenter';
 
 const deleteFolderRecursive = function(path) {
   if (fs.existsSync(path)) {

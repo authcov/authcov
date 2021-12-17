@@ -10,7 +10,7 @@
   ],
   "homepage": "https://github.com/authcov/authcov",
   "scripts": {
-    "test": "jest",
+    "test": "jest --detectOpenHandles",
     "build": "tsc",
     "build:watch": "tsc --watch"
   },
@@ -26,7 +26,8 @@
       "ts",
       "tsx",
       "js"
-    ]
+    ],
+    "testTimeout": 30000
   },
   "author": "evan@evanrolfe.me",
   "license": "GPL-3.0",

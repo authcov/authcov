@@ -1,17 +1,15 @@
 import chalk from 'chalk';
-import LinkQueue from './link-queue.js';
-import Browser from './browser.js';
-import PageExplorer from './page-explorer.js';
-import PageEventsHandler from './page-events-handler.js';
+import LinkQueue from './link-queue';
+import Browser from './browser';
+import PageExplorer from './page-explorer';
+import PageEventsHandler from './page-events-handler';
 
 import { EventEmitter } from 'events';
 import { parse, resolve } from 'url';
 import trim from 'lodash/trim';
 import startsWith from 'lodash/startsWith';
-import includes from 'lodash/includes';
 import noop from 'lodash/noop';
-import pkg from 'uuid/v4';
-const { v4: uuid } = pkg;
+import uuid from 'uuid';
 
 export default class Crawler {
   browser: any;
@@ -135,7 +133,7 @@ export default class Crawler {
 
     this.browser.pendingRequests++;
     this.visitedUrls.push(url);
-    const id = uuid();
+    const id = uuid.v4();
     this.pageData.pageCrawledCallback(url, id, this.currentUser);
 
     // Start a monitor process so we can identify pages which are stuck
@@ -238,7 +236,7 @@ export default class Crawler {
         return;
       }
 
-      const notAlreadyVisted = !includes(this.visitedUrls, link);
+      const notAlreadyVisted = !this.visitedUrls.includes(link);
       const notAlreadyQueued = !this.linkQueue.alreadyQueued(link);
       const ignoreLink = this.ignoreLink(link);
 
@@ -257,7 +255,7 @@ export default class Crawler {
     if (!url) return null;
     if (startsWith(url, '#')) return null;
     const { protocol } = parse(url);
-    if (includes(['http:', 'https:'], protocol)) {
+    if (['http:', 'https:'].includes(protocol)) {
       return url.split('#')[0];
     } else if (!protocol) { // eslint-disable-line no-else-return
       return resolve(baseUrl, url).split('#')[0];

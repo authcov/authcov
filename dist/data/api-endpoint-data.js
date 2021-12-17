@@ -1,5 +1,5 @@
 import * as fs from 'fs';
-import { v4 as uuid } from 'uuid';
+import uuid from 'uuid';
 import ApiEndpoint from './api-endpoint';
 export default class ApiEndpointData {
     constructor(options) {
@@ -124,7 +124,7 @@ export default class ApiEndpointData {
             headers.cookie = cookies;
         }
         const requestObj = {
-            id: uuid(),
+            id: uuid.v4(),
             user: user,
             pageUrl: pageUrl,
             headers: headers,
@@ -150,7 +150,7 @@ export default class ApiEndpointData {
             headers.cookie = cookies;
         }
         const requestObj = {
-            id: uuid(),
+            id: uuid.v4(),
             user: user,
             pageUrl: pageUrl,
             headers: headers
@@ -186,7 +186,7 @@ export default class ApiEndpointData {
         });
         if (apiEndpoint === undefined) {
             apiEndpoint = new ApiEndpoint({
-                id: uuid(),
+                id: uuid.v4(),
                 url: url,
                 method: method,
                 requests: []

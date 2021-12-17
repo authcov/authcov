@@ -1,19 +1,17 @@
-const { expect } = require('chai');
-
-const UsersCrawler = require('../../dist/crawler/users-crawler.js');
-const ApiEndpointData = require('../../dist/data/api-endpoint-data.js');
-const PageData = require('../../dist/data/page-data.js');
-const configArgs = require('./configs/spa-config.js');
-const BaseConfig = require('../../dist/config/base-config.js');
-const { createTmpDir, compareApiEndpointsFiles, comparePagesFiles } = require('../utils/compare_files.js');
-const ApiEndpointsPresenter = require('../../dist/data/api-endpoints-presenter.js');
-const ReportGenerator = require('../../dist/reporter/report-generator.js');
+import UsersCrawler from '../../src/crawler/users-crawler';
+import ApiEndpointData from '../../src/data/api-endpoint-data';
+import PageData from '../../src/data/page-data';
+import { config as configArgs } from './configs/spa-config';
+import BaseConfig from '../../src/config/base-config';
+import { createTmpDir, compareApiEndpointsFiles, comparePagesFiles } from '../utils/compare_files';
+import ApiEndpointsPresenter from '../../src/data/api-endpoints-presenter';
+import ReportGenerator from '../../src/reporter/report-generator';
 
 const config = new BaseConfig(configArgs);
 const apiEndpointData = new ApiEndpointData({config: config});
 const pageData = new PageData({config: config});
 const apiEndpointsPresenter = new ApiEndpointsPresenter(apiEndpointData.apiEndpoints);
-const reporter = new ReportGenerator(apiEndpointsPresenter, pageData);
+const reporter = new ReportGenerator(apiEndpointsPresenter, pageData, '.');
 const usersCrawler = new UsersCrawler(config, apiEndpointData, pageData, reporter);
 
 describe('UsersCrawler for SPA with cookie-based auth', () => {

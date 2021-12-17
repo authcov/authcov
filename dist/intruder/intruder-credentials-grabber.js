@@ -1,4 +1,4 @@
-import Browser from '../crawler/browser.js';
+import Browser from '../crawler/browser';
 export default class IntruderCredentialsGrabber {
     constructor(config, browser) {
         this.config = config;

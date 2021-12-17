@@ -1,4 +1,4 @@
-import Crawler from './crawler.js';
+import Crawler from './crawler';
 export default class UsersCrawler {
     constructor(config, apiEndpointData, pageData, reporter) {
         this.config = config;

@@ -1,6 +1,6 @@
 import chalk from 'chalk';
 import request from 'request';
-import IntruderCredentialsGrabber from './intruder-credentials-grabber.js';
+import IntruderCredentialsGrabber from './intruder-credentials-grabber';
 
 async function sleep(ms) {
   return new Promise(resolve => {

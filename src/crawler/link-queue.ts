@@ -1,5 +1,3 @@
-import { includes } from 'lodash/includes';
-
 export default class LinkQueue {
   queuedUrls: string[];
 
@@ -16,7 +14,7 @@ export default class LinkQueue {
   }
 
   alreadyQueued(url) {
-    return includes(this.queuedUrls, url);
+    return this.queuedUrls.includes(url);
   }
 
   get length() {
