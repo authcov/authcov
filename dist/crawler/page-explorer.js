@@ -33,7 +33,7 @@ export default class PageExplorer {
         this._verboseLog(`${this.pageUrl} PageExplorer: clicking buttons...`);
         await this.page.$$eval(this.config.buttonXPath, this._pageClickButtons);
         this._verboseLog(`${this.pageUrl} PageExplorer: done. Waiting...`);
-        await this.page.waitFor(200); // NOTE: Increasing this to 1sec causes PageExplorer to hang
+        await this.page.waitForTimeout(200); // NOTE: Increasing this to 1sec causes PageExplorer to hang
         this._verboseLog(`${this.pageUrl} PageExplorer: scraping links...`);
         const newLinks = await this._scrapeLinks();
         this._verboseLog(`${this.pageUrl} PageExplorer: done.`);
@@ -42,7 +42,10 @@ export default class PageExplorer {
         return uniqueLinks;
     }
     async _scrapeLinks() {
-        return this.page.$$eval('a', links => links.map(link => link.href));
+        // @ts-ignore
+        const links = this.page.$$eval('a', links => links.map(link => link.href));
+        // @ts-ignore
+        return links;
     }
     // Page functions only gets executed inside the browser window context
     async _pageClickButtons(buttons) {

@@ -1,16 +1,22 @@
+/// <reference types="node" />
+import LinkQueue from './link-queue';
+import Browser from './browser';
+import ApiEndpointData from '../data/api-endpoint-data';
+import PageData from '../data/page-data';
+import { EventEmitter } from 'events';
 export default class Crawler {
-    browser: any;
-    events: any;
-    linkQueue: any;
-    visitedUrls: any;
+    browser: Browser;
+    events: EventEmitter;
+    linkQueue: LinkQueue;
+    visitedUrls: string[];
     _resolveIdle: any;
-    currentUser: any;
-    apiEndpointData: any;
-    pageData: any;
+    currentUser: string;
+    apiEndpointData: ApiEndpointData;
+    pageData: PageData;
     config: any;
-    processEvents: any;
-    cookiesStr: any[];
-    constructor(browser: any, options: any);
+    processEvents: boolean;
+    cookiesStr: string;
+    constructor(browser: Browser, options: any);
     static init(options: any): Promise<Crawler>;
     close(): Promise<void>;
     onIdle(): Promise<unknown>;

@@ -125,7 +125,7 @@ export default class Crawler {
             // Wait until timeout limit for XHR
             await pageEvents.waitForRequestsToFinish(this.config.xhrTimeout);
             this._verboseLog(`${url} - Finished waiting for XHR requests or they have all completed.`);
-            await tab.waitFor(500);
+            await tab.waitForTimeout(500);
             if (this.config.saveScreenshots === true) {
                 try {
                     await tab.screenshot({ path: `./report/screenshots/${id}.png` });
@@ -142,7 +142,7 @@ export default class Crawler {
             if (this.config.clickButtons === true) {
                 await pageEvents.waitForRequestsToFinish(this.config.xhrTimeout);
             }
-            this._verboseLog(`${url} - Got ${links.length} links from PageExplorer...`);
+            this._verboseLog(`${url} - Got links from PageExplorer...`);
             await tab.close();
             this._verboseLog(`${url} -Tab closed.`);
             this._verboseLog(`${url} - Processing links...`);

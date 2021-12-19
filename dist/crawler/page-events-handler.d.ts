@@ -1,13 +1,17 @@
+import { Page as PupPage, HTTPRequest } from 'puppeteer';
+interface HTTPRequestWithResolver extends HTTPRequest {
+    resolver: Function;
+}
 export default class PageEventsHandler {
-    page: any;
-    promise: any[];
-    pendingRequests: Set<any>;
+    page: PupPage;
+    pendingRequests: Set<HTTPRequestWithResolver>;
     promises: Promise<any>[];
-    constructor(page: any);
+    constructor(page: PupPage);
     waitForRequestsToFinish(timeoutSeconds: any): Promise<unknown>;
-    _handleRequest(request: any): void;
-    _handleRequestFailed(request: any): void;
-    _handleRequestfinished(request: any): void;
+    _handleRequest(request: HTTPRequestWithResolver): void;
+    _handleRequestFailed(request: HTTPRequestWithResolver): void;
+    _handleRequestfinished(request: HTTPRequestWithResolver): void;
     waitForAllXhrFinished(): Promise<void>;
     _isXhr(request: any): boolean;
 }
+export {};

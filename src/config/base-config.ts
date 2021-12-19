@@ -1,14 +1,27 @@
 export default class BaseConfig {
-  apiEndpointsFile: string;
-  pagesFile: string;
-  reportPath: string;
-  buttonXPath: string;
-  ignoreButtonsIncluding: string[];
-  ignoreAPIrequestsIncluding: string[];
-  unAuthorizedStatusCodes: string[];
+  baseUrl: string;
+  apiEndpointsFile?: string;
+  pagesFile?: string;
+  reportPath?: string;
+  buttonXPath?: string;
+  ignoreButtonsIncluding?: string[];
+  ignoreAPIrequestsIncluding?: string[];
+  unAuthorizedStatusCodes: number[];
   ignoreLinksIncluding: string[];
   loginConfig: any;
   crawlUser: any;
+  intruders: any[];
+  type: string;
+  authenticationType: string;
+  authorisationHeaders: string[];
+  maxDepth: number;
+  verboseOutput: boolean;
+  saveResponses: boolean;
+  saveScreenshots: boolean;
+  clickButtons: boolean;
+  xhrTimeout: number;
+  pageTimeout: number;
+  headless: boolean;
 
   constructor(configArgs) {
     // Default values:
@@ -69,13 +82,13 @@ export default class BaseConfig {
     await page.goto(this.loginConfig.url);
     await page.waitForSelector(this.loginConfig.usernameXpath);
     await page.waitForSelector(this.loginConfig.passwordXpath);
-    await page.waitFor(500);
+    await page.waitForTimeout(500);
 
     await page.type(this.loginConfig.usernameXpath, username);
     await page.type(this.loginConfig.passwordXpath, password);
 
     await page.tap(this.loginConfig.submitXpath);
-    await page.waitFor(1000);
+    await page.waitForTimeout(1000);
 
     return;
   }

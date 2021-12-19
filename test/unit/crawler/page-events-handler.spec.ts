@@ -1,11 +1,21 @@
+import { Page as PupPage } from 'puppeteer';
 import PageEventsHandler from '../../../src/crawler/page-events-handler';
+
+jest.mock('puppeteer', () => {
+  return {
+    Page: jest.fn().mockImplementation(() => {
+      return { on: () => {} };
+    }),
+  };
+});
 
 describe('PageEventsHandler', () => {
   describe('#pendingRequests', () => {
     let eventsHandler;
 
     beforeEach(() => {
-      const page = {on(event, callback) {}};
+      // @ts-ignore
+      const page = new PupPage();
       eventsHandler = new PageEventsHandler(page);
     });
 

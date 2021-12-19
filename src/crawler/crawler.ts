@@ -3,6 +3,8 @@ import LinkQueue from './link-queue';
 import Browser from './browser';
 import PageExplorer from './page-explorer';
 import PageEventsHandler from './page-events-handler';
+import ApiEndpointData from '../data/api-endpoint-data';
+import PageData from '../data/page-data';
 
 import { EventEmitter } from 'events';
 import { parse, resolve } from 'url';
@@ -12,19 +14,19 @@ import noop from 'lodash/noop';
 import uuid from 'uuid';
 
 export default class Crawler {
-  browser: any;
-  events: any;
-  linkQueue: any;
-  visitedUrls: any;
+  browser: Browser;
+  events: EventEmitter;
+  linkQueue: LinkQueue;
+  visitedUrls: string[];
   _resolveIdle: any;
-  currentUser: any;
-  apiEndpointData: any;
-  pageData: any;
+  currentUser: string;
+  apiEndpointData: ApiEndpointData;
+  pageData: PageData;
   config: any;
-  processEvents: any;
-  cookiesStr: any[];
+  processEvents: boolean;
+  cookiesStr: string;
 
-  constructor(browser, options) {
+  constructor(browser: Browser, options: any) {
     this.browser = browser;
     this.events = new EventEmitter();
     this.linkQueue = new LinkQueue();
@@ -175,7 +177,7 @@ export default class Crawler {
       await pageEvents.waitForRequestsToFinish(this.config.xhrTimeout);
 
       this._verboseLog(`${url} - Finished waiting for XHR requests or they have all completed.`);
-      await tab.waitFor(500);
+      await tab.waitForTimeout(500);
 
       if(this.config.saveScreenshots === true) {
         try {
@@ -195,7 +197,7 @@ export default class Crawler {
         await pageEvents.waitForRequestsToFinish(this.config.xhrTimeout);
       }
 
-      this._verboseLog(`${url} - Got ${links.length} links from PageExplorer...`);
+      this._verboseLog(`${url} - Got links from PageExplorer...`);
       await tab.close();
       this._verboseLog(`${url} -Tab closed.`);
 

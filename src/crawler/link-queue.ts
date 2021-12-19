@@ -5,19 +5,19 @@ export default class LinkQueue {
     this.queuedUrls = [];
   }
 
-  enqueue(url) {
+  enqueue(url: string): void {
     this.queuedUrls.push(url);
   }
 
-  dequeue(url) {
+  dequeue(url: string): void {
     this.queuedUrls = this.queuedUrls.filter(item => item !== url)
   }
 
-  alreadyQueued(url) {
+  alreadyQueued(url: string): boolean {
     return this.queuedUrls.includes(url);
   }
 
-  get length() {
+  get length(): number {
     return this.queuedUrls.length;
   }
 }

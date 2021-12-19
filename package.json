@@ -39,7 +39,7 @@
     "events": "^3.0.0",
     "lodash": "^4.17.13",
     "path": "^0.12.7",
-    "puppeteer": "^1.18.1",
+    "puppeteer": "^7.0.0",
     "request": "^2.88.0",
     "request-promise": "^4.2.4",
     "url": "^0.11.0",

@@ -1,10 +1,13 @@
 import Crawler from './crawler';
+import ApiEndpointData from '../data/api-endpoint-data';
+import PageData from '../data/page-data';
+import ReportGenerator from '../reporter/report-generator';
 
 export default class UsersCrawler {
   config: any;
-  apiEndpointData: any;
-  pageData: any;
-  reporter: any;
+  apiEndpointData: ApiEndpointData;
+  pageData: PageData;
+  reporter: ReportGenerator;
 
   constructor(config, apiEndpointData, pageData, reporter) {
     this.config = config;

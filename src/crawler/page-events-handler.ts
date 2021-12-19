@@ -1,10 +1,15 @@
+import { Page as PupPage, HTTPRequest } from 'puppeteer';
+
+interface HTTPRequestWithResolver extends HTTPRequest {
+  resolver: Function;
+}
+
 export default class PageEventsHandler {
-  page: any;
-  promise: any[];
-  pendingRequests: Set<any>;
+  page: PupPage;
+  pendingRequests: Set<HTTPRequestWithResolver>;
   promises: Promise<any>[];
 
-  constructor(page) {
+  constructor(page: PupPage) {
     this.page = page;
     this.promises = [];
     this.pendingRequests = new Set();
@@ -25,7 +30,7 @@ export default class PageEventsHandler {
     ]);
   }
 
-  _handleRequest(request) {
+  _handleRequest(request: HTTPRequestWithResolver) {
     if(this._isXhr(request)) {
       //console.log(`PageEventsHandler: request made to ${request.url()}`)
       this.pendingRequests.add(request);
@@ -38,7 +43,7 @@ export default class PageEventsHandler {
     }
   }
 
-  _handleRequestFailed(request) {
+  _handleRequestFailed(request: HTTPRequestWithResolver) {
     if(this._isXhr(request)) {
       //console.log(`PageEventsHandler: request failed ${request.url()}`)
 
@@ -51,7 +56,7 @@ export default class PageEventsHandler {
     }
   }
 
-  _handleRequestfinished(request) {
+  _handleRequestfinished(request: HTTPRequestWithResolver) {
     if(this._isXhr(request)) {
       //console.log(`PageEventsHandler: response from ${request.url()}`)
       this.pendingRequests.delete(request);

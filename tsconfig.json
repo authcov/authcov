@@ -5,7 +5,7 @@
     "declaration": true,
     "outDir": "./dist",
     "strict": false,
-    "lib": ["es2020"],
+    "lib": ["es2020", "DOM"],
     "moduleResolution": "node",
     "esModuleInterop": true,
     "sourceMap": true

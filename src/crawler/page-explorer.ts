@@ -1,12 +1,15 @@
-export default class PageExplorer {
-  page: any;
-  pageUrl: string;
-  currentUser: any;
-  config: any;
-  pageData: any;
-  buttonsClicked: any[];
+import { Page as PupPage, HTTPRequest } from 'puppeteer';
+import PageData from '../data/page-data';
 
-  constructor(page, pageUrl, currentUser, config, pageData) {
+export default class PageExplorer {
+  page: PupPage;
+  pageUrl: string;
+  currentUser: string;
+  config: any;
+  pageData: PageData;
+  buttonsClicked: string[];
+
+  constructor(page: PupPage, pageUrl: string, currentUser: string, config, pageData: PageData) {
     this.page = page;
 
     // TODO: sometimes pageUrl != page.url() for example www.example.com vs www.example.com/
@@ -48,7 +51,7 @@ export default class PageExplorer {
     this._verboseLog(`${this.pageUrl} PageExplorer: clicking buttons...`);
     await this.page.$$eval(this.config.buttonXPath, this._pageClickButtons);
     this._verboseLog(`${this.pageUrl} PageExplorer: done. Waiting...`);
-    await this.page.waitFor(200); // NOTE: Increasing this to 1sec causes PageExplorer to hang
+    await this.page.waitForTimeout(200); // NOTE: Increasing this to 1sec causes PageExplorer to hang
     this._verboseLog(`${this.pageUrl} PageExplorer: scraping links...`);
     const newLinks = await this._scrapeLinks();
     this._verboseLog(`${this.pageUrl} PageExplorer: done.`);
@@ -59,8 +62,11 @@ export default class PageExplorer {
     return uniqueLinks;
   }
 
-  async _scrapeLinks() {
-    return this.page.$$eval('a', links => links.map(link => link.href));
+  async _scrapeLinks(): Promise<string[]> {
+    // @ts-ignore
+    const links = this.page.$$eval('a', links => links.map(link => link.href));
+    // @ts-ignore
+    return links as string[];
   }
 
   // Page functions only gets executed inside the browser window context

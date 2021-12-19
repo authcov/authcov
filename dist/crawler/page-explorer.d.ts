@@ -1,13 +1,15 @@
+import { Page as PupPage } from 'puppeteer';
+import PageData from '../data/page-data';
 export default class PageExplorer {
-    page: any;
+    page: PupPage;
     pageUrl: string;
-    currentUser: any;
+    currentUser: string;
     config: any;
-    pageData: any;
-    buttonsClicked: any[];
-    constructor(page: any, pageUrl: any, currentUser: any, config: any, pageData: any);
-    getLinks(): Promise<any>;
-    _scrapeLinks(): Promise<any>;
+    pageData: PageData;
+    buttonsClicked: string[];
+    constructor(page: PupPage, pageUrl: string, currentUser: string, config: any, pageData: PageData);
+    getLinks(): Promise<string[]>;
+    _scrapeLinks(): Promise<string[]>;
     _pageClickButtons(buttons: any): Promise<void>;
     _verboseLog(message: any): void;
 }

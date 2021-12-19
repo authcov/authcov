@@ -143,7 +143,7 @@ export const config = {
         await page.type('input[type=password]', password);
     
         await page.tap('input[type=submit]');
-        await page.waitFor(500);
+        await page.waitForTimeout(500);
     
         return;
       },
