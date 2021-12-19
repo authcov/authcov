@@ -1,4 +1,4 @@
-const config = {
+export const config = {
   "crawlUser": {"username": 'alice@authcov.io', "password": 'password'},
   "intruders": [
     {"username": 'bob@authcov.io', "password": 'password'},
@@ -20,7 +20,6 @@ const config = {
   "pagesFile": "./tmp/pages.json",
   "reportPath": "./tmp/report",
   "headless": true,
-  "unAuthorizedStatusCodes": [302, 401],
   "loginFunction": async function(page, username, password){
     await page.goto('http://localhost:3001/users/sign_in');
     await page.waitForSelector('input[type=email]');
@@ -68,5 +67,3 @@ const config = {
     return false;
   }
 };
-
-module.exports = config;

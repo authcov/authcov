@@ -1,11 +1,12 @@
 import Config from '../config/config';
+import { HttpRequest } from './api-endpoint-data';
 
 export default class ApiEndpoint {
   id: string;
   url: string;
   method: string;
   config: Config;
-  requests: any[];
+  requests: HttpRequest[];
 
   constructor(data, config: Config) {
     this.id = data.id;
@@ -36,7 +37,7 @@ export default class ApiEndpoint {
   aclKey() {
     const aclKey = {};
 
-    this.requests.forEach((request) => {
+    this.requests.forEach((request: HttpRequest) => {
       if(aclKey[request.user] === undefined && request.response !== undefined) {
         aclKey[request.user] = request.response.authorised;
 

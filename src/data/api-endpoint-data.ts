@@ -11,8 +11,8 @@ export type HttpResponse = {
 }
 
 export type HttpRequest = {
-  url: string;
-  method: string;
+  id: string;
+  user: string;
   headers: Record<string, string>;
   pageUrl: string;
   response?: HttpResponse;
@@ -91,19 +91,11 @@ export default class ApiEndpointData {
     const apiRequests = [];
 
     this.apiEndpoints.forEach((apiEndpoint) => {
-      apiEndpoint.requests.forEach((userResponse) => {
+      apiEndpoint.requests.forEach((request) => {
 
         // Return each non-Intrusion request+UserReponse which belongs to this user
-        if(userResponse.pageUrl != null && userResponse.user == username) {
-          const apiRequest: HttpRequest = {
-            url: apiEndpoint.url,
-            method: apiEndpoint.method,
-            headers: userResponse.headers,
-            pageUrl: userResponse.pageUrl,
-            response: userResponse.response
-          };
-
-          apiRequests.push(apiRequest);
+        if(request.pageUrl != null && request.user == username) {
+          apiRequests.push(request);
         }
       });
     });
@@ -199,7 +191,6 @@ export default class ApiEndpointData {
       pageUrl: pageUrl,
       headers: headers
     };
-
     apiEndpoint.requests.push(requestObj);
   }
 

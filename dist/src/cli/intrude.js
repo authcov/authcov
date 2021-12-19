@@ -1,14 +1,12 @@
-import chalk from 'chalk';
+import UsersIntruder from '../intruder/users-intruder';
+import ApiEndpointData from '../data/api-endpoint-data';
 import ConfigValidator from '../config/config-validator';
 import { mergeConfigs } from '../config/config-merger';
 import Config from '../config/config';
-import UsersCrawler from '../crawler/users-crawler';
-import ApiEndpointData from '../data/api-endpoint-data';
 import PageData from '../data/page-data';
 import ReportGenerator from '../reporter/report-generator';
-export async function crawl(configPath, packagePath, cliOptions) {
+export async function intrude(configPath, packagePath, cliOptions) {
     const c = await import(configPath);
-    console.log(`---------------------`, JSON.stringify(c));
     const configArgs = mergeConfigs(c.config, cliOptions);
     // 1. Validate config params
     const configValidator = new ConfigValidator(configArgs);
@@ -16,18 +14,17 @@ export async function crawl(configPath, packagePath, cliOptions) {
         console.log(configValidator.errorMessage());
         return;
     }
-    // 2. Setup
     const config = new Config(configArgs);
     const apiEndpointData = new ApiEndpointData(config);
     const pageData = new PageData({ config: config });
+    // 2. Intrude
+    apiEndpointData.loadFile(config.apiEndpointsFile);
+    const usersIntruder = new UsersIntruder(config, apiEndpointData);
+    await usersIntruder.start();
+    // 3. Generate the report
+    pageData.loadFile(config.pagesFile);
     const reporter = new ReportGenerator(apiEndpointData.apiEndpoints, pageData, packagePath);
-    const usersCrawler = new UsersCrawler(config, apiEndpointData, pageData, reporter);
-    // 3. Crawl as the web app
-    await usersCrawler.start();
-    apiEndpointData.saveToFile(config.apiEndpointsFile);
-    pageData.saveToFile(config.pagesFile);
-    console.log(chalk.green('Finished crawling.'));
-    // 4. Generate the report
     reporter.generate(config.reportPath);
+    return;
 }
-//# sourceMappingURL=crawl.js.map
+//# sourceMappingURL=intrude.js.map
