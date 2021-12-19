@@ -1,0 +1,31 @@
+export default class Config {
+    baseUrl: string;
+    apiEndpointsFile?: string;
+    pagesFile?: string;
+    reportPath?: string;
+    buttonXPath?: string;
+    ignoreButtonsIncluding?: string[];
+    ignoreAPIrequestsIncluding?: string[];
+    unAuthorizedStatusCodes: number[];
+    ignoreLinksIncluding: string[];
+    loginConfig: any;
+    crawlUser: any;
+    intruders: any[];
+    type: string;
+    authenticationType: string;
+    authorisationHeaders: string[];
+    maxDepth: number;
+    verboseOutput: boolean;
+    saveResponses: boolean;
+    saveScreenshots: boolean;
+    clickButtons: boolean;
+    xhrTimeout: number;
+    pageTimeout: number;
+    headless: boolean;
+    constructor(configArgs: any);
+    responseIsAuthorised(status: any, headers: any, body: any): boolean;
+    ignoreLink(url: any): boolean;
+    ignoreApiRequest(url: any, method: any): boolean;
+    ignoreButton(outerHTML: any): boolean;
+    loginFunction(page: any, username: any, password: any): Promise<void>;
+}

@@ -2,7 +2,7 @@ import UsersCrawler from '../../src/crawler/users-crawler';
 import ApiEndpointData from '../../src/data/api-endpoint-data';
 import PageData from '../../src/data/page-data';
 import { config as configArgs } from './configs/spa-config';
-import BaseConfig from '../../src/config/base-config';
+import Config from '../../src/config/config';
 import ApiEndpointsPresenter from '../../src/data/api-endpoints-presenter';
 import ReportGenerator from '../../src/reporter/report-generator';
 import { createTmpDir, compareApiEndpointsFiles, comparePagesFiles } from '../utils/compare_files';
@@ -18,7 +18,7 @@ describe('UsersCrawler for SPA with cookie-based auth', () => {
     configButtonClick.crawlUser = {username: 'Public', password: null};
     configButtonClick.baseUrl = 'http://localhost/really_slow';
     configButtonClick.maxDepth = 0;
-    const config = new BaseConfig(configButtonClick);
+    const config = new Config(configButtonClick);
 
     const apiEndpointData = new ApiEndpointData({config: config});
     const pageData = new PageData({config: config});

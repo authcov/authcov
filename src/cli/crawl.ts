@@ -2,7 +2,7 @@ import chalk from 'chalk';
 
 import ConfigValidator from '../config/config-validator';
 import { mergeConfigs } from '../config/config-merger';
-import BaseConfig from '../config/base-config';
+import Config from '../config/config';
 import UsersCrawler from '../crawler/users-crawler';
 import ApiEndpointData from '../data/api-endpoint-data';
 import PageData from '../data/page-data';
@@ -20,7 +20,7 @@ export async function crawl(configPath, packagePath, cliOptions) {
   }
 
   // 2. Setup
-  const config = new BaseConfig(configArgs);
+  const config = new Config(configArgs);
   const apiEndpointData = new ApiEndpointData({config: config});
   const pageData = new PageData({config: config});
   const reporter = new ReportGenerator(apiEndpointData.apiEndpoints, pageData, packagePath);

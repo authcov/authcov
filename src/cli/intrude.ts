@@ -2,7 +2,7 @@ import UsersIntruder from '../intruder/users-intruder';
 import ApiEndpointData from '../data/api-endpoint-data';
 import ConfigValidator from '../config/config-validator';
 import { mergeConfigs } from '../config/config-merger';
-import BaseConfig from '../config/base-config';
+import Config from '../config/config';
 import PageData from '../data/page-data';
 import ReportGenerator from '../reporter/report-generator';
 
@@ -17,7 +17,7 @@ export async function intrude(configPath, packagePath, cliOptions) {
     return;
   }
 
-  const config = new BaseConfig(configArgs);
+  const config = new Config(configArgs);
   const apiEndpointData = new ApiEndpointData({config: config});
   const pageData = new PageData({config: config});
 

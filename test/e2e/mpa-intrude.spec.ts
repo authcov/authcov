@@ -3,10 +3,10 @@ import * as fs from 'fs';
 import UsersIntruder from '../../src/intruder/users-intruder';
 import ApiEndpointData from '../../src/data/api-endpoint-data';
 import { config as configArgs } from './configs/mpa-config';
-import BaseConfig from '../../src/config/base-config';
+import Config from '../../src/config/config';
 import { createTmpDir, compareApiEndpointsFiles } from '../utils/compare_files';
 
-const config = new BaseConfig(configArgs);
+const config = new Config(configArgs);
 
 // TODO: Make this tell you which apirequest is failing if it fails
 describe('UsersCrawler for MPA with cookie-based auth', () => {

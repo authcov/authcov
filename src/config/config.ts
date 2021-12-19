@@ -1,4 +1,4 @@
-export default class BaseConfig {
+export default class Config {
   baseUrl: string;
   apiEndpointsFile?: string;
   pagesFile?: string;

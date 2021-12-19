@@ -2,12 +2,12 @@ import UsersCrawler from '../../src/crawler/users-crawler';
 import ApiEndpointData from '../../src/data/api-endpoint-data';
 import PageData from '../../src/data/page-data';
 import { config as configArgs } from './configs/spa-config';
-import BaseConfig from '../../src/config/base-config';
+import Config from '../../src/config/config';
 import { createTmpDir, compareApiEndpointsFiles, comparePagesFiles } from '../utils/compare_files';
 import ApiEndpointsPresenter from '../../src/data/api-endpoints-presenter';
 import ReportGenerator from '../../src/reporter/report-generator';
 
-const config = new BaseConfig(configArgs);
+const config = new Config(configArgs);
 const apiEndpointData = new ApiEndpointData({config: config});
 const pageData = new PageData({config: config});
 const apiEndpointsPresenter = new ApiEndpointsPresenter(apiEndpointData.apiEndpoints);

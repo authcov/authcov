@@ -1,7 +1,7 @@
 import IntruderCredentialsGrabber from '../intruder/intruder-credentials-grabber';
 import ConfigValidator from '../config/config-validator';
 import { mergeConfigs } from '../config/config-merger';
-import BaseConfig from '../config/base-config';
+import Config from '../config/config';
 
 export async function testLogin(configPath, cliOptions) {
   const c = await import(configPath);
@@ -15,7 +15,7 @@ export async function testLogin(configPath, cliOptions) {
   }
 
   // 2. Grab Credentials
-  const config = new BaseConfig(configArgs);
+  const config = new Config(configArgs);
   const credsGrabber = await IntruderCredentialsGrabber.init(config);
   console.log(`Logging in as user: ${config.crawlUser.username}...`)
 
