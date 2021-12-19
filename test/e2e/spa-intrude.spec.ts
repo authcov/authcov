@@ -15,7 +15,7 @@ describe('Intruding SPA with cookie-based auth', () => {
   it('saves apiRequests', async () => {
     fs.copyFileSync('./test/e2e/expected_output/spa_crawl_api_endpoints.json', './tmp/api_endpoints.json', fs.constants.COPYFILE_FICLONE);
 
-    const apiEndpointData = new ApiEndpointData({config: config});
+    const apiEndpointData = new ApiEndpointData(config);
     apiEndpointData.loadFile('./tmp/api_endpoints.json');
     const usersIntruder = new UsersIntruder(config, apiEndpointData);
 

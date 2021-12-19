@@ -2,16 +2,28 @@ import * as fs from 'fs';
 import uuid from 'uuid';
 
 import ApiEndpoint from './api-endpoint';
+import Config from '../config/config';
+
+export type HttpResponse = {
+  status: number;
+  headers: Record<string, string>;
+  authorised: boolean;
+}
+
+export type HttpRequest = {
+  url: string;
+  method: string;
+  headers: Record<string, string>;
+  pageUrl: string;
+  response?: HttpResponse;
+}
 
 export default class ApiEndpointData {
-  config: any;
-  apiEndpoints: any[];
+  config: Config;
+  apiEndpoints: ApiEndpoint[];
 
-  constructor(options) {
-    if(typeof(options.config) == 'object') {
-      this.config = options.config;
-    }
-
+  constructor(config: Config) {
+    this.config = config;
     this.apiEndpoints = [];
   }
 
@@ -39,7 +51,7 @@ export default class ApiEndpointData {
   findAuthorisationHeadersForUsername(username) {
     const apiRequests = this.findApiRequestsForUsername(username);
     // For each apiRequest extract the auth headers as defined by config
-    let apiRequestAuthHeaders = apiRequests.map((apiRequest) => {
+    let apiRequestAuthHeaders = apiRequests.map((apiRequest: HttpRequest) => {
       const authHeaders = {};
       const headerKeys = Object.keys(apiRequest.headers);
 
@@ -83,7 +95,7 @@ export default class ApiEndpointData {
 
         // Return each non-Intrusion request+UserReponse which belongs to this user
         if(userResponse.pageUrl != null && userResponse.user == username) {
-          const apiRequest = {
+          const apiRequest: HttpRequest = {
             url: apiEndpoint.url,
             method: apiEndpoint.method,
             headers: userResponse.headers,
@@ -232,7 +244,7 @@ export default class ApiEndpointData {
         url: url,
         method: method,
         requests: []
-      }, {});
+      }, this.config);
       this.apiEndpoints.push(apiEndpoint);
     }
 

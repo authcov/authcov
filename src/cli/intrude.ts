@@ -18,7 +18,7 @@ export async function intrude(configPath, packagePath, cliOptions) {
   }
 
   const config = new Config(configArgs);
-  const apiEndpointData = new ApiEndpointData({config: config});
+  const apiEndpointData = new ApiEndpointData(config);
   const pageData = new PageData({config: config});
 
   // 2. Intrude

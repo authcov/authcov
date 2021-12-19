@@ -13,7 +13,7 @@ describe('ApiEndpointsPresenter', () => {
         authorisationHeaders: ['authorization'],
         responseIsAuthorised: (response, body) => { return (response.status == 200); }
       }
-      const data = new ApiEndpointData({config: config});
+      const data = new ApiEndpointData(config);
       data.loadFile('./test/unit/fixtures/api_endpoints_for_presenter.json');
       this.presenter = new ApiEndpointsPresenter(data.apiEndpoints);
       this.groupedEndpoints = this.presenter.groupedApiEndpoints();

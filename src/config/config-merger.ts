@@ -1,4 +1,6 @@
-export const mergeConfigs = (config, cliOptions) => {
+import Config from "./config";
+
+export const mergeConfigs = (config: Config, cliOptions) => {
   Object.keys(config).forEach((key) => {
     if(cliOptions[key] !== undefined) {
       config[key] = cliOptions[key];

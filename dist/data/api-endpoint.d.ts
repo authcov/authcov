@@ -1,10 +1,11 @@
+import Config from '../config/config';
 export default class ApiEndpoint {
     id: string;
     url: string;
     method: string;
-    config: any;
+    config: Config;
     requests: any[];
-    constructor(data: any, config: any);
+    constructor(data: any, config: Config);
     data(): {
         id: string;
         url: string;
@@ -13,7 +14,7 @@ export default class ApiEndpoint {
     };
     aclKey(): {};
     aclKeyRequests(): {};
-    accessNumber(): 0 | 1;
+    accessNumber(): 1 | 0;
     usernamesRequested(): any[];
     firstValidRequest(): any;
     strippedUrl(): RegExpMatchArray;

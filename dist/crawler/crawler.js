@@ -60,10 +60,6 @@ export default class Crawler {
         this.cookiesStr = cookies.map((cookie) => { return `${cookie.name}=${cookie.value}`; }).join('; ');
         await tab.close();
     }
-    async logout() {
-        const tab = await this.browser.getTab();
-        return this.config.logoutFunction(tab);
-    }
     handleRequest(request, sourceUrl) {
         const isXhr = ['xhr', 'fetch'].includes(request.resourceType());
         const ignoreRequest = this.config.ignoreApiRequest(request.url(), request.method());

@@ -20,7 +20,7 @@ describe('UsersCrawler for SPA with cookie-based auth', () => {
     configButtonClick.maxDepth = 0;
     const config = new Config(configButtonClick);
 
-    const apiEndpointData = new ApiEndpointData({config: config});
+    const apiEndpointData = new ApiEndpointData(config);
     const pageData = new PageData({config: config});
     const apiEndpointsPresenter = new ApiEndpointsPresenter(apiEndpointData.apiEndpoints);
     const reporter = new ReportGenerator(apiEndpointsPresenter, pageData, '.');

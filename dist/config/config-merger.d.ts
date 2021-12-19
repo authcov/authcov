@@ -1,1 +1,2 @@
-export declare const mergeConfigs: (config: any, cliOptions: any) => any;
+import Config from "./config";
+export declare const mergeConfigs: (config: Config, cliOptions: any) => Config;

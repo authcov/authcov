@@ -2,10 +2,8 @@ import * as fs from 'fs';
 import uuid from 'uuid';
 import ApiEndpoint from './api-endpoint';
 export default class ApiEndpointData {
-    constructor(options) {
-        if (typeof (options.config) == 'object') {
-            this.config = options.config;
-        }
+    constructor(config) {
+        this.config = config;
         this.apiEndpoints = [];
     }
     loadFile(filePath) {
@@ -190,7 +188,7 @@ export default class ApiEndpointData {
                 url: url,
                 method: method,
                 requests: []
-            }, {});
+            }, this.config);
             this.apiEndpoints.push(apiEndpoint);
         }
         return apiEndpoint;

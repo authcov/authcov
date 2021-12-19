@@ -8,7 +8,7 @@ import ApiEndpointsPresenter from '../../src/data/api-endpoints-presenter';
 import ReportGenerator from '../../src/reporter/report-generator';
 
 const config = new Config(configArgs);
-const apiEndpointData = new ApiEndpointData({config: config});
+const apiEndpointData = new ApiEndpointData(config);
 const pageData = new PageData({config: config});
 const apiEndpointsPresenter = new ApiEndpointsPresenter(apiEndpointData.apiEndpoints);
 const reporter = new ReportGenerator(apiEndpointsPresenter, pageData, '.');

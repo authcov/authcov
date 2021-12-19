@@ -9,7 +9,7 @@ const configPath = './examples/wordpress-config.js';
 
 export async function report(configPath) {
   const config = require(configPath);
-  const apiEndpointData = new ApiEndpointData({config: config});
+  const apiEndpointData = new ApiEndpointData(config);
   const pageData = new PageData({config: config});
 
   apiEndpointData.loadFile(config.apiEndpointsFile);

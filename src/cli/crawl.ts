@@ -21,7 +21,7 @@ export async function crawl(configPath, packagePath, cliOptions) {
 
   // 2. Setup
   const config = new Config(configArgs);
-  const apiEndpointData = new ApiEndpointData({config: config});
+  const apiEndpointData = new ApiEndpointData(config);
   const pageData = new PageData({config: config});
   const reporter = new ReportGenerator(apiEndpointData.apiEndpoints, pageData, packagePath);
   const usersCrawler = new UsersCrawler(config, apiEndpointData, pageData, reporter);

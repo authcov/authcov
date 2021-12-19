@@ -1,10 +1,11 @@
 import chalk from 'chalk';
+import Config from './config';
 
 export default class ConfigValidator {
   config: any;
   errors: any;
 
-  constructor(config) {
+  constructor(config: Config) {
     this.config = config;
     this.errors = {};
   }

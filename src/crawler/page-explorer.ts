@@ -1,15 +1,16 @@
 import { Page as PupPage, HTTPRequest } from 'puppeteer';
 import PageData from '../data/page-data';
+import Config from '../config/config';
 
 export default class PageExplorer {
   page: PupPage;
   pageUrl: string;
   currentUser: string;
-  config: any;
+  config: Config;
   pageData: PageData;
   buttonsClicked: string[];
 
-  constructor(page: PupPage, pageUrl: string, currentUser: string, config, pageData: PageData) {
+  constructor(page: PupPage, pageUrl: string, currentUser: string, config: Config, pageData: PageData) {
     this.page = page;
 
     // TODO: sometimes pageUrl != page.url() for example www.example.com vs www.example.com/

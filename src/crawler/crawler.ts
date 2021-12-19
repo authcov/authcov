@@ -5,6 +5,7 @@ import PageExplorer from './page-explorer';
 import PageEventsHandler from './page-events-handler';
 import ApiEndpointData from '../data/api-endpoint-data';
 import PageData from '../data/page-data';
+import Config from '../config/config';
 
 import { EventEmitter } from 'events';
 import { parse, resolve } from 'url';
@@ -22,7 +23,7 @@ export default class Crawler {
   currentUser: string;
   apiEndpointData: ApiEndpointData;
   pageData: PageData;
-  config: any;
+  config: Config;
   processEvents: boolean;
   cookiesStr: string;
 
@@ -83,11 +84,6 @@ export default class Crawler {
     this.cookiesStr = cookies.map((cookie) => { return `${cookie.name}=${cookie.value}`; }).join('; ');
 
     await tab.close();
-  }
-
-  async logout() {
-    const tab = await this.browser.getTab();
-    return this.config.logoutFunction(tab);
   }
 
   handleRequest(request, sourceUrl) {

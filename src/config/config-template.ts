@@ -119,7 +119,7 @@ export const config = {
 
   /*
    * loginConfig: Configure how the browser will login to your web app. To see how these values
-   *              are used see loginFunction() in src/config/base-config.js. Optionally define
+   *              are used see loginFunction() in src/config/config.js. Optionally define
    *              an async function loginFunction(page, username, password) below. (Example below).
    */
   "loginConfig": {

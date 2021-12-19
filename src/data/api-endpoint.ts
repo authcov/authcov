@@ -1,11 +1,13 @@
+import Config from '../config/config';
+
 export default class ApiEndpoint {
   id: string;
   url: string;
   method: string;
-  config: any;
+  config: Config;
   requests: any[];
 
-  constructor(data, config) {
+  constructor(data, config: Config) {
     this.id = data.id;
     this.url = data.url;
     this.method = data.method;

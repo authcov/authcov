@@ -1,5 +1,6 @@
 import Puppeteer from 'puppeteer';
 import { Browser as PupBrowser, BrowserContext as PupContext } from 'puppeteer';
+import Config from '../config/config';
 
 export default class Browser {
   puppeteer_browser: PupBrowser;
@@ -21,7 +22,7 @@ export default class Browser {
     this.browserLaunched = browserLaunched;
   }
 
-  static async init(config) {
+  static async init(config: Config) {
     const maxConcurrency = (config.maxConcurrency !== undefined) ? config.maxConcurrency : 10;
     let puppeteer_browser;
     let browserLaunched;

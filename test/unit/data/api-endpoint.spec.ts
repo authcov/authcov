@@ -1,4 +1,5 @@
 import ApiEndpoint from '../../../src/data/api-endpoint';
+import Config from '../../../src/config/config';
 
 describe('ApiEndpoint', () => {
   describe('#aclKey()', () => {
@@ -53,10 +54,11 @@ describe('ApiEndpoint', () => {
             }
           ]
         };
-        const config = {
+        const configArgs = {
           authorisationHeaders: ['authorization'],
           responseIsAuthorised: (status, headers, body) => { return (status == 200); }
         };
+        const config = new Config(configArgs);
         apiEndpoint = new ApiEndpoint(data, config);
       });
 
@@ -103,10 +105,11 @@ describe('ApiEndpoint', () => {
             }
           ]
         };
-        const config = {
+        const configArgs = {
           authorisationHeaders: ['authorization'],
           responseIsAuthorised: (status, headers, body) => { return (status == 200); }
         };
+        const config = new Config(configArgs);
         apiEndpoint = new ApiEndpoint(data, config);
       });
 

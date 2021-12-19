@@ -1,7 +1,8 @@
+import Config from './config';
 export default class ConfigValidator {
     config: any;
     errors: any;
-    constructor(config: any);
+    constructor(config: Config);
     valid(): boolean;
     errorKeys(): string[];
     errorMessage(): string;

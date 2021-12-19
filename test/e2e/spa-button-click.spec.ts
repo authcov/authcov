@@ -19,7 +19,7 @@ const configButtonClick = Object.assign(defaultConfig, {
 });
 const config = new Config(configButtonClick);
 
-const apiEndpointData = new ApiEndpointData({config: config});
+const apiEndpointData = new ApiEndpointData(config);
 const pageData = new PageData({config: config});
 const apiEndpointsPresenter = new ApiEndpointsPresenter(apiEndpointData.apiEndpoints);
 const reporter = new ReportGenerator(apiEndpointsPresenter, pageData, '.');

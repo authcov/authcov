@@ -22,6 +22,9 @@ export default class Config {
     xhrTimeout: number;
     pageTimeout: number;
     headless: boolean;
+    browserURL?: string;
+    maxConcurrency?: number;
+    browserWSEndpoint?: string;
     constructor(configArgs: any);
     responseIsAuthorised(status: any, headers: any, body: any): boolean;
     ignoreLink(url: any): boolean;
