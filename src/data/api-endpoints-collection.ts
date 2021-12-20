@@ -1,5 +1,5 @@
 import * as fs from 'fs';
-import uuid from 'uuid';
+import { v4 as uuid } from 'uuid';
 
 import ApiEndpoint from './api-endpoint';
 import Config from '../config/config';
@@ -143,7 +143,7 @@ export default class ApiEndpointsCollection {
     }
 
     const requestObj = {
-      id: uuid.v4(),
+      id: uuid(),
       user: user,
       pageUrl: pageUrl,
       headers: headers,
@@ -173,7 +173,7 @@ export default class ApiEndpointsCollection {
     }
 
     const requestObj = {
-      id: uuid.v4(),
+      id: uuid(),
       user: user,
       pageUrl: pageUrl,
       headers: headers
@@ -218,7 +218,7 @@ export default class ApiEndpointsCollection {
 
     if(apiEndpoint === undefined) {
       apiEndpoint = new ApiEndpoint({
-        id: uuid.v4(),
+        id: uuid(),
         url: url,
         method: method,
         requests: []

@@ -1,5 +1,5 @@
 import chalk from 'chalk';
-import request from 'request';
+import axios from 'axios';
 import IntruderCredentialsGrabber from './intruder-credentials-grabber';
 
 async function sleep(ms) {
@@ -52,50 +52,48 @@ export default class UsersIntruder {
   }
 
   async _makeRequest(intruder, requestOptions, i, total) {
-    return new Promise ((resolve, reject) => {
-      request(requestOptions, (error, response, body) => {
-        if(error !== null) {
-          console.error('error:', error); // Print the error if one occurred
-        }
-
-        // TODO: update the apiResponseCallback args so we dont need to pass in this ridiculous object
-        const responseObj = {
-          url(){
-            return requestOptions.url;
-          },
-          request(){
-            return {
-              url() { return requestOptions.url },
-              method() { return requestOptions.method; },
-              headers() { return requestOptions.headers; }
-            };
-          },
-          status(){
-            return response.statusCode;
-          },
-          headers(){
-            return response.headers;
-          },
-          async text(){
-            return body;
-          }
-        };
-
-        const progress = `${i+1} / ${total}`;
-        const responseAuthorised = this.config.responseIsAuthorised(response.statusCode, response.headers, body);
-        const logText = `(${progress}) ${responseObj.url()} => ${responseObj.status()}`;
-        if(responseAuthorised === true) {
-          console.log(chalk.green(logText));
-        } else {
-          console.log(chalk.red(logText));
-        }
-
-        this.apiEndpointData.apiRequestCallback(responseObj.request(), null, null, intruder.username);
-        this.apiEndpointData.apiResponseCallback(responseObj, null, null, intruder.username);
-
-        setTimeout(() => { resolve(undefined) }, 100);
-      });
+    const response = await axios({
+      method: requestOptions.method,
+      url: requestOptions.url,
+      headers: requestOptions.headers,
+      maxRedirects: 0,
+      validateStatus: () => true
     });
+
+    // TODO: update the apiResponseCallback args so we dont need to pass in this ridiculous object
+    const responseObj = {
+      url(){
+        return requestOptions.url;
+      },
+      request(){
+        return {
+          url() { return requestOptions.url },
+          method() { return requestOptions.method; },
+          headers() { return requestOptions.headers; }
+        };
+      },
+      status(){
+        return response.status;
+      },
+      headers(){
+        return response.headers;
+      },
+      async text(){
+        return response.data;
+      }
+    };
+
+    const progress = `${i+1} / ${total}`;
+    const responseAuthorised = this.config.responseIsAuthorised(response.status, response.headers, response.data);
+    const logText = `(${progress}) ${responseObj.url()} => ${responseObj.status()}`;
+    if(responseAuthorised === true) {
+      console.log(chalk.green(logText));
+    } else {
+      console.log(chalk.red(logText));
+    }
+
+    this.apiEndpointData.apiRequestCallback(responseObj.request(), null, null, intruder.username);
+    this.apiEndpointData.apiResponseCallback(responseObj, null, null, intruder.username);
   }
 
   async _getAuthHeaders(user) {

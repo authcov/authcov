@@ -8,7 +8,7 @@ import { parse, resolve } from 'url';
 import trim from 'lodash/trim';
 import startsWith from 'lodash/startsWith';
 import noop from 'lodash/noop';
-import uuid from 'uuid';
+import { v4 as uuid } from 'uuid';
 export default class Crawler {
     constructor(browser, options) {
         this.browser = browser;
@@ -90,7 +90,7 @@ export default class Crawler {
         }
         this.browser.pendingRequests++;
         this.visitedUrls.push(url);
-        const id = uuid.v4();
+        const id = uuid();
         this.pageData.pageCrawledCallback(url, id, this.currentUser);
         // Start a monitor process so we can identify pages which are stuck
         let seconds = 0;
