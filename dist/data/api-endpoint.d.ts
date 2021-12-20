@@ -26,7 +26,7 @@ export default class ApiEndpoint {
     };
     aclKey(): {};
     aclKeyRequests(): {};
-    accessNumber(): 1 | 0;
+    accessNumber(): 0 | 1;
     usernamesRequested(): string[];
     firstValidRequest(): HttpRequest;
     strippedUrl(): RegExpMatchArray;

@@ -13,7 +13,7 @@ const parseCommaSeparatedList = (value, dummyPrevious) => {
     return value.split(',');
 };
 const cli = new Command();
-cli.version('1.1.0');
+cli.version('1.1.1');
 cli
     .command('new <configFileName>')
     .description('Generate a config file for the site you want to scan.\nExample: authcov new myconfig.js\n')
