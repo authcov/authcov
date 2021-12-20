@@ -28,7 +28,7 @@ cli
   .command('new <configFileName>')
   .description('Generate a config file for the site you want to scan.\nExample: authcov new myconfig.js\n')
   .action((configFileName) => {
-    const configTemplatePath = path.join(__dirname, '/src/config/config-template.ts');
+    const configTemplatePath = path.join(packagePath, '/src/config/config-template.ts');
     generateConfig(configFileName, configTemplatePath);
   });
 
@@ -71,7 +71,7 @@ cli
   .option('--browser-url <value>', 'if you wish to use an existing chrome instance, set the url i.e. http://localhost:9222')
   .action((configFileName, options) => {
     const configPath = path.join(process.cwd(), configFileName);
-    intrude(configPath, __dirname, options);
+    intrude(configPath, packagePath, options);
   });
 
 cli
