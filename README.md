@@ -28,22 +28,22 @@ $ npm install -g authcov
 
 ## Usage
 
-1. Generate a config for the site you want to scan:
+1. Generate a config for the site you want to scan [NOTE: It has to end in `.mjs` extension]:
 ```bash
-$ authcov new myconfig.js
+$ authcov new myconfig.mjs
 ```
-2. Update the values in myconfig.js
+2. Update the values in myconfig.mjs
 3. Test your configuration values by running this command to ensure the browser is logging in successfully.
 ```
-$ authcov test-login myconfig.js --headless=false
+$ authcov test-login myconfig.mjs --headless=false
 ```
 4. Crawl your site:
 ```bash
-$ authcov crawl myconfig.js
+$ authcov crawl myconfig.mjs
 ```
 5. Attempt intrusion against the resources discovered during the crawling phase:
 ```bash
-$ authcov intrude myconfig.js
+$ authcov intrude myconfig.mjs
 ```
 6. View the generated report at: `./tmp/report/index.html`
 

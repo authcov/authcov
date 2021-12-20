@@ -1,11 +1,13 @@
 import { Command } from 'commander';
 import * as path from 'path';
+import { fileURLToPath } from 'url';
 import { generateConfig } from '../config/generator';
 import { crawl } from './crawl';
 import { intrude } from './intrude';
 import { testLogin } from './test-login';
 const __dirname = path.resolve();
-const packagePath = path.resolve(__dirname + '../../../');
+const __filename = fileURLToPath(import.meta.url);
+const packagePath = path.resolve(__filename + '../../../../');
 const parseBoolean = (value) => {
     return (value === 'true');
 };
@@ -40,7 +42,7 @@ cli
     .option('--browser-url <value>', 'if you wish to use an existing chrome instance, set the url i.e. http://localhost:9222')
     .action((configFileName, options) => {
     const configPath = path.join(process.cwd(), configFileName);
-    crawl(configPath, __dirname, options);
+    crawl(configPath, packagePath, options);
 });
 cli
     .command('intrude <configFileName>')
