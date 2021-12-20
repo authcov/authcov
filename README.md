@@ -110,6 +110,8 @@ Don't foget to run the `authcov test-login` command in headful mode in order to 
 
 ## Contributing
 
+Clone the repo and run `npm install`. Best to use node version 17.1.0.
+
 **Unit Tests**
 
 Unit tests:
