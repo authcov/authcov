@@ -19,7 +19,7 @@ const parseCommaSeparatedList = (value, dummyPrevious) => {
 
 const cli = new Command();
 
-cli.version('1.1.2')
+cli.version('1.1.3')
 
 cli
   .command('new <configFileName>')
