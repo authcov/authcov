@@ -1,5 +1,16 @@
 import Config from '../config/config';
-import { HttpRequest } from './api-endpoint-data';
+export declare type HttpResponse = {
+    status: number;
+    headers: Record<string, string>;
+    authorised: boolean;
+};
+export declare type HttpRequest = {
+    id: string;
+    user: string;
+    headers: Record<string, string>;
+    pageUrl: string;
+    response?: HttpResponse;
+};
 export default class ApiEndpoint {
     id: string;
     url: string;
@@ -15,7 +26,7 @@ export default class ApiEndpoint {
     };
     aclKey(): {};
     aclKeyRequests(): {};
-    accessNumber(): 0 | 1;
+    accessNumber(): 1 | 0;
     usernamesRequested(): string[];
     firstValidRequest(): HttpRequest;
     strippedUrl(): RegExpMatchArray;

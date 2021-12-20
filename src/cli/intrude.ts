@@ -1,5 +1,5 @@
 import UsersIntruder from '../intruder/users-intruder';
-import ApiEndpointData from '../data/api-endpoint-data';
+import ApiEndpointsCollection from '../data/api-endpoints-collection';
 import ConfigValidator from '../config/config-validator';
 import { mergeConfigs } from '../config/config-merger';
 import Config from '../config/config';
@@ -18,7 +18,7 @@ export async function intrude(configPath, packagePath, cliOptions) {
   }
 
   const config = new Config(configArgs);
-  const apiEndpointData = new ApiEndpointData(config);
+  const apiEndpointData = new ApiEndpointsCollection(config);
   const pageData = new PageData({config: config});
 
   // 2. Intrude

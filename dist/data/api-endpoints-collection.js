@@ -195,4 +195,4 @@ export default class ApiEndpointsCollection {
         console.log(`Discovered ${this.apiEndpoints.length} api-endpoints`);
     }
 }
-//# sourceMappingURL=api-endpoint-data.js.map
+//# sourceMappingURL=api-endpoints-collection.js.map

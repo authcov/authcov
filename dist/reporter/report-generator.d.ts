@@ -1,5 +1,6 @@
+import ApiEndpointsPresenter from '../data/api-endpoints-presenter';
 export default class ReportGenerator {
-    apiEndpointsPresenter: any;
+    apiEndpointsPresenter: ApiEndpointsPresenter;
     pageData: any;
     packagePath: any;
     reportPath: any;

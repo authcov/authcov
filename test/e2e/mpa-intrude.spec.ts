@@ -1,7 +1,7 @@
 import * as fs from 'fs';
 
 import UsersIntruder from '../../src/intruder/users-intruder';
-import ApiEndpointData from '../../src/data/api-endpoint-data';
+import ApiEndpointsCollection from '../../src/data/api-endpoints-collection';
 import { config as configArgs } from './configs/mpa-config';
 import Config from '../../src/config/config';
 import { createTmpDir, compareApiEndpointsFiles } from '../utils/compare_files';
@@ -17,7 +17,7 @@ describe('UsersCrawler for MPA with cookie-based auth', () => {
   it('saves apiRequests for users: Public, evanrolfe@gmail.com, evanrolfe@onescan.io', async () => {
     fs.copyFileSync('./test/e2e/expected_output/mpa_crawl_api_endpoints.json', './tmp/api_endpoints.json', fs.constants.COPYFILE_FICLONE);
 
-    const apiEndpointData = new ApiEndpointData(config);
+    const apiEndpointData = new ApiEndpointsCollection(config);
     apiEndpointData.loadFile('./tmp/api_endpoints.json');
     const usersIntruder = new UsersIntruder(config, apiEndpointData);
 

@@ -4,13 +4,12 @@ import ConfigValidator from '../config/config-validator';
 import { mergeConfigs } from '../config/config-merger';
 import Config from '../config/config';
 import UsersCrawler from '../crawler/users-crawler';
-import ApiEndpointData from '../data/api-endpoint-data';
+import ApiEndpointsCollection from '../data/api-endpoints-collection';
 import PageData from '../data/page-data';
 import ReportGenerator from '../reporter/report-generator';
 
 export async function crawl(configPath, packagePath, cliOptions) {
   const c = await import(configPath);
-  console.log(`---------------------`, JSON.stringify(c))
   const configArgs = mergeConfigs(c.config, cliOptions);
 
   // 1. Validate config params
@@ -22,7 +21,7 @@ export async function crawl(configPath, packagePath, cliOptions) {
 
   // 2. Setup
   const config = new Config(configArgs);
-  const apiEndpointData = new ApiEndpointData(config);
+  const apiEndpointData = new ApiEndpointsCollection(config);
   const pageData = new PageData({config: config});
   const reporter = new ReportGenerator(apiEndpointData.apiEndpoints, pageData, packagePath);
   const usersCrawler = new UsersCrawler(config, apiEndpointData, pageData, reporter);

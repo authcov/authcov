@@ -4,8 +4,8 @@ export function compareApiEndpointsFiles(actualFile, expectedFile) {
   let apiEndpointsActualJSON = fs.readFileSync(actualFile, {encoding: 'utf8'});
   let apiEndpointsExpectedJSON = fs.readFileSync(expectedFile, {encoding: 'utf8'});
 
-  apiEndpointsActualJSON = _removeVolatileApiEndpointData(apiEndpointsActualJSON);
-  apiEndpointsExpectedJSON = _removeVolatileApiEndpointData(apiEndpointsExpectedJSON);
+  apiEndpointsActualJSON = _removeVolatileApiEndpointsCollection(apiEndpointsActualJSON);
+  apiEndpointsExpectedJSON = _removeVolatileApiEndpointsCollection(apiEndpointsExpectedJSON);
 
   //fs.writeFileSync('./tmp/api_endpoints_expected.json', apiEndpointsExpectedJSON, {encoding: 'utf8'});
   //fs.writeFileSync('./tmp/api_endpoints_actual.json', apiEndpointsActualJSON, {encoding: 'utf8'});
@@ -14,7 +14,7 @@ export function compareApiEndpointsFiles(actualFile, expectedFile) {
 }
 
 // These values change every time you run the crawler so lets not use them for comparison
-function _removeVolatileApiEndpointData(str) {
+function _removeVolatileApiEndpointsCollection(str) {
   str = str.replace(/_my_app_session=[a-z0-9]+;/g, '_my_app_session=<REMOVED>;');
   str = str.replace(/"etag": "(.)+"/g, '"etag": "<REMOVED>"');
   str = str.replace(/"x-runtime": "[0-9.]+"/g, '"x-runtime": "<REMOVED>"');

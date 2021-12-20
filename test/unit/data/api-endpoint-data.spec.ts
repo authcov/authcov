@@ -1,7 +1,7 @@
-import ApiEndpointData from '../../../src/data/api-endpoint-data';
+import ApiEndpointsCollection from '../../../src/data/api-endpoints-collection';
 import Config from '../../../src/config/config';
 
-describe('ApiEndpointData', () => {
+describe('ApiEndpointsCollection', () => {
   describe('#findAuthorisationHeadersForUsername()', () => {
     let apiEndpointData;
 
@@ -11,7 +11,7 @@ describe('ApiEndpointData', () => {
         responseIsAuthorised: (response, body) => { return true; }
       }
       const config = new Config(configArgs);
-      apiEndpointData = new ApiEndpointData(config);
+      apiEndpointData = new ApiEndpointsCollection(config);
       apiEndpointData.loadFile('./test/unit/fixtures/api_endpoints.json');
     });
 
@@ -40,7 +40,7 @@ describe('ApiEndpointData', () => {
         responseIsAuthorised: (response, body) => { return true; }
       }
       const config = new Config(configArgs);
-      apiEndpointData = new ApiEndpointData(config);
+      apiEndpointData = new ApiEndpointsCollection(config);
       apiEndpointData.loadFile('./test/unit/fixtures/api_endpoints.json');
     });
 
@@ -102,7 +102,7 @@ describe('ApiEndpointData', () => {
         responseIsAuthorised: (response, body) => { return true; }
       }
       const config = new Config(configArgs);
-      apiEndpointData = new ApiEndpointData(config);
+      apiEndpointData = new ApiEndpointsCollection(config);
 
       mockResponse = {
         url() { return 'http://localhost:3001/secrets/1.json' },

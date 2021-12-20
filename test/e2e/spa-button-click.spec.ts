@@ -1,6 +1,6 @@
 
 import UsersCrawler from '../../src/crawler/users-crawler';
-import ApiEndpointData from '../../src/data/api-endpoint-data';
+import ApiEndpointsCollection from '../../src/data/api-endpoints-collection';
 import PageData from '../../src/data/page-data';
 import { config as defaultConfig } from './configs/spa-config';
 import Config from '../../src/config/config';
@@ -19,7 +19,7 @@ const configButtonClick = Object.assign(defaultConfig, {
 });
 const config = new Config(configButtonClick);
 
-const apiEndpointData = new ApiEndpointData(config);
+const apiEndpointData = new ApiEndpointsCollection(config);
 const pageData = new PageData({config: config});
 const apiEndpointsPresenter = new ApiEndpointsPresenter(apiEndpointData.apiEndpoints);
 const reporter = new ReportGenerator(apiEndpointsPresenter, pageData, '.');

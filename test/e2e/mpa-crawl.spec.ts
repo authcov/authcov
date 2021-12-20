@@ -1,5 +1,5 @@
 import UsersCrawler from '../../src/crawler/users-crawler';
-import ApiEndpointData from '../../src/data/api-endpoint-data';
+import ApiEndpointsCollection from '../../src/data/api-endpoints-collection';
 import PageData from '../../src/data/page-data';
 import { config as configArgs } from './configs/mpa-config';
 import Config from '../../src/config/config';
@@ -8,7 +8,7 @@ import ApiEndpointsPresenter from '../../src/data/api-endpoints-presenter';
 import ReportGenerator from '../../src/reporter/report-generator';
 
 const config = new Config(configArgs);
-const apiEndpointData = new ApiEndpointData(config);
+const apiEndpointData = new ApiEndpointsCollection(config);
 const pageData = new PageData({config: config});
 const apiEndpointsPresenter = new ApiEndpointsPresenter(apiEndpointData.apiEndpoints);
 const reporter = new ReportGenerator(apiEndpointsPresenter, pageData, '.');

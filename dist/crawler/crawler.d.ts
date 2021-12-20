@@ -1,7 +1,7 @@
 /// <reference types="node" />
 import LinkQueue from './link-queue';
 import Browser from './browser';
-import ApiEndpointData from '../data/api-endpoint-data';
+import ApiEndpointsCollection from '../data/api-endpoints-collection';
 import PageData from '../data/page-data';
 import Config from '../config/config';
 import { EventEmitter } from 'events';
@@ -12,7 +12,7 @@ export default class Crawler {
     visitedUrls: string[];
     _resolveIdle: any;
     currentUser: string;
-    apiEndpointData: ApiEndpointData;
+    apiEndpointData: ApiEndpointsCollection;
     pageData: PageData;
     config: Config;
     processEvents: boolean;

@@ -1,5 +1,18 @@
 import Config from '../config/config';
-import { HttpRequest } from './api-endpoint-data';
+
+export type HttpResponse = {
+  status: number;
+  headers: Record<string, string>;
+  authorised: boolean;
+}
+
+export type HttpRequest = {
+  id: string;
+  user: string;
+  headers: Record<string, string>;
+  pageUrl: string;
+  response?: HttpResponse;
+}
 
 export default class ApiEndpoint {
   id: string;

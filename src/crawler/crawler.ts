@@ -3,7 +3,7 @@ import LinkQueue from './link-queue';
 import Browser from './browser';
 import PageExplorer from './page-explorer';
 import PageEventsHandler from './page-events-handler';
-import ApiEndpointData from '../data/api-endpoint-data';
+import ApiEndpointsCollection from '../data/api-endpoints-collection';
 import PageData from '../data/page-data';
 import Config from '../config/config';
 
@@ -21,7 +21,7 @@ export default class Crawler {
   visitedUrls: string[];
   _resolveIdle: any;
   currentUser: string;
-  apiEndpointData: ApiEndpointData;
+  apiEndpointData: ApiEndpointsCollection;
   pageData: PageData;
   config: Config;
   processEvents: boolean;
