@@ -1,6 +1,7 @@
+import ApiEndpoint from './api-endpoint';
 export default class ApiEndpointsPresenter {
-    apiEndpoints: any[];
-    constructor(apiEndpoints: any);
+    apiEndpoints: ApiEndpoint[];
+    constructor(apiEndpoints: ApiEndpoint[]);
     usersRequested(): any[];
     groupedApiEndpoints(): {};
     groupsForView(): {};

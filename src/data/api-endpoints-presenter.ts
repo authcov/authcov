@@ -1,7 +1,9 @@
-export default class ApiEndpointsPresenter {
-  apiEndpoints: any[];
+import ApiEndpoint from './api-endpoint';
 
-  constructor(apiEndpoints) {
+export default class ApiEndpointsPresenter {
+  apiEndpoints: ApiEndpoint[];
+
+  constructor(apiEndpoints: ApiEndpoint[]) {
     this.apiEndpoints = apiEndpoints;
   }
 
