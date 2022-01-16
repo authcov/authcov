@@ -7,6 +7,7 @@ import ApiEndpointsCollection from '../data/api-endpoints-collection';
 import PageData from '../data/page-data';
 import Config from '../config/config';
 
+import { Page, HTTPRequest, HTTPResponse, Dialog } from 'puppeteer';
 import { EventEmitter } from 'events';
 import { parse, resolve } from 'url';
 import trim from 'lodash/trim';
@@ -27,7 +28,7 @@ export default class Crawler {
   processEvents: boolean;
   cookiesStr: string;
 
-  constructor(browser: Browser, options: any) {
+  constructor(browser: Browser, apiEndpointData: ApiEndpointsCollection, pageData: PageData, config: Config) {
     this.browser = browser;
     this.events = new EventEmitter();
     this.linkQueue = new LinkQueue();
@@ -35,42 +36,39 @@ export default class Crawler {
     this._resolveIdle = noop;
     this.currentUser = 'Public';
 
-    this.apiEndpointData = options.apiEndpointData;
-    this.pageData = options.pageData;
-    this.config = options.config;
-    this.processEvents = (options.processEvents === undefined) ? true : options.processEvents;
+    this.apiEndpointData = apiEndpointData;
+    this.pageData = pageData;
+    this.config = config;
 
-    if(this.processEvents === true) {
-      this.events.on('url queued', (urlObj) => {
-        if(this.browser.tabsAvailable()) {
-          this.linkQueue.dequeue(urlObj.url);
-          this.crawlPage(urlObj.url, urlObj.depth);
-        } else {
-          setTimeout(() => {
-            this.events.emit('url queued', urlObj);
-          }, 100);
-        }
-      });
-    }
+    this.events.on('url queued', (urlObj) => {
+      if(this.browser.tabsAvailable()) {
+        this.linkQueue.dequeue(urlObj.url);
+        this.crawlPage(urlObj.url, urlObj.depth);
+      } else {
+        setTimeout(() => {
+          this.events.emit('url queued', urlObj);
+        }, 100);
+      }
+    });
   }
 
-  static async init(options) {
-    const browser = await Browser.init(options.config);
-    const crawler = new Crawler(browser, options);
+  static async init(apiEndpointData: ApiEndpointsCollection, pageData: PageData, config: Config): Promise<Crawler> {
+    const browser = await Browser.init(config);
+    const crawler = new Crawler(browser, apiEndpointData, pageData, config);
     return crawler;
   }
 
-  async close() {
+  async close(): Promise<void> {
     await this.browser.disconnect();
   }
 
-  onIdle() {
+  onIdle(): Promise<void> {
     return new Promise(resolve => {
       this._resolveIdle = resolve;
     });
   }
 
-  async login(username, password) {
+  async login(username: string, password: string): Promise<void> {
     this.currentUser = username;
 
     const tab = await this.browser.getTab();
@@ -86,7 +84,7 @@ export default class Crawler {
     await tab.close();
   }
 
-  handleRequest(request, sourceUrl) {
+  handleRequest(request: HTTPRequest, sourceUrl: string) {
     const isXhr = ['xhr','fetch'].includes(request.resourceType());
     const ignoreRequest = this.config.ignoreApiRequest(
       request.url(),
@@ -101,7 +99,7 @@ export default class Crawler {
     request.continue();
   }
 
-  async handleResponse(response, sourceUrl) {
+  async handleResponse(response: HTTPResponse, sourceUrl: string) {
     const isXhr = ['xhr','fetch'].includes(response.request().resourceType());
     const ignoreRequest = this.config.ignoreApiRequest(
       response.url(),
@@ -115,16 +113,16 @@ export default class Crawler {
     }
   }
 
-  handleDialog(pageUrl, currentUser, dialog) {
+  handleDialog(pageUrl: string, currentUser: string, dialog: Dialog) {
     this.pageData.dialogCallback(pageUrl, currentUser, dialog);
     dialog.accept();
   }
 
-  async startCrawling() {
+  async startCrawling(): Promise<void> {
     this.crawlPage(this.config.baseUrl, 0);
   }
 
-  async crawlPage(url, depth) {
+  async crawlPage(url: string, depth: number): Promise<void> {
     if(depth > this.config.maxDepth) {
       return;
     }
@@ -147,15 +145,15 @@ export default class Crawler {
     this._verboseLog(`${depth}. Crawling ${url}`);
 
     // Open a new tab at this url with Network request interception enabled
-    const tab = await this.browser.getTab();
+    const tab: Page = await this.browser.getTab();
     this._verboseLog(`${url} - Got a tab.`);
     await tab.setRequestInterception(true);
 
     this._verboseLog(`${url} - Setting request interception`);
 
-    tab.on('request', (request) => this.handleRequest(request, url));
-    tab.on('response', (response) => this.handleResponse(response, url));
-    tab.on('dialog', (dialog) => this.handleDialog(url, this.currentUser, dialog));
+    tab.on('request', (request: HTTPRequest) => this.handleRequest(request, url));
+    tab.on('response', (response: HTTPResponse) => this.handleResponse(response, url));
+    tab.on('dialog', (dialog: Dialog) => this.handleDialog(url, this.currentUser, dialog));
     this._verboseLog(`${url} - Going to url...`);
 
     const pageEvents = new PageEventsHandler(tab);
@@ -226,7 +224,7 @@ export default class Crawler {
     }
   }
 
-  processLink(links, depth) {
+  processLink(links: string[], depth: number): void {
     links.forEach((link) => {
       link = this.resolveUrl(link, this.config.baseUrl);
 
@@ -248,7 +246,7 @@ export default class Crawler {
     });
   }
 
-  resolveUrl(url, baseUrl) {
+  resolveUrl(url: string, baseUrl: string): string {
     url = trim(url);
     if (!url) return null;
     if (startsWith(url, '#')) return null;
@@ -261,7 +259,7 @@ export default class Crawler {
     return null;
   }
 
-  ignoreLink(url) {
+  ignoreLink(url: string): boolean {
     if(typeof(this.config) == 'object' && typeof(this.config.ignoreLink) == 'function') {
       return this.config.ignoreLink(url);
     } else {
@@ -269,11 +267,11 @@ export default class Crawler {
     }
   }
 
-  complete() {
+  complete(): boolean {
     return !(this.linkQueue.length > 0 || this.browser.pendingRequests > 0 );
   }
 
-  _verboseLog(message) {
+  _verboseLog(message: string): void {
     if(this.config.verboseOutput === true) {
       console.log(message);
     }

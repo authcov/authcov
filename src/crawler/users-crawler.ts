@@ -22,7 +22,7 @@ export default class UsersCrawler {
     this.reporter = reporter;
   }
 
-  async start() {
+  async start(): Promise<void> {
     // this.reporter._clearReportDir();
     // this.reporter._createReportDir();
 
@@ -39,12 +39,8 @@ export default class UsersCrawler {
     return;
   }
 
-  async crawlUser(username, password) {
-    const crawler = await Crawler.init({
-      apiEndpointData: this.apiEndpointData,
-      pageData: this.pageData,
-      config: this.config
-    });
+  async crawlUser(username: string, password: string): Promise<void> {
+    const crawler = await Crawler.init(this.apiEndpointData, this.pageData, this.config);
 
     if(username != 'Public' && password != null) {
       await crawler.login(username, password);

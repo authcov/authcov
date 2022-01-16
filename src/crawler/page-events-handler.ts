@@ -1,15 +1,15 @@
-import { Page as PupPage, HTTPRequest } from 'puppeteer';
+import { Page, HTTPRequest } from 'puppeteer';
 
 interface HTTPRequestWithResolver extends HTTPRequest {
   resolver: Function;
 }
 
 export default class PageEventsHandler {
-  page: PupPage;
+  page: Page;
   pendingRequests: Set<HTTPRequestWithResolver>;
   promises: Promise<any>[];
 
-  constructor(page: PupPage) {
+  constructor(page: Page) {
     this.page = page;
     this.promises = [];
     this.pendingRequests = new Set();
@@ -19,7 +19,7 @@ export default class PageEventsHandler {
     page.on('requestfinished', (request) => this._handleRequestfinished(request));
   }
 
-  async waitForRequestsToFinish(timeoutSeconds) {
+  async waitForRequestsToFinish(timeoutSeconds: number): Promise<any> {
     return Promise.race([
       this.waitForAllXhrFinished(),
       new Promise(resolve => {
@@ -30,7 +30,7 @@ export default class PageEventsHandler {
     ]);
   }
 
-  _handleRequest(request: HTTPRequestWithResolver) {
+  _handleRequest(request: HTTPRequestWithResolver): void {
     if(this._isXhr(request)) {
       //console.log(`PageEventsHandler: request made to ${request.url()}`)
       this.pendingRequests.add(request);
@@ -43,7 +43,7 @@ export default class PageEventsHandler {
     }
   }
 
-  _handleRequestFailed(request: HTTPRequestWithResolver) {
+  _handleRequestFailed(request: HTTPRequestWithResolver): void {
     if(this._isXhr(request)) {
       //console.log(`PageEventsHandler: request failed ${request.url()}`)
 
@@ -56,7 +56,7 @@ export default class PageEventsHandler {
     }
   }
 
-  _handleRequestfinished(request: HTTPRequestWithResolver) {
+  _handleRequestfinished(request: HTTPRequestWithResolver): void {
     if(this._isXhr(request)) {
       //console.log(`PageEventsHandler: response from ${request.url()}`)
       this.pendingRequests.delete(request);
@@ -68,14 +68,14 @@ export default class PageEventsHandler {
     }
   }
 
-  async waitForAllXhrFinished() {
+  async waitForAllXhrFinished(): Promise<void> {
     if (this.pendingRequests.size === 0) {
       return;
     }
     await Promise.all(this.promises);
   }
 
-  _isXhr(request) {
+  _isXhr(request): boolean {
     return ['xhr','fetch'].includes(request.resourceType());
   }
 }

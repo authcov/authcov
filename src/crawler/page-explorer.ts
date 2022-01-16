@@ -1,16 +1,16 @@
-import { Page as PupPage, HTTPRequest } from 'puppeteer';
+import { Page } from 'puppeteer';
 import PageData from '../data/page-data';
 import Config from '../config/config';
 
 export default class PageExplorer {
-  page: PupPage;
+  page: Page;
   pageUrl: string;
   currentUser: string;
   config: Config;
   pageData: PageData;
   buttonsClicked: string[];
 
-  constructor(page: PupPage, pageUrl: string, currentUser: string, config: Config, pageData: PageData) {
+  constructor(page: Page, pageUrl: string, currentUser: string, config: Config, pageData: PageData) {
     this.page = page;
 
     // TODO: sometimes pageUrl != page.url() for example www.example.com vs www.example.com/
@@ -22,7 +22,7 @@ export default class PageExplorer {
   }
 
   // TODO: Make this click buttons recursively until max depth reached or there are no more buttons to click
-  async getLinks() {
+  async getLinks(): Promise<string[]> {
     let links = await this._scrapeLinks();
 
     if(this.config.clickButtons !== true) {
@@ -71,7 +71,7 @@ export default class PageExplorer {
   }
 
   // Page functions only gets executed inside the browser window context
-  async _pageClickButtons(buttons) {
+  async _pageClickButtons(buttons): Promise<void> {
     for(let i = 0; i < buttons.length; i++) {
       let button = buttons[i];
        // @ts-ignore
@@ -85,7 +85,7 @@ export default class PageExplorer {
     }
   }
 
-  _verboseLog(message) {
+  _verboseLog(message: string): void {
     if(this.config.verboseOutput === true) {
       console.log(message);
     }

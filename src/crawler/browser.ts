@@ -1,5 +1,5 @@
 import Puppeteer from 'puppeteer';
-import { Browser as PupBrowser, BrowserContext as PupContext } from 'puppeteer';
+import { Browser as PupBrowser, BrowserContext as PupContext, Page } from 'puppeteer';
 import Config from '../config/config';
 
 export default class Browser {
@@ -52,21 +52,21 @@ export default class Browser {
     return browser;
   }
 
-  async resetContext() {
+  async resetContext(): Promise<void> {
     this.puppeteer_context.close();
     this.puppeteer_context = await this.puppeteer_browser.createIncognitoBrowserContext();
   }
 
-  tabsAvailable() {
+  tabsAvailable(): boolean {
     return (this.pendingRequests < this.maxConcurrency);
   }
 
-  async getTab() {
+  async getTab(): Promise<Page> {
     const tab = this.puppeteer_context.newPage();
     return tab;
   }
 
-  async disconnect() {
+  async disconnect(): Promise<void> {
     if(this.browserLaunched === true) {
       await this.puppeteer_browser.close();
     } else {
