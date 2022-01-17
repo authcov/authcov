@@ -1,8 +1,10 @@
 import Config from '../config/config';
 
+export type HttpHeaders = Record<string, string>;
+
 export type HttpResponse = {
   status: number;
-  headers: Record<string, string>;
+  headers: HttpHeaders;
   authorised: boolean;
   body?: string;
 }
@@ -10,7 +12,7 @@ export type HttpResponse = {
 export type HttpRequest = {
   id: string;
   user: string;
-  headers: Record<string, string>;
+  headers: HttpHeaders;
   pageUrl: string;
   response?: HttpResponse;
 }

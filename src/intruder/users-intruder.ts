@@ -5,6 +5,7 @@ import Config from '../config/config';
 import ApiEndpointsCollection, { IntrusionRequest } from '../data/api-endpoints-collection';
 import { HTTPRequest, HTTPResponse } from 'puppeteer';
 import { User } from '../config/config';
+import { HttpHeaders } from '../data/api-endpoint';
 
 async function sleep(ms) {
   return new Promise(resolve => {
@@ -93,7 +94,7 @@ export default class UsersIntruder {
     this.apiEndpoints.apiResponseCallback(responseObj, null, null, intruder.username);
   }
 
-  async _getAuthHeaders(user: User): Promise<Record<string,string>> {
+  async _getAuthHeaders(user: User): Promise<HttpHeaders> {
     let intruderHeaders;
 
     if(user.username == 'Public') {

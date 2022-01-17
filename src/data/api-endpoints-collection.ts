@@ -1,7 +1,7 @@
 import * as fs from 'fs';
 import { v4 as uuid } from 'uuid';
 
-import ApiEndpoint from './api-endpoint';
+import ApiEndpoint, { HttpHeaders } from './api-endpoint';
 import Config from '../config/config';
 import { HTTPRequest, HTTPResponse } from 'puppeteer';
 
@@ -10,7 +10,7 @@ export type IntrusionRequest = {
   asUser: string,
   url: string,
   method: string,
-  headers: Record<string, string>
+  headers: HttpHeaders
 }
 
 export default class ApiEndpointsCollection {
@@ -59,7 +59,7 @@ export default class ApiEndpointsCollection {
     return apiRequests;
   }
 
-  findIntrusionRequestsForUsername(username: string, intruderHeaders: Record<string, string>): IntrusionRequest[] {
+  findIntrusionRequestsForUsername(username: string, intruderHeaders: HttpHeaders): IntrusionRequest[] {
     //return this.findIntrusionRequests().filter((intrusionRequest) => { return (intrusionRequest.intruderUser == username);});
     let intrusionRequests = [];
 

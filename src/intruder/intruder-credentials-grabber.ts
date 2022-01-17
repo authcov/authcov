@@ -1,5 +1,6 @@
 import Config from '../config/config';
 import Browser from '../crawler/browser';
+import { HttpHeaders } from '../data/api-endpoint';
 
 export default class IntruderCredentialsGrabber {
   config: Config;
@@ -16,7 +17,7 @@ export default class IntruderCredentialsGrabber {
     return credsGrabber;
   }
 
-  async getAuthHeaders(username: string, password: string): Promise<Record<string, string>> {
+  async getAuthHeaders(username: string, password: string): Promise<HttpHeaders> {
     if(this.config.authenticationType == 'token') {
       return this._getAuthHeadersToken(username, password);
     } else if(this.config.authenticationType == 'cookie') {
@@ -24,7 +25,7 @@ export default class IntruderCredentialsGrabber {
     }
   }
 
-  async _getAuthHeadersToken(username: string, password: string): Promise<Record<string, string>> {
+  async _getAuthHeadersToken(username: string, password: string): Promise<HttpHeaders> {
     // If this is using bearer token (header) authorisation then we need to intercept and API request to get the token
     const page = await this.browser.getTab();
 
@@ -60,7 +61,7 @@ export default class IntruderCredentialsGrabber {
     return authHeadersFound;
   }
 
-  async _getAuthHeadersCookie(username: string, password: string): Promise<Record<string, string>> {
+  async _getAuthHeadersCookie(username: string, password: string): Promise<HttpHeaders> {
     const page = await this.browser.getTab();
     await this.config.loginFunction(page, username, password);
 
@@ -99,7 +100,7 @@ export default class IntruderCredentialsGrabber {
     return this.browser.disconnect();
   }
 
-  _extractAuthHeaders(requestHeaders: Record<string, string>): Record<string, string> {
+  _extractAuthHeaders(requestHeaders: HttpHeaders): HttpHeaders {
     const authHeaders = {};
     const headerKeys = Object.keys(requestHeaders);
 
