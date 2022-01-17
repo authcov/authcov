@@ -3,7 +3,15 @@ import { v4 as uuid } from 'uuid';
 
 import ApiEndpoint from './api-endpoint';
 import Config from '../config/config';
-import { HttpRequest } from './api-endpoint';
+import { HTTPRequest, HTTPResponse } from 'puppeteer';
+
+export type IntrusionRequest = {
+  intruderUser: string
+  asUser: string,
+  url: string,
+  method: string,
+  headers: Record<string, string>
+}
 
 export default class ApiEndpointsCollection {
   config: Config;
@@ -14,12 +22,12 @@ export default class ApiEndpointsCollection {
     this.apiEndpoints = [];
   }
 
-  loadFile(filePath) {
+  loadFile(filePath: string): void {
     let rawJson = fs.readFileSync(filePath);
     this.apiEndpoints = JSON.parse(rawJson.toString()).map((data) => new ApiEndpoint(data, this.config));
   }
 
-  saveToFile(fileName) {
+  saveToFile(fileName: string): void {
     // Sort alphabetically by URL
     this.apiEndpoints = this.apiEndpoints.sort(function(a, b){
       if(a.strippedUrl() < b.strippedUrl()) { return -1; }
@@ -31,50 +39,11 @@ export default class ApiEndpointsCollection {
     fs.writeFileSync(fileName, JSON.stringify(apiEndpointsData, null, 2));
   }
 
-  urlCrawledCallback(url) {
+  urlCrawledCallback(url: string): void {
     console.log("URL Crawled: " + url);
   }
 
-  findAuthorisationHeadersForUsername(username) {
-    const apiRequests = this.findApiRequestsForUsername(username);
-    // For each apiRequest extract the auth headers as defined by config
-    let apiRequestAuthHeaders = apiRequests.map((apiRequest: HttpRequest) => {
-      const authHeaders = {};
-      const headerKeys = Object.keys(apiRequest.headers);
-
-      // Only select the headers which are also in config.authorisationHeaders
-      headerKeys.forEach((key) => {
-        if(this.config.authorisationHeaders.includes(key)) {
-          authHeaders[key] = apiRequest.headers[key];
-        }
-      });
-
-      return authHeaders;
-    });
-
-    // Filter out the empty header objects
-    apiRequestAuthHeaders = apiRequestAuthHeaders.filter((headers) => {
-      return (Object.keys(headers).length > 0);
-    });
-
-    // Ensure there are not multiple values for each authorisationHeader
-    this.config.authorisationHeaders.forEach((key) => {
-      const headers = apiRequestAuthHeaders.map(headers => headers[key]);
-      const uniqValues = [...new Set(headers)];
-
-      if(uniqValues.length > 1) {
-        throw `Multiple authorisation headers found for header: ${key}!`;
-      }
-    });
-
-    if(apiRequestAuthHeaders.length > 0) {
-      return apiRequestAuthHeaders[0];
-    } else {
-      return {};
-    }
-  }
-
-  findApiRequestsForUsername(username) {
+  findApiRequestsForUsername(username: string): ApiEndpoint[] {
     const apiRequests = [];
 
     this.apiEndpoints.forEach((apiEndpoint) => {
@@ -90,7 +59,7 @@ export default class ApiEndpointsCollection {
     return apiRequests;
   }
 
-  findIntrusionRequestsForUsername(username, intruderHeaders) {
+  findIntrusionRequestsForUsername(username: string, intruderHeaders: Record<string, string>): IntrusionRequest[] {
     //return this.findIntrusionRequests().filter((intrusionRequest) => { return (intrusionRequest.intruderUser == username);});
     let intrusionRequests = [];
 
@@ -114,7 +83,7 @@ export default class ApiEndpointsCollection {
         const headers = Object.assign(originalHeaders, intruderHeaders);
         delete(headers['content-length']);
 
-        const intrusionRequest = {
+        const intrusionRequest: IntrusionRequest = {
           intruderUser: username,
           asUser: validRequest.user,
           url: apiEndpoint.url,
@@ -130,7 +99,7 @@ export default class ApiEndpointsCollection {
   }
 
   // Used in MPA mode to save the request and response of a page being loaded in the browser.
-  async mpaPageResponseCallback(response, cookies, pageUrl, currentUser) {
+  async mpaPageResponseCallback(response: HTTPResponse, cookies: string, pageUrl: string, currentUser: string): Promise<void> {
     const apiEndpoint = this._findOrCreateApiEndpoint(response.url(), response.request().method());
     const responseBody = await response.text();
     const responseAuthorised = this.config.responseIsAuthorised(response.status(), response.headers(), responseBody);
@@ -162,7 +131,7 @@ export default class ApiEndpointsCollection {
     this.saveToFile('./api_endpoints.json');
   }
 
-  apiRequestCallback(request, cookies, pageUrl, currentUser) {
+  apiRequestCallback(request: HTTPRequest, cookies: string, pageUrl: string, currentUser: string): void {
     this._verboseLog(`Intercepted API request to: ${request.method()} ${request.url()}`)
     const apiEndpoint = this._findOrCreateApiEndpoint(request.url(), request.method());
     const user = (currentUser !== undefined) ? currentUser : 'Public';
@@ -181,7 +150,7 @@ export default class ApiEndpointsCollection {
     apiEndpoint.requests.push(requestObj);
   }
 
-  async apiResponseCallback(response, cookies, pageUrl, currentUser) {
+  async apiResponseCallback(response: HTTPResponse, cookies: string, pageUrl: string, currentUser: string): Promise<void> {
     this._verboseLog(`Intercepted API response from: ${response.request().method()} ${response.url()}`)
     const apiEndpoint = this._findOrCreateApiEndpoint(response.url(), response.request().method());
 
@@ -211,7 +180,7 @@ export default class ApiEndpointsCollection {
     this.saveToFile('./api_endpoints.json');
   }
 
-  _findOrCreateApiEndpoint(url, method) {
+  _findOrCreateApiEndpoint(url: string, method: string): ApiEndpoint {
     let apiEndpoint = this.apiEndpoints.find((apiEndpoint) => {
       return (apiEndpoint.url == url && apiEndpoint.method == method);
     });
@@ -229,13 +198,13 @@ export default class ApiEndpointsCollection {
     return apiEndpoint;
   }
 
-  _verboseLog(message) {
+  _verboseLog(message: string): void {
     if(this.config.verboseOutput === true) {
       console.log(message);
     }
   }
 
-  scanCompleteCallback() {
+  scanCompleteCallback(): void {
     console.log(`Discovered ${this.apiEndpoints.length} api-endpoints`);
   }
 }

@@ -8,7 +8,7 @@ export default class ApiEndpointsPresenter {
   }
 
   // Return all the users that have made requests in the data
-  usersRequested() {
+  usersRequested(): string[] {
     const users = [];
 
     this.apiEndpoints.forEach(apiEndpoint => {
@@ -21,7 +21,7 @@ export default class ApiEndpointsPresenter {
   }
 
   // Group endpoints using the JSON aclKey() as the index
-  groupedApiEndpoints() {
+  groupedApiEndpoints(): Record<string, ApiEndpoint[]> {
     const groupedEndpoints = {};
 
     this.apiEndpoints.forEach(apiEndpoint => {
@@ -36,7 +36,7 @@ export default class ApiEndpointsPresenter {
     return groupedEndpoints;
   }
 
-  groupsForView() {
+  groupsForView(): Record<string, ApiEndpoint[]> {
     const groupedEndpoints = this.groupedApiEndpoints();
     const groupedApiEndpointsForView = {};
 
@@ -48,7 +48,7 @@ export default class ApiEndpointsPresenter {
     return groupedApiEndpointsForView;
   }
 
-  sortedApiEndpoints() {
+  sortedApiEndpoints(): ApiEndpoint[] {
     const groupEndpoints = this.groupedApiEndpoints();
     let sortedEndpoints = [];
     Object.values(groupEndpoints).forEach(endpointsGroup => {
@@ -59,18 +59,18 @@ export default class ApiEndpointsPresenter {
   }
 
   // Sort by the number of authorised user requests
-  _sortApiEndpoints() {
+  _sortApiEndpoints(): void {
     // @ts-ignore
     this.apiEndpoints.sort((a, b) => { return this._compareAclKeys(a, b) });
   }
 
-  _compareAclKeys(a, b) {
+  _compareAclKeys(a: ApiEndpoint, b: ApiEndpoint): boolean {
     const aValue = a.accessNumber();
     const bValue = b.accessNumber();
     return (aValue < bValue); // Descending
   }
 
-  _aclTitle(aclJsonString) {
+  _aclTitle(aclJsonString: string): string {
     const aclObj = JSON.parse(aclJsonString);
     const uniqValues = [... new Set(Object.values(aclObj))];
     const trueValues = {};

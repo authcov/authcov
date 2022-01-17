@@ -4,6 +4,7 @@ export type HttpResponse = {
   status: number;
   headers: Record<string, string>;
   authorised: boolean;
+  body?: string;
 }
 
 export type HttpRequest = {
@@ -14,6 +15,17 @@ export type HttpRequest = {
   response?: HttpResponse;
 }
 
+type ApiEndpointData = {
+  id: string;
+  url: string;
+  method: string;
+  requests: HttpRequest[];
+}
+
+export type AclKey = Record<string, boolean>
+
+type AclKeyRequests = Record<string, HttpRequest[]>
+
 export default class ApiEndpoint {
   id: string;
   url: string;
@@ -21,7 +33,7 @@ export default class ApiEndpoint {
   config: Config;
   requests: HttpRequest[];
 
-  constructor(data, config: Config) {
+  constructor(data: ApiEndpointData, config: Config) {
     this.id = data.id;
     this.url = data.url;
     this.method = data.method;
@@ -36,7 +48,7 @@ export default class ApiEndpoint {
     });
   }
 
-  data() {
+  data(): ApiEndpointData {
     return {
       id: this.id,
       url: this.url,
@@ -47,7 +59,7 @@ export default class ApiEndpoint {
 
   // An object which shows the access for each user i.e.
   // {'alice@authcov.io': true, 'Public': true, 'bob@authcov.io': true}
-  aclKey() {
+  aclKey(): AclKey {
     const aclKey = {};
 
     this.requests.forEach((request: HttpRequest) => {
@@ -65,7 +77,7 @@ export default class ApiEndpoint {
 
   // An object which shows the access for each user i.e.
   // {'alice@authcov.io': { Request... }, 'Public': { Request... }, 'bob@authcov.io': { Request... }}
-  aclKeyRequests() {
+  aclKeyRequests(): AclKeyRequests {
     const aclKeyRequests = {};
 
     this.requests.forEach((request) => {
@@ -82,7 +94,7 @@ export default class ApiEndpoint {
   }
 
   // How many users can access this endpoint
-  accessNumber() {
+  accessNumber(): number {
     // Convert true => 1, false => 0, then sum those numbers and compare based on the result
     const trueOneValues = Object.values(this.aclKey()).map((x) => { return x ? 1 : 0; });
     if(trueOneValues.length == 0) {
@@ -93,18 +105,18 @@ export default class ApiEndpoint {
     }
   }
 
-  usernamesRequested() {
+  usernamesRequested(): string[] {
     return this.requests.map(request => request.user);
   }
 
-  firstValidRequest() {
+  firstValidRequest(): HttpRequest {
     return this.requests.find(request => {
       return (request.response !== undefined && request.response.authorised === true);
     });
   }
 
   // Return only the letters of the url, for use in sorting
-  strippedUrl() {
+  strippedUrl(): string[] {
     return this.url.match(/[a-zA-Z0-9]+/g);
   }
 }

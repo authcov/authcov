@@ -1,6 +1,10 @@
 import chalk from 'chalk';
-import axios from 'axios';
+import axios, { Method } from 'axios';
 import IntruderCredentialsGrabber from './intruder-credentials-grabber';
+import Config from '../config/config';
+import ApiEndpointsCollection, { IntrusionRequest } from '../data/api-endpoints-collection';
+import { HTTPRequest, HTTPResponse } from 'puppeteer';
+import { User } from '../config/config';
 
 async function sleep(ms) {
   return new Promise(resolve => {
@@ -9,15 +13,15 @@ async function sleep(ms) {
 }
 
 export default class UsersIntruder {
-  config: any;
-  apiEndpointData: any;
+  config: Config;
+  apiEndpoints: ApiEndpointsCollection;
 
-  constructor(config, apiEndpointData) {
+  constructor(config: Config, apiEndpoints: ApiEndpointsCollection) {
     this.config = config;
-    this.apiEndpointData = apiEndpointData;
+    this.apiEndpoints = apiEndpoints;
   }
 
-  async start() {
+  async start(): Promise<void> {
     const startTime = Date.now();
 
     for(let i = 0; i < this.config.intruders.length; i++) {
@@ -31,31 +35,24 @@ export default class UsersIntruder {
     return;
   }
 
-  async intrudeAsUser(intruder) {
+  async intrudeAsUser(intruder: User): Promise<void> {
     const intruderHeaders = await this._getAuthHeaders(intruder);
     console.log(`Intruding as ${intruder.username} with headers: ${JSON.stringify(intruderHeaders)}`);
 
-    const intrusionRequests = this.apiEndpointData.findIntrusionRequestsForUsername(intruder.username, intruderHeaders);
+    const intrusionRequests = this.apiEndpoints.findIntrusionRequestsForUsername(intruder.username, intruderHeaders);
     console.log(`Found ${intrusionRequests.length} intrusion requests for ${intruder.username}`);
 
     for(let i = 0; i < intrusionRequests.length; i++) {
       let intrusionRequest = intrusionRequests[i];
-
-      const requestOptions = {
-        method: intrusionRequest.method,
-        url: intrusionRequest.url,
-        headers: intrusionRequest.headers,
-        followRedirect: false
-      };
-      await this._makeRequest(intruder, requestOptions, i, intrusionRequests.length);
+      await this._makeRequest(intruder, intrusionRequest, i, intrusionRequests.length);
     }
   }
 
-  async _makeRequest(intruder, requestOptions, i, total) {
+  async _makeRequest(intruder: User, request: IntrusionRequest, i, total): Promise<void> {
     const response = await axios({
-      method: requestOptions.method,
-      url: requestOptions.url,
-      headers: requestOptions.headers,
+      method: request.method as Method,
+      url: request.url,
+      headers: request.headers,
       maxRedirects: 0,
       validateStatus: () => true
     });
@@ -63,14 +60,14 @@ export default class UsersIntruder {
     // TODO: update the apiResponseCallback args so we dont need to pass in this ridiculous object
     const responseObj = {
       url(){
-        return requestOptions.url;
+        return request.url;
       },
-      request(){
+      request(): HTTPRequest {
         return {
-          url() { return requestOptions.url },
-          method() { return requestOptions.method; },
-          headers() { return requestOptions.headers; }
-        };
+          url() { return request.url },
+          method() { return request.method; },
+          headers() { return request.headers; }
+        } as HTTPRequest;
       },
       status(){
         return response.status;
@@ -81,7 +78,7 @@ export default class UsersIntruder {
       async text(){
         return response.data;
       }
-    };
+    } as HTTPResponse;
 
     const progress = `${i+1} / ${total}`;
     const responseAuthorised = this.config.responseIsAuthorised(response.status, response.headers, response.data);
@@ -92,11 +89,11 @@ export default class UsersIntruder {
       console.log(chalk.red(logText));
     }
 
-    this.apiEndpointData.apiRequestCallback(responseObj.request(), null, null, intruder.username);
-    this.apiEndpointData.apiResponseCallback(responseObj, null, null, intruder.username);
+    this.apiEndpoints.apiRequestCallback(responseObj.request(), null, null, intruder.username);
+    this.apiEndpoints.apiResponseCallback(responseObj, null, null, intruder.username);
   }
 
-  async _getAuthHeaders(user) {
+  async _getAuthHeaders(user: User): Promise<Record<string,string>> {
     let intruderHeaders;
 
     if(user.username == 'Public') {

@@ -93,7 +93,7 @@ export default class Crawler {
 
     this._verboseLog(`${sourceUrl} - HTTP request made to ${request.method()} ${request.url()}.`);
 
-    if (isXhr && typeof(this.apiEndpointData) == 'object' && typeof(this.apiEndpointData.apiRequestCallback) == 'function' && !ignoreRequest) {
+    if (isXhr && typeof(this.apiEndpointData.apiRequestCallback) == 'function' && !ignoreRequest) {
       this.apiEndpointData.apiRequestCallback(request, this.cookiesStr, sourceUrl, this.currentUser);
     }
     request.continue();
@@ -108,7 +108,7 @@ export default class Crawler {
 
     this._verboseLog(`${sourceUrl} - HTTP response ${response.request().method()} ${response.request().url()}.`);
 
-    if (isXhr && typeof(this.apiEndpointData) == 'object' && !ignoreRequest) {
+    if (isXhr && !ignoreRequest) {
       this.apiEndpointData.apiResponseCallback(response, this.cookiesStr, sourceUrl, this.currentUser);
     }
   }
@@ -163,7 +163,7 @@ export default class Crawler {
       this._verboseLog(`${url} - Got a response.`);
 
       // If this is an MPA then the page itself needs to be recorded in api_requests.json too
-      if (this.config.type == 'mpa' && typeof(this.apiEndpointData) == 'object' && typeof(this.apiEndpointData.apiResponseCallback) == 'function') {
+      if (this.config.type == 'mpa' && this.apiEndpointData.apiResponseCallback) {
         this.apiEndpointData.mpaPageResponseCallback(pageResponse, this.cookiesStr, url, this.currentUser);
       }
 
@@ -209,17 +209,13 @@ export default class Crawler {
       this.browser.pendingRequests--;
       clearInterval(monitorProcess);
 
-      if(typeof(this.apiEndpointData) == 'object') {
-        this.apiEndpointData.urlCrawledCallback(url);
-      }
+      this.apiEndpointData.urlCrawledCallback(url);
 
       // Check if the crawler is complete
       if(this.complete()) {
         this._resolveIdle();
 
-        if(typeof(this.apiEndpointData) == 'object' && typeof(this.apiEndpointData.scanCompleteCallback) == 'function') {
-          this.apiEndpointData.scanCompleteCallback();
-        }
+        this.apiEndpointData.scanCompleteCallback();
       }
     }
   }
@@ -260,7 +256,7 @@ export default class Crawler {
   }
 
   ignoreLink(url: string): boolean {
-    if(typeof(this.config) == 'object' && typeof(this.config.ignoreLink) == 'function') {
+    if(typeof(this.config.ignoreLink) == 'function') {
       return this.config.ignoreLink(url);
     } else {
       return false;

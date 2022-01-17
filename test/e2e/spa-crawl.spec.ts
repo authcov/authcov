@@ -10,8 +10,7 @@ import ReportGenerator from '../../src/reporter/report-generator';
 const config = new Config(configArgs);
 const apiEndpointData = new ApiEndpointsCollection(config);
 const pageData = new PageData({config: config});
-const apiEndpointsPresenter = new ApiEndpointsPresenter(apiEndpointData.apiEndpoints);
-const reporter = new ReportGenerator(apiEndpointsPresenter, pageData, '.');
+const reporter = new ReportGenerator(apiEndpointData.apiEndpoints, pageData, '.');
 const usersCrawler = new UsersCrawler(config, apiEndpointData, pageData, reporter);
 
 describe('UsersCrawler for SPA with cookie-based auth', () => {

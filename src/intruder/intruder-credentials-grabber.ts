@@ -1,21 +1,22 @@
+import Config from '../config/config';
 import Browser from '../crawler/browser';
 
 export default class IntruderCredentialsGrabber {
-  config: any;
-  browser: any;
+  config: Config;
+  browser: Browser;
 
-  constructor(config, browser) {
+  constructor(config: Config, browser: Browser) {
     this.config = config;
     this.browser = browser;
   }
 
-  static async init(config) {
+  static async init(config: Config): Promise<IntruderCredentialsGrabber> {
     const browser = await Browser.init(config);
     const credsGrabber = new IntruderCredentialsGrabber(config, browser);
     return credsGrabber;
   }
 
-  async getAuthHeaders(username, password) {
+  async getAuthHeaders(username: string, password: string): Promise<Record<string, string>> {
     if(this.config.authenticationType == 'token') {
       return this._getAuthHeadersToken(username, password);
     } else if(this.config.authenticationType == 'cookie') {
@@ -23,7 +24,7 @@ export default class IntruderCredentialsGrabber {
     }
   }
 
-  async _getAuthHeadersToken(username, password) {
+  async _getAuthHeadersToken(username: string, password: string): Promise<Record<string, string>> {
     // If this is using bearer token (header) authorisation then we need to intercept and API request to get the token
     const page = await this.browser.getTab();
 
@@ -59,7 +60,7 @@ export default class IntruderCredentialsGrabber {
     return authHeadersFound;
   }
 
-  async _getAuthHeadersCookie(username, password) {
+  async _getAuthHeadersCookie(username: string, password: string): Promise<Record<string, string>> {
     const page = await this.browser.getTab();
     await this.config.loginFunction(page, username, password);
 
@@ -94,11 +95,11 @@ export default class IntruderCredentialsGrabber {
     return authHeadersFound;
   }
 
-  async disconnect() {
+  async disconnect(): Promise<void> {
     return this.browser.disconnect();
   }
 
-  _extractAuthHeaders(requestHeaders) {
+  _extractAuthHeaders(requestHeaders: Record<string, string>): Record<string, string> {
     const authHeaders = {};
     const headerKeys = Object.keys(requestHeaders);
 

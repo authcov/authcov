@@ -2,35 +2,6 @@ import ApiEndpointsCollection from '../../../src/data/api-endpoints-collection';
 import Config from '../../../src/config/config';
 
 describe('ApiEndpointsCollection', () => {
-  describe('#findAuthorisationHeadersForUsername()', () => {
-    let apiEndpointData;
-
-    beforeEach(() => {
-      const configArgs = {
-        authorisationHeaders: ['authorization'],
-        responseIsAuthorised: (response, body) => { return true; }
-      }
-      const config = new Config(configArgs);
-      apiEndpointData = new ApiEndpointsCollection(config);
-      apiEndpointData.loadFile('./test/unit/fixtures/api_endpoints.json');
-    });
-
-    it('should return apiRequests for Public', () => {
-      const headers = apiEndpointData.findAuthorisationHeadersForUsername('Public');
-      expect(headers).toMatchObject({});
-    });
-
-    it('should return apiRequests for evanrolfe@gmail.com', () => {
-      const headers = apiEndpointData.findAuthorisationHeadersForUsername('evanrolfe@gmail.com');
-      expect(headers['authorization']).toEqual('EVANROLFE_GMAIL_AUTHTOKEN');
-    });
-
-    it('should return apiRequests for evanrolfe@onescan.io', () => {
-      const headers = apiEndpointData.findAuthorisationHeadersForUsername('evanrolfe@onescan.io');
-      expect(headers['authorization']).toEqual('EVANROLFE_ONESCAN_AUTHTOKEN');
-    });
-  });
-
   describe('#findIntrusionRequestsForUsername()', () => {
     let apiEndpointData;
 

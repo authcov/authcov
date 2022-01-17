@@ -13,6 +13,7 @@ describe('ApiEndpoint', () => {
           "method": "GET",
           "requests": [
             {
+              "id": "f01a1dd7-6b6f-4a5f-aa35-d75734d0135a",
               "user": "alice@authcov.io",
               "pageUrl": "http://localhost",
               "headers": { "cookie": "_my_app_session=043e8651acbf7481d7437f412fe7cc83" },
@@ -23,6 +24,7 @@ describe('ApiEndpoint', () => {
               }
             },
             {
+              "id": "46bd24be-8261-43b3-99de-16e76fd24617",
               "user": "alice@authcov.io",
               "pageUrl": "http://localhost/",
               "headers": { "cookie": "_my_app_session=043e8651acbf7481d7437f412fe7cc83" },
@@ -33,6 +35,7 @@ describe('ApiEndpoint', () => {
               }
             },
             {
+              "id": "1931d15a-f36f-47ff-a216-f53413d228c5",
               "user": "Public",
               "pageUrl": null,
               "headers": {},
@@ -43,6 +46,7 @@ describe('ApiEndpoint', () => {
               }
             },
             {
+              "id": "76b4a43d-e1a0-47cc-a941-120e5c69f46b",
               "user": "bob@authcov.io",
               "pageUrl": null,
               "headers": { "cookie": "_my_app_session=58923fc42032801394204e96f9621f87" },
@@ -79,11 +83,13 @@ describe('ApiEndpoint', () => {
           "method": "GET",
           "requests": [
             {
+              "id": "76b4a43d-e1a0-47cc-a941-120e5c69f46b",
               "user": "alice@authcov.io",
               "pageUrl": "http://localhost",
               "headers": { "cookie": "_my_app_session=043e8651acbf7481d7437f412fe7cc83" }
             },
             {
+              "id": "1931d15a-f36f-47ff-a216-f53413d228c5",
               "user": "Public",
               "pageUrl": null,
               "headers": {},
@@ -94,6 +100,7 @@ describe('ApiEndpoint', () => {
               }
             },
             {
+              "id": "46bd24be-8261-43b3-99de-16e76fd24617",
               "user": "bob@authcov.io",
               "pageUrl": null,
               "headers": { "cookie": "_my_app_session=58923fc42032801394204e96f9621f87" },

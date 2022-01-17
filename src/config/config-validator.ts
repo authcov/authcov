@@ -2,7 +2,7 @@ import chalk from 'chalk';
 import Config from './config';
 
 export default class ConfigValidator {
-  config: any;
+  config: Config;
   errors: any;
 
   constructor(config: Config) {

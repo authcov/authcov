@@ -1,3 +1,8 @@
+export type User = {
+  username: string;
+  password?: string;
+}
+
 export default class Config {
   baseUrl: string;
   apiEndpointsFile?: string;
@@ -9,8 +14,8 @@ export default class Config {
   unAuthorizedStatusCodes: number[];
   ignoreLinksIncluding: string[];
   loginConfig: any;
-  crawlUser: any;
-  intruders: any[];
+  crawlUser: User;
+  intruders: User[];
   type: string;
   authenticationType: string;
   authorisationHeaders: string[];
@@ -25,8 +30,10 @@ export default class Config {
   browserURL?: string;
   maxConcurrency?: number;
   browserWSEndpoint?: string;
+  cookiesTriggeringPage?: string;
+  tokenTriggeringPage?: string;
 
-  constructor(configArgs) {
+  constructor(configArgs: Record<string,any>) {
     // Default values:
     this.apiEndpointsFile = "./api_endpoints.json";
     this.pagesFile = "./pages.json";
@@ -41,11 +48,11 @@ export default class Config {
     });
   }
 
-  responseIsAuthorised(status, headers, body) {
+  responseIsAuthorised(status: number, headers, body): boolean {
     return !(this.unAuthorizedStatusCodes.includes(status));
   }
 
-  ignoreLink(url) {
+  ignoreLink(url): boolean {
     let ignore = false;
 
     this.ignoreLinksIncluding.forEach((ignoreStr) => {
@@ -57,7 +64,7 @@ export default class Config {
     return ignore;
   }
 
-  ignoreApiRequest(url, method) {
+  ignoreApiRequest(url, method): boolean {
     let ignore = false;
 
     this.ignoreAPIrequestsIncluding.forEach((ignoreStr) => {
@@ -69,7 +76,7 @@ export default class Config {
     return ignore;
   }
 
-  ignoreButton(outerHTML) {
+  ignoreButton(outerHTML): boolean {
     let ignore = false;
 
     this.ignoreButtonsIncluding.forEach((ignoreStr) => {
@@ -81,7 +88,7 @@ export default class Config {
     return ignore;
   }
 
-  async loginFunction(page, username, password){
+  async loginFunction(page, username, password): Promise<void> {
     await page.goto(this.loginConfig.url);
     await page.waitForSelector(this.loginConfig.usernameXpath);
     await page.waitForSelector(this.loginConfig.passwordXpath);
